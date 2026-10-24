@@ -38,6 +38,14 @@ The anatomy suites exercise real 3D meshes, organ search, camera controls, layer
 
 The browser suite validates all 100 condition mappings, opens every one of the 95 medication links, and exercises every medication’s explanation toggle, mechanism/reset controls, and correct quiz feedback on desktop and mobile. It also tests explicit nonmedication exceptions, condition context, reload/back navigation, source destinations, and horizontal overflow. The original demo checks cover: search, selection, organ information, all medication mechanism illustrations, explanation levels, quiz feedback, empty search, keyboard anatomy, navigation, and horizontal overflow.
 
+## Similar medicines and comparison
+
+Medication guides show up to three related guides, with a reason for each connection. Explicit groups in `src/data/medicationRelationships.ts` distinguish shared drug families, related mechanisms, some shared uses, and broader treatment areas. A shared organ or a matching keyword alone never creates a suggestion. Guides with no recorded relationship show a clear empty state and still offer manual comparison.
+
+Click **Compare** on a suggestion, or **Compare medicines** beside a guide heading to choose any second medicine. The comparison shows categories, target areas, uses, simple/scientific mechanisms, safety summaries, provider questions, and original source links. Change either selection, swap the pair, and share/reload URLs such as `#compare/albuterol/tiotropium`. Mobile layouts stack labeled cards. Invalid or duplicate selections show a correction prompt.
+
+Related guides are educational connections, not a ranking, dosing guide, interaction checker, or recommendation to replace, combine, or switch treatment. Condition, formulation, route, and role differences are displayed explicitly (for example, albuterol is a reliever and tiotropium is maintenance treatment). Comparison content retains the library’s existing clinical-review limitations.
+
 ## Three-minute demo
 
 1. Show the landing page and click **Explore Medications**.
@@ -57,6 +65,9 @@ The browser suite validates all 100 condition mappings, opens every one of the 9
 - `src/data/mechanisms.ts`: typed mechanism descriptions and before/after pathway labels. Add a matching guide when introducing a mechanism key.
 - `src/components/AnatomyViewer.tsx`: original, simplified front-facing SVG schematic, keyboard-operable organs, and selected organ information.
 - `src/components/MechanismAnimation.tsx`: interactive local mechanism illustrations; supports both shared mechanisms and individual typed pathway guides.
+- `src/components/SimilarMedications.tsx`: related-guide cards and comparison entry points.
+- `src/components/MedicationComparison.tsx`: accessible, responsive comparison with native selectors and shareable hash routes.
+- `src/data/medicationRelationships.ts`: explicit educational relationships and deterministic suggestion ordering; validate member IDs when editing groups.
 - `src/components/TargetRegion.tsx`: clearly labeled context for targets not depicted in the human SVG.
 - `src/components/KnowledgeQuiz.tsx`: session score and immediate feedback.
 - `src/App.tsx`: landing page, explorer, education cards, and hash navigation.
