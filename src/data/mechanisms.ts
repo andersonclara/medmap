@@ -1,14 +1,4 @@
-import type { Mechanism } from "./medications";
-interface MechanismGuide {
-  title: string;
-  before: string;
-  after: string;
-  explanation: string;
-  focus: string;
-  input: string;
-  target: string;
-  output: [string, string];
-}
+import type { Mechanism, MechanismGuide } from "../types/medication";
 export const mechanismGuides: Record<Mechanism, MechanismGuide> = {
   airway: {
     title: "A little more room to breathe",

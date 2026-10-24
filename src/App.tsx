@@ -14,20 +14,35 @@ import {
   Stethoscope,
   X,
 } from "lucide-react";
+import { TargetRegion } from "./components/TargetRegion";
+import { conditionTreatments } from "./data/conditionTreatments";
 import { AnatomyViewer } from "./components/AnatomyViewer";
 import { MechanismAnimation } from "./components/MechanismAnimation";
 import { KnowledgeQuiz } from "./components/KnowledgeQuiz";
 import { conditionSource, conditions } from "./data/conditions";
 import { medications } from "./data/medications";
+function readRoute() {
+  const [path, queryString] = location.hash.slice(1).split("?");
+  const [section, medicationId] = path.split("/");
+  return {
+    page:
+      section === "explore"
+        ? "explore"
+        : section === "conditions"
+          ? "conditions"
+          : "home",
+    id: medications.some((m) => m.id === medicationId)
+      ? medicationId
+      : "albuterol",
+    condition: new URLSearchParams(queryString).get("condition") ?? "",
+  };
+}
 export default function App() {
-  const [page, setPage] = useState(
-    location.hash.startsWith("#explore")
-      ? "explore"
-      : location.hash.startsWith("#conditions")
-        ? "conditions"
-        : "home",
+  const [page, setPage] = useState(readRoute().page);
+  const [id, setId] = useState(readRoute().id);
+  const [conditionContext, setConditionContext] = useState(
+    readRoute().condition,
   );
-  const [id, setId] = useState("albuterol");
   const [query, setQuery] = useState("");
   const [conditionQuery, setConditionQuery] = useState("");
   const [scientific, setScientific] = useState(false);
@@ -36,13 +51,11 @@ export default function App() {
   const med = medications.find((m) => m.id === id)!;
   useEffect(() => {
     const sync = () => {
-      setPage(
-        location.hash.startsWith("#explore")
-          ? "explore"
-          : location.hash.startsWith("#conditions")
-            ? "conditions"
-            : "home",
-      );
+      const route = readRoute();
+      setPage(route.page);
+      setId(route.id);
+      setConditionContext(route.condition);
+      setScientific(false);
       setMenu(false);
       if (location.hash !== "#about") window.scrollTo(0, 0);
     };
@@ -50,18 +63,22 @@ export default function App() {
     return () => window.removeEventListener("hashchange", sync);
   }, []);
   const filtered = medications.filter((m) =>
-    `${m.name} ${m.category} ${m.organ} ${m.uses} ${m.conditions.join(" ")}`
+    `${m.name} ${m.category} ${m.organ ?? ""} ${m.target ?? ""} ${m.uses} ${m.conditions.join(" ")} ${conditions
+      .filter((c) => conditionTreatments[c.name].medicationIds.includes(m.id))
+      .map((c) => c.name)
+      .join(" ")}`
       .toLowerCase()
       .includes(query.trim().toLowerCase()),
   );
   const filteredConditions = conditions.filter((condition) =>
-    `${condition.name} ${condition.medicationExamples}`
+    `${condition.name} ${condition.medicationExamples} ${conditionTreatments[condition.name].medicationIds.map((id) => medications.find((m) => m.id === id)?.name ?? "").join(" ")}`
       .toLowerCase()
-      .includes(conditionQuery.toLowerCase()),
+      .includes(conditionQuery.trim().toLowerCase()),
   );
   function choose(next: string) {
     setId(next);
     setScientific(false);
+    location.hash = "explore/" + next;
   }
   return (
     <>
@@ -120,8 +137,8 @@ export default function App() {
               <span className="eyebrow">CONDITION DIRECTORY</span>
               <h1>Common conditions, treatment context.</h1>
               <p>
-                Browse 100 conditions and examples of medicines that clinicians
-                may consider.
+                Browse {conditions.length} conditions and educational examples
+                of medicines that clinicians may consider.
               </p>
             </div>
             <span className="library-pill">
@@ -146,8 +163,31 @@ export default function App() {
             )}
           </label>
           <p className="condition-count" aria-live="polite">
-            Showing {filteredConditions.length} of {conditions.length} conditions
+            Showing {filteredConditions.length} of {conditions.length}{" "}
+            conditions
           </p>
+          <div className="directory-notice">
+            <ShieldCheck size={20} />
+            <p>
+              <strong>
+                Examples to learn about, not medicines to choose for yourself.
+              </strong>{" "}
+              {
+                Object.values(conditionTreatments).filter(
+                  (t) => t.medicationIds.length,
+                ).length
+              }{" "}
+              conditions have linked medication examples;{" "}
+              {
+                Object.values(conditionTreatments).filter(
+                  (t) => !t.medicationIds.length,
+                ).length
+              }{" "}
+              explain why no general medication is listed. Some examples apply
+              only to a subtype, a symptom, or one part of a complete treatment
+              plan. These draft guides have not had clinical review.
+            </p>
+          </div>
           <div className="condition-grid">
             {filteredConditions.map((condition) => (
               <article
@@ -161,6 +201,31 @@ export default function App() {
                     <strong>Medication examples:</strong>{" "}
                     {condition.medicationExamples}
                   </p>
+                  <div className="condition-medication-links">
+                    {conditionTreatments[condition.name].medicationIds.map(
+                      (medId) => {
+                        const example = medications.find(
+                          (m) => m.id === medId,
+                        )!;
+                        return (
+                          <a
+                            className="condition-medication-link"
+                            key={medId}
+                            href={`#explore/${medId}?condition=${encodeURIComponent(condition.name)}`}
+                            onClick={() => setQuery("")}
+                            aria-label={`Explore ${example.name} for ${condition.name}`}
+                          >
+                            {example.name}
+                            <ArrowRight size={15} />
+                          </a>
+                        );
+                      },
+                    )}
+                  </div>
+                  <div className="condition-role">
+                    <strong>{conditionTreatments[condition.name].role}</strong>
+                    <p>{conditionTreatments[condition.name].context}</p>
+                  </div>
                 </div>
                 <a
                   href={conditionSource(condition.name)}
@@ -181,7 +246,9 @@ export default function App() {
           <aside className="condition-disclaimer">
             <ShieldCheck size={19} />
             <p>
-              <strong>Educational examples, not treatment recommendations.</strong>{" "}
+              <strong>
+                Educational examples, not treatment recommendations.
+              </strong>{" "}
               This alphabetical list is not a prevalence ranking and is not
               clinically reviewed. The right treatment depends on diagnosis,
               medical history, other medicines, and individual risks. Do not
@@ -304,8 +371,12 @@ export default function App() {
               </p>
             </div>
             <div className="med-preview-grid">
-              {medications.map((m) => (
-                <a href="#explore" key={m.id} onClick={() => choose(m.id)}>
+              {medications.slice(0, 6).map((m) => (
+                <a
+                  href={`#explore/${m.id}`}
+                  key={m.id}
+                  onClick={() => choose(m.id)}
+                >
                   <span className={`med-symbol ${m.id}`}>
                     <HeartPulse />
                   </span>
@@ -319,6 +390,10 @@ export default function App() {
                 </a>
               ))}
             </div>
+            <a className="primary all-medications" href="#explore">
+              Browse all {medications.length} medications{" "}
+              <ArrowRight size={16} />
+            </a>
           </section>
         </main>
       ) : (
@@ -356,6 +431,9 @@ export default function App() {
               <p className="search-help">
                 Search by name, organ, or condition, such as high blood
                 pressure.
+              </p>
+              <p className="med-result-count" aria-live="polite">
+                {filtered.length} of {medications.length} medications
               </p>
               <div className="med-list" aria-label="Medication results">
                 {filtered.map((m) => (
@@ -400,18 +478,41 @@ export default function App() {
                   </h2>
                   <p>
                     <span className="target-dot" /> Primary focus:{" "}
-                    {med.organ.toLowerCase()}
+                    {(med.target ?? med.organ ?? "Target area").toLowerCase()}
                   </p>
                 </div>
                 <span className="small-pill">Medication guide</span>
               </div>
+              {conditionContext &&
+                conditionTreatments[conditionContext]?.medicationIds.includes(
+                  id,
+                ) && (
+                  <aside
+                    className="selected-condition-context"
+                    aria-label="Condition-specific context"
+                  >
+                    <a href="#conditions">← Back to condition directory</a>
+                    <h3>{conditionContext}</h3>
+                    <strong>
+                      {conditionTreatments[conditionContext].role}
+                    </strong>
+                    <p>{conditionTreatments[conditionContext].context}</p>
+                  </aside>
+                )}
               <div className="condition-tags" aria-label="Common uses">
                 {med.conditions.map((condition) => (
                   <span key={condition}>{condition}</span>
                 ))}
               </div>
               <div className="detail-grid">
-                <AnatomyViewer key={id} target={med.organ} />
+                {med.organ ? (
+                  <AnatomyViewer key={id} target={med.organ} />
+                ) : (
+                  <TargetRegion
+                    target={med.target ?? "Target area"}
+                    category={med.category}
+                  />
+                )}
                 <section className="explanation card">
                   <span className="eyebrow">THE CONNECTION</span>
                   <h3>How does it work?</h3>
@@ -449,8 +550,12 @@ export default function App() {
                     )}
                   </div>
                   <div className="connection-note">
-                    <span className="target-dot" /> Follow the highlighted{" "}
-                    {med.organ.toLowerCase()} on the body map.
+                    <span className="target-dot" />{" "}
+                    {med.organ ? "Follow the highlighted" : "Explore the"}{" "}
+                    {(med.target ?? med.organ ?? "Target area").toLowerCase()}{" "}
+                    {med.organ
+                      ? "on the body map."
+                      : "in the mechanism illustration below."}
                   </div>
                 </section>
               </div>
@@ -504,7 +609,8 @@ export default function App() {
                 <span>
                   Keep learning:{" "}
                   <a href={med.source} target="_blank" rel="noreferrer">
-                    MedlinePlus — {med.name} <ArrowUpRight size={13} />
+                    {med.sourceLabel ?? "MedlinePlus"} — {med.name}{" "}
+                    <ArrowUpRight size={13} />
                   </a>
                   <span className="source-note">
                     General medication education · Read the full source for

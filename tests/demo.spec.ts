@@ -1,4 +1,5 @@
 import { test, expect } from "@playwright/test";
+import { medications } from "../src/data/medications";
 test("complete medication education demo", async ({ page }) => {
   const errors: string[] = [];
   page.on("pageerror", (e) => errors.push(e.message));
@@ -37,7 +38,9 @@ test("complete medication education demo", async ({ page }) => {
       exact: false,
     })
     .click();
-  await expect(page.getByText("Session score: 1/7")).toBeVisible();
+  await expect(
+    page.getByText(`Session score: 1/${medications.length}`),
+  ).toBeVisible();
   await page.getByRole("button", { name: "Clear search" }).click();
   await page.getByRole("button", { name: /^Metformin/ }).click();
   await expect(
@@ -170,7 +173,9 @@ test("common-condition guides have distinct mechanisms and complete education", 
       .locator(".quiz")
       .getByRole("button", { name: new RegExp(guide.answer) })
       .click();
-    await expect(page.getByText(`Session score: ${index + 1}/7`)).toBeVisible();
+    await expect(
+      page.getByText(`Session score: ${index + 1}/${medications.length}`),
+    ).toBeVisible();
     await expect(page.locator("body")).toHaveJSProperty(
       "scrollWidth",
       await page.evaluate(() => innerWidth),
@@ -188,11 +193,20 @@ test("common-condition guides have distinct mechanisms and complete education", 
     .locator(".quiz")
     .getByRole("button", { name: /It inhibits cholesterol synthesis/ })
     .click();
-  await expect(page.getByText("Session score: 4/7")).toBeVisible();
+  await expect(
+    page.getByText(`Session score: 4/${medications.length}`),
+  ).toBeVisible();
   await page
     .getByRole("textbox", { name: "Search medications" })
     .fill("   HYPERTENSION   ");
-  await expect(page.locator(".med-list button")).toHaveCount(2);
+  await expect(
+    page.locator(".med-list").getByRole("button", { name: /^Metoprolol/ }),
+  ).toBeVisible();
+  await expect(
+    page
+      .locator(".med-list")
+      .getByRole("button", { name: /^Hydrochlorothiazide/ }),
+  ).toBeVisible();
 });
 
 test("condition directory lists 100 guides and searches medication examples", async ({

@@ -2131,3 +2131,181 @@ footer > p {
     grid-template-columns: minmax(0, 1fr);
   }
 }
+/* Condition-linked education and a larger medication library. */
+.directory-notice,
+.selected-condition-context {
+  background: #edf6f0;
+  border: 1px solid #cddfd2;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 0 0 24px;
+}
+.directory-notice {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+.directory-notice > svg {
+  color: #43846a;
+  margin-top: 4px;
+}
+.directory-notice p,
+.selected-condition-context p {
+  font-size: 12px;
+  line-height: 1.8;
+  color: #486958;
+}
+.directory-notice strong {
+  display: block;
+  color: #254e3b;
+}
+.selected-condition-context a {
+  display: inline-block;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-size: 11px;
+  margin-bottom: 12px;
+  color: #3b7358;
+}
+.selected-condition-context h3 {
+  font-size: 19px;
+  font-weight: 600;
+  margin-bottom: 9px;
+  line-height: 1.4;
+}
+.selected-condition-context > strong {
+  font-size: 11px;
+  color: #40694e;
+}
+.selected-condition-context p {
+  margin-top: 6px;
+}
+.condition-row > div {
+  min-width: 0;
+}
+.condition-medication-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+.condition-row .condition-medication-link {
+  display: inline-flex;
+  gap: 9px;
+  align-items: center;
+  color: #0a756b;
+  background: #e6f4ed;
+  border: 1px solid #cfe5d7;
+  border-radius: 7px;
+  padding: 9px 12px;
+  font-size: 12px;
+  line-height: 1.5;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+.condition-medication-link:hover {
+  background: #d9eee2;
+}
+.condition-role {
+  margin-top: 12px;
+  padding-left: 12px;
+  border-left: 2px solid #dbe8df;
+}
+.condition-role > strong {
+  font-size: 10px;
+  color: #536f5e;
+}
+.condition-role > p {
+  font-size: 11px;
+  margin-top: 3px;
+}
+.all-medications {
+  margin-top: 24px;
+}
+.med-result-count {
+  font-size: 10px;
+  color: #567060;
+  margin: 10px 0;
+}
+.med-list {
+  max-height: 65vh;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+}
+.med-list button {
+  flex-shrink: 0;
+}
+.target-region {
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-height: 440px;
+  background: linear-gradient(140deg, #f5faf7, #edf5f2);
+}
+.target-schematic {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  border: 1px dashed #c5dbce;
+  border-radius: 50%;
+  width: 185px;
+  height: 185px;
+  margin: 25px auto;
+  color: #4c9177;
+}
+.target-schematic > span {
+  font-size: 8px;
+  letter-spacing: 1.5px;
+  color: #567a64;
+}
+.target-region h3 {
+  font-size: 23px;
+  letter-spacing: -0.5px;
+  font-weight: 550;
+  line-height: 1.3;
+  margin-bottom: 12px;
+}
+.target-region > p {
+  font-size: 12px;
+  margin-top: 15px;
+  line-height: 1.9;
+}
+.target-region-note {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  font-size: 10px;
+  color: #5b7866;
+  margin-top: auto;
+  padding-top: 20px;
+}
+@media (max-width: 800px) {
+  .med-list {
+    max-height: none;
+    overflow-y: hidden;
+  }
+  .directory-notice {
+    padding: 16px;
+  }
+  .target-region {
+    min-height: 390px;
+  }
+}
+@media (min-width: 581px) and (max-width: 800px) {
+  .navbar {
+    flex-wrap: wrap;
+    height: auto;
+    min-height: 92px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    gap: 12px;
+  }
+  .navbar nav {
+    gap: 15px;
+    font-size: 12px;
+  }
+}

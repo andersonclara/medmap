@@ -1,11 +1,21 @@
 import { useState } from "react";
-import { ArrowRight, Ban, RotateCcw, Wind } from "lucide-react";
+import { ArrowRight, Ban, CheckCircle2, RotateCcw, Wind } from "lucide-react";
 import type { Medication } from "../data/medications";
 import { mechanismGuides } from "../data/mechanisms";
 
 export function MechanismAnimation({ med }: { med: Medication }) {
   const [after, setAfter] = useState(false);
-  const guide = mechanismGuides[med.mechanism];
+  const guide =
+    typeof med.mechanism === "string"
+      ? mechanismGuides[med.mechanism]
+      : med.mechanism;
+  const action = guide.action ?? "inhibits";
+  const stateLabel = {
+    inhibits: "Inhibited by medication",
+    supports: "Supported by medication",
+    activates: "Activated by medication",
+    modifies: "Modified by medication",
+  }[action];
   const particleDiagram =
     med.mechanism === "glucose" || med.mechanism === "acid";
   return (
@@ -42,9 +52,9 @@ export function MechanismAnimation({ med }: { med: Medication }) {
           </div>
         ) : (
           <div
-            className={`pathway ${med.mechanism}`}
+            className={`pathway ${typeof med.mechanism === "string" ? med.mechanism : "custom"}`}
             role="img"
-            aria-label={`${guide.input}. ${after ? "Medication inhibits" : "Unblocked"} ${guide.target}. ${guide.output[after ? 1 : 0]}.`}
+            aria-label={`${guide.input}. ${after ? "Medication " + action : "Baseline"} ${guide.target}. ${guide.output[after ? 1 : 0]}.`}
           >
             <span className="pathway-input">{guide.input}</span>
             <div className="signal-track" aria-hidden="true">
@@ -54,12 +64,18 @@ export function MechanismAnimation({ med }: { med: Medication }) {
             </div>
             <div className="pathway-target">
               <span className="target-glyph" aria-hidden="true">
-                {after ? <Ban size={30} /> : <ArrowRight size={30} />}
+                {after ? (
+                  action === "inhibits" ? (
+                    <Ban size={30} />
+                  ) : (
+                    <CheckCircle2 size={30} />
+                  )
+                ) : (
+                  <ArrowRight size={30} />
+                )}
               </span>
               <strong>{guide.target}</strong>
-              <span>
-                {after ? "Inhibited by medication" : "Active pathway"}
-              </span>
+              <span>{after ? stateLabel : "Baseline pathway"}</span>
             </div>
             <div className="pathway-arrow" aria-hidden="true">
               <ArrowRight size={20} />

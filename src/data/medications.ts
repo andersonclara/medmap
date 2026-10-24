@@ -1,33 +1,7 @@
-export type Organ =
-  "Brain" | "Lungs" | "Heart" | "Liver" | "Stomach" | "Kidneys";
-export type Mechanism =
-  | "airway"
-  | "glucose"
-  | "acid"
-  | "cholesterol"
-  | "beta-blocker"
-  | "serotonin"
-  | "diuretic";
-export interface Medication {
-  conditions: string[];
-  mechanism: Mechanism;
-  id: string;
-  name: string;
-  category: string;
-  organ: Organ;
-  system: string;
-  uses: string;
-  simple: string;
-  scientific: string;
-  definition: string;
-  safety: string;
-  questions: string[];
-  source: string;
-  quiz: string;
-  choices: string[];
-  correct: number;
-}
-export const medications: Medication[] = [
+import type { Medication, Organ } from "../types/medication";
+import { extendedMedications } from "./extendedMedications";
+export type { Medication, Organ, Mechanism } from "../types/medication";
+const originalMedications: Medication[] = [
   {
     id: "albuterol",
     mechanism: "airway",
@@ -68,7 +42,7 @@ export const medications: Medication[] = [
     category: "Biguanide",
     organ: "Liver",
     system: "Metabolic system",
-    uses: "Used along with diet and exercise to help manage blood glucose in people with type 2 diabetes. It is not used to treat type 1 diabetes.",
+    uses: "Used along with diet and exercise to help manage blood glucose in people with type 2 diabetes. It is not used to treat type 1 diabetes. Selected off-label use in PCOS requires individual assessment of metabolic or reproductive goals.",
     simple:
       "Your liver makes and releases sugar for energy. Metformin helps it release less sugar and helps your body respond better to insulin.",
     scientific:
@@ -268,6 +242,11 @@ export const medications: Medication[] = [
     correct: 3,
   },
 ];
+export const medications: Medication[] = [
+  ...originalMedications,
+  ...extendedMedications,
+];
+
 export const organInfo: Record<Organ, string> = {
   Brain:
     "Your brain coordinates thoughts, movement, and many automatic body functions.",
