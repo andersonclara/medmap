@@ -17,7 +17,6 @@ import {
 import { TargetRegion } from "./components/TargetRegion";
 import { AnatomicalGraphic } from "./components/AnatomicalGraphic";
 import { conditionTreatments } from "./data/conditionTreatments";
-import { AnatomicalGraphic } from "./components/AnatomicalGraphic";
 import { AnatomyViewer } from "./components/AnatomyViewer";
 import { MechanismAnimation } from "./components/MechanismAnimation";
 import { KnowledgeQuiz } from "./components/KnowledgeQuiz";
