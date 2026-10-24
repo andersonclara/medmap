@@ -1,16 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 310 90" fill="none" role="img" aria-labelledby="logo-title">
   <title id="logo-title">MedMap — See how your medicine works.</title>
   <g transform="translate(3 3) scale(1.05)">
-  <rect x="3" y="5" width="66" height="66" rx="15" fill="#EFF7F5" stroke="#D4E7E1" stroke-width="1.2"/>
-  <path d="M12 27C20 24 28 25 36 30V59C28 54 20 53 12 56V27Z" fill="white" stroke="#193C43" stroke-width="2.2" stroke-linejoin="round"/>
-  <path d="M60 27C52 24 44 25 36 30V59C44 54 52 53 60 56V27Z" fill="white" stroke="#193C43" stroke-width="2.2" stroke-linejoin="round"/>
-  <path d="M36 31V58" stroke="#087F76" stroke-width="2.2" stroke-linecap="round"/>
-  <path d="M18 35C21.5 34.2 24.5 34.6 28 36M18 42C21.5 41.2 24.5 41.6 28 43M44 36C47.5 34.6 50.5 34.2 54 35M44 43C47.5 41.6 50.5 41.2 54 42" stroke="#7B9993" stroke-width="1.6" stroke-linecap="round"/>
-  <g transform="rotate(35 36 23)">
-    <rect x="28" y="9" width="16" height="28" rx="8" fill="white"/>
-    <path d="M28 23H44V29A8 8 0 0 1 28 29V23Z" fill="#63B8A3"/>
-    <path d="M28 23H44" stroke="#087F76" stroke-width="1.7"/>
-    <rect x="28" y="9" width="16" height="28" rx="8" stroke="#087F76" stroke-width="2.2"/>
+  <path d="M36 5C21 5 10 16 10 31C10 47.5 32.5 67.5 35 69.6C35.6 70.1 36.4 70.1 37 69.6C39.5 67.5 62 47.5 62 31C62 16 51 5 36 5Z" fill="#087F76"/>
+  <g transform="rotate(35 36 30)">
+    <rect x="25" y="12" width="22" height="36" rx="11" fill="white"/>
+    <path d="M25 30H47V37A11 11 0 0 1 25 37V30Z" fill="#BCE3D7"/>
+    <path d="M25 30H47" stroke="#087F76" stroke-width="2"/>
+    <rect x="25" y="12" width="22" height="36" rx="11" stroke="#E5F3ED" stroke-width="1.5"/>
   </g>
   </g>
   <text x="90" y="55" font-family="Inter, Arial, sans-serif" font-size="48" font-weight="700" letter-spacing="-1.6" fill="#193C43">Med<tspan fill="#087F76">Map</tspan></text>

@@ -1,4 +1,4 @@
-/** Original MedMap identity: an open clinical atlas with a capsule. */
+/** Original MedMap identity: a simple capsule inside a map pin. */
 export function BrandLogo() {
   return (
     <>
