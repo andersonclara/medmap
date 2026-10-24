@@ -17,20 +17,32 @@ import {
 import { AnatomyViewer } from "./components/AnatomyViewer";
 import { MechanismAnimation } from "./components/MechanismAnimation";
 import { KnowledgeQuiz } from "./components/KnowledgeQuiz";
+import { conditionSource, conditions } from "./data/conditions";
 import { medications } from "./data/medications";
 export default function App() {
   const [page, setPage] = useState(
-    location.hash.startsWith("#explore") ? "explore" : "home",
+    location.hash.startsWith("#explore")
+      ? "explore"
+      : location.hash.startsWith("#conditions")
+        ? "conditions"
+        : "home",
   );
   const [id, setId] = useState("albuterol");
   const [query, setQuery] = useState("");
+  const [conditionQuery, setConditionQuery] = useState("");
   const [scientific, setScientific] = useState(false);
   const [menu, setMenu] = useState(false);
   const [scored, setScored] = useState<string[]>([]);
   const med = medications.find((m) => m.id === id)!;
   useEffect(() => {
     const sync = () => {
-      setPage(location.hash.startsWith("#explore") ? "explore" : "home");
+      setPage(
+        location.hash.startsWith("#explore")
+          ? "explore"
+          : location.hash.startsWith("#conditions")
+            ? "conditions"
+            : "home",
+      );
       setMenu(false);
       if (location.hash !== "#about") window.scrollTo(0, 0);
     };
@@ -41,6 +53,11 @@ export default function App() {
     `${m.name} ${m.category} ${m.organ} ${m.uses} ${m.conditions.join(" ")}`
       .toLowerCase()
       .includes(query.trim().toLowerCase()),
+  );
+  const filteredConditions = conditions.filter((condition) =>
+    `${condition.name} ${condition.medicationExamples}`
+      .toLowerCase()
+      .includes(conditionQuery.toLowerCase()),
   );
   function choose(next: string) {
     setId(next);
@@ -71,6 +88,12 @@ export default function App() {
             Medication explorer
           </a>
           <a
+            className={page === "conditions" ? "current" : ""}
+            href="#conditions"
+          >
+            Condition directory
+          </a>
+          <a
             href="#about"
             onClick={() => {
               setPage("home");
@@ -90,7 +113,85 @@ export default function App() {
           Start exploring <ArrowUpRight size={16} />
         </a>
       </header>
-      {page === "home" ? (
+      {page === "conditions" ? (
+        <main className="explorer conditions-page">
+          <div className="explorer-heading">
+            <div>
+              <span className="eyebrow">CONDITION DIRECTORY</span>
+              <h1>Common conditions, treatment context.</h1>
+              <p>
+                Browse 100 conditions and examples of medicines that clinicians
+                may consider.
+              </p>
+            </div>
+            <span className="library-pill">
+              <BookOpen size={16} /> {conditions.length} condition guides
+            </span>
+          </div>
+          <label className="search condition-search">
+            <Search size={18} />
+            <input
+              value={conditionQuery}
+              onChange={(event) => setConditionQuery(event.target.value)}
+              placeholder="Search conditions or medicine examples"
+              aria-label="Search conditions or medicines"
+            />
+            {conditionQuery && (
+              <button
+                aria-label="Clear condition search"
+                onClick={() => setConditionQuery("")}
+              >
+                <X size={15} />
+              </button>
+            )}
+          </label>
+          <p className="condition-count" aria-live="polite">
+            Showing {filteredConditions.length} of {conditions.length} conditions
+          </p>
+          <div className="condition-grid">
+            {filteredConditions.map((condition) => (
+              <article
+                className="condition-row"
+                data-testid="condition-guide"
+                key={condition.name}
+              >
+                <div>
+                  <h2>{condition.name}</h2>
+                  <p>
+                    <strong>Medication examples:</strong>{" "}
+                    {condition.medicationExamples}
+                  </p>
+                </div>
+                <a
+                  href={conditionSource(condition.name)}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`Read about ${condition.name} on MedlinePlus`}
+                >
+                  <BookOpen size={15} /> MedlinePlus <ArrowUpRight size={13} />
+                </a>
+              </article>
+            ))}
+            {!filteredConditions.length && (
+              <p className="empty" role="status">
+                No conditions found. Try another condition or medicine name.
+              </p>
+            )}
+          </div>
+          <aside className="condition-disclaimer">
+            <ShieldCheck size={19} />
+            <p>
+              <strong>Educational examples, not treatment recommendations.</strong>{" "}
+              This alphabetical list is not a prevalence ranking and is not
+              clinically reviewed. The right treatment depends on diagnosis,
+              medical history, other medicines, and individual risks. Do not
+              start, stop, or change medicines based on this directory. Use the
+              MedlinePlus links to learn more and consult a qualified clinician
+              or pharmacist for care decisions.
+            </p>
+          </aside>
+        </main>
+      ) : page === "home" ? (
         <main>
           <section className="hero">
             <div className="hero-copy">

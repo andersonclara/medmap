@@ -194,3 +194,28 @@ test("common-condition guides have distinct mechanisms and complete education", 
     .fill("   HYPERTENSION   ");
   await expect(page.locator(".med-list button")).toHaveCount(2);
 });
+
+test("condition directory lists 100 guides and searches medication examples", async ({
+  page,
+}) => {
+  await page.goto("/#conditions");
+  await expect(
+    page.getByRole("heading", {
+      name: "Common conditions, treatment context.",
+    }),
+  ).toBeVisible();
+  await expect(page.getByText("Showing 100 of 100 conditions")).toBeVisible();
+  await expect(page.getByTestId("condition-guide")).toHaveCount(100);
+  await page
+    .getByRole("textbox", { name: "Search conditions or medicines" })
+    .fill("levodopa");
+  await expect(page.getByText("Showing 1 of 100 conditions")).toBeVisible();
+  await expect(
+    page.getByRole("heading", { name: "Parkinson disease" }),
+  ).toBeVisible();
+  await expect(
+    page.getByRole("link", {
+      name: "Read about Parkinson disease on MedlinePlus",
+    }),
+  ).toHaveAttribute("href", /medlineplus\.gov\/search\//);
+});

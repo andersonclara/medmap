@@ -48,6 +48,7 @@ The browser suite exercises the demo on desktop and mobile: search, selection, o
 ## Structure
 
 - `src/data/medications.ts`: typed medication content, source references, organ facts, and quiz questions. Add new medication entries here with condition names and a typed mechanism key.
+- `src/data/conditions.ts`: 100 alphabetized condition summaries with general medication examples and MedlinePlus topic-search links. This is not a prevalence ranking or a prescribing guide.
 - `src/data/mechanisms.ts`: typed mechanism descriptions and before/after pathway labels. Add a matching guide when introducing a mechanism key.
 - `src/components/AnatomyViewer.tsx`: original, simplified front-facing SVG schematic, keyboard-operable organs, and selected organ information.
 - `src/components/MechanismAnimation.tsx`: interactive local mechanism illustrations.
@@ -68,6 +69,8 @@ Supports seven medications with general uses, simple/scientific explanations, sa
 | Metoprolol          | Hypertension, angina, certain heart failure formulations    | Heart         |
 | Hydrochlorothiazide | Hypertension, edema                                         | Kidneys       |
 | Sertraline          | Depression, OCD, panic disorder, PTSD, social anxiety, PMDD | Brain         |
+
+The condition directory provides broad medication examples and links to MedlinePlus searches for each topic. It is alphabetized, not ranked by prevalence, and has not had clinical review.
 
 These are educational examples, not a treatment-selection guide. Approved uses can depend on formulation, age, and individual circumstances. The illustrations show simplified mechanisms, not anatomical precision or individual treatment results. No doses or personalized treatment recommendations are provided. Source links should be reviewed alongside the content before use beyond a hackathon; clinical review has not been performed. This resource does not replace professional medical advice.
 
