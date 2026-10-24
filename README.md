@@ -103,8 +103,6 @@ Medication references include MedlinePlus and explicitly labeled DailyMed search
 
 ## Explore the project
 
-- [Hackathon video script and shot-by-shot walkthrough](docs/HACKATHON-DEMO.md)
-- [Patient Story implementation, references, and focused demo](docs/PATIENT-STORIES-DEMO.md)
 - [U.S. rankings methodology and simulation boundaries](docs/US-RANKINGS-AND-SIMULATION.md)
 - [3D atlas coverage and controls](docs/3D-ATLAS.md)
 - [Anatomy source attribution and licensing](public/models/reference/NOTICE.md)
