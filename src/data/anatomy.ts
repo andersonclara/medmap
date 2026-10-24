@@ -42,14 +42,15 @@ export interface MedicineMap {
   context: string;
   source: string;
 }
-export const medicineMaps: MedicineMap[] = [
-  ...medications.map((med) => ({
-    id: med.id, name: med.name, category: med.category,
-    systems: [organSystem(med.organ)], organs: [med.organ], layers: ["visceral"] as Layer[],
-    effect: med.simple,
-    context: med.id === "metformin" ? "The liver is one important site; metformin also acts through the gut and insulin-sensitive tissues." : med.id === "albuterol" ? "The highlight locates the lungs. The medicine acts on airway smooth muscle, which is too small to resolve in this atlas." : "The highlight locates the stomach. Proton pumps are microscopic and are not shown in the atlas.",
-    source: med.source,
-  })),
+const guideMaps: MedicineMap[] = medications.map(med=>({
+ id:med.id,name:med.name,category:med.category,
+ systems:med.organ?[organSystem(med.organ)]:[],organs:med.organ?[med.organ]:[],
+ layers:med.organ==="Brain"?["nervous"]:med.organ==="Heart"?["cardiovascular"]:["visceral"],
+ effect:med.simple,
+ context:med.organ?`The highlight locates the ${med.organ.toLowerCase()}. It does not show microscopic targets, drug distribution, or individual treatment effects.`:`The target is ${med.target ?? "not represented"}, not one of this atlas’s highlighted organs. No organ highlight is assigned.`,
+ source:med.source,
+}));
+const additionalMaps: MedicineMap[] = [
   { id: "lisinopril", name: "Lisinopril", category: "ACE inhibitor", systems: ["cardiovascular"], organs: [], layers: ["cardiovascular"], effect: "Reduces signals that tighten blood vessels, helping vessels relax and lowering blood pressure.", context: "The vessel network shows the system involved, rather than a single target organ. Kidney function and potassium are monitored during treatment.", source: "https://medlineplus.gov/druginfo/meds/a692051.html" },
   { id: "metoprolol", name: "Metoprolol", category: "Beta blocker", systems: ["cardiovascular"], organs: ["Heart"], layers: ["cardiovascular"], effect: "Slows the heart rate and reduces the heart’s workload. It is used for several cardiovascular conditions.", context: "The highlighted heart is a main site of action. This is an anatomical location map, not a simulated heart-rate response.", source: "https://medlineplus.gov/druginfo/meds/a682864.html" },
   { id: "furosemide", name: "Furosemide", category: "Loop diuretic", systems: ["urinary"], organs: ["Kidneys"], layers: ["visceral"], effect: "Helps the kidneys remove more salt and water in urine, reducing fluid buildup.", context: "The action takes place in microscopic kidney tubules. Fluid and electrolyte changes affect the whole body.", source: "https://medlineplus.gov/druginfo/meds/a682858.html" },
@@ -60,4 +61,9 @@ export const medicineMaps: MedicineMap[] = [
   { id: "prednisone", name: "Prednisone", category: "Corticosteroid", systems: ["lymphatic"], organs: [], layers: ["lymphatic"], effect: "Reduces inflammation and changes immune activity in many tissues.", context: "Lymphatic structures represent part of the immune system. Immune cells are distributed throughout the body; the effect is not confined to these structures.", source: "https://medlineplus.gov/druginfo/meds/a601102.html" },
   { id: "amoxicillin", name: "Amoxicillin", category: "Penicillin antibiotic", systems: [], organs: [], layers: ["visceral"], effect: "Stops the growth of susceptible bacteria to treat certain bacterial infections.", context: "Its target is bacteria, not a human organ. No organ is highlighted because the infection site varies and bacteria are not modeled here.", source: "https://medlineplus.gov/druginfo/meds/a685001.html" },
   { id: "warfarin", name: "Warfarin", category: "Anticoagulant", systems: ["digestive", "cardiovascular"], organs: ["Liver"], layers: ["visceral", "cardiovascular"], effect: "Reduces the formation of certain clotting factors, decreasing the blood’s ability to clot.", context: "The liver makes clotting factors; the vessel network shows where blood circulates. The medicine does not dissolve an existing clot.", source: "https://medlineplus.gov/druginfo/meds/a682277.html" },
+];
+
+export const medicineMaps: MedicineMap[] = [
+ ...guideMaps.map(med=>additionalMaps.find(example=>example.id===med.id)??med),
+ ...additionalMaps.filter(med=>!guideMaps.some(guide=>guide.id===med.id)),
 ];

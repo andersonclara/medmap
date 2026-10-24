@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { CheckCircle2, Lightbulb } from "lucide-react";
-import type { Medication } from "../data/medications";
 import { medications, type Medication } from "../data/medications";
 export function KnowledgeQuiz({
   med,
@@ -19,7 +18,6 @@ export function KnowledgeQuiz({
       </span>
       <div className="section-heading">
         <h3>{med.quiz}</h3>
-        <span className="small-pill">Session score: {score}/3</span>
         <span className="small-pill">
           Session score: {score}/{medications.length}
         </span>
