@@ -15,6 +15,7 @@ import {
   Stethoscope,
   X,
 } from "lucide-react";
+import { BrandLogo } from "./components/BrandLogo";
 import { SimilarMedications } from "./components/SimilarMedications";
 import { MedicationComparison } from "./components/MedicationComparison";
 import { comparisonHref } from "./data/medicationRelationships";
@@ -94,10 +95,7 @@ export default function App() {
     <>
       <header className="navbar">
         <a className="brand" href="#home" aria-label="MedMap home">
-          <span className="brand-icon">
-            <AnatomicalGraphic organ="Heart" decorative eager />
-          </span>
-          Med<span>Map</span>
+          <BrandLogo />
         </a>
         <button
           className="mobile-menu"
@@ -673,10 +671,7 @@ export default function App() {
       )}
       <footer>
         <a className="brand" href="#home">
-          <span className="brand-icon">
-            <AnatomicalGraphic organ="Heart" decorative />
-          </span>
-          Med<span>Map</span>
+          <BrandLogo />
         </a>
         <p>See how your medicine works.</p>
         <p className="anatomy-attribution">

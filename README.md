@@ -38,6 +38,14 @@ The anatomy suites exercise real 3D meshes, organ search, camera controls, layer
 
 The browser suite validates all 100 condition mappings, opens every one of the 95 medication links, and exercises every medication’s explanation toggle, mechanism/reset controls, and correct quiz feedback on desktop and mobile. It also tests explicit nonmedication exceptions, condition context, reload/back navigation, source destinations, and horizontal overflow. The original demo checks cover: search, selection, organ information, all medication mechanism illustrations, explanation levels, quiz feedback, empty search, keyboard anatomy, navigation, and horizontal overflow.
 
+## Brand assets
+
+MedMap’s original logo combines a smiling capsule with a map pin, in teal, mint, navy, and warm gold. The header and footer share `src/components/BrandLogo.tsx`; the icon also serves as the favicon.
+
+- `public/branding/medmap-mark.svg`: scalable, transparent icon.
+- `public/branding/medmap-logo.svg`: transparent full logo and tagline.
+- `public/branding/medmap-preview.png`: white-background preview for slides or sharing.
+
 ## Similar medicines and comparison
 
 Medication guides show up to three related guides, with a reason for each connection. Explicit groups in `src/data/medicationRelationships.ts` distinguish shared drug families, related mechanisms, some shared uses, and broader treatment areas. A shared organ or a matching keyword alone never creates a suggestion. Guides with no recorded relationship show a clear empty state and still offer manual comparison.
