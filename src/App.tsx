@@ -514,9 +514,7 @@ export default function App() {
                 />
               )}
               <div className="detail-grid">
-                {med.organ ? (
-                  <AnatomyViewer key={id} target={med.organ} medicationId={id} onGuideSelect={choose} />
-                ) : (
+                {!med.organ && (
                   <TargetRegion
                     target={med.target ?? "Target area"}
                     category={med.category}

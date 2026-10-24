@@ -35,7 +35,7 @@ export async function renderAnatomyAssets() {
       const body = name === "Body";
       const bounds = new THREE.Box3();
       for (const entry of entries) {
-        entry.mesh.visible = body ? entry.layer !== "nervous" && !entry.covering : entry.organ === name && !entry.covering;
+        entry.mesh.visible = body ? !entry.covering : entry.organ === name && !entry.covering;
         const material = entry.mesh.material as THREE.MeshStandardMaterial;
         material.opacity = body && entry.layer === "skeletal" ? .5 : 1;
         material.transparent = material.opacity < 1; material.depthWrite = !material.transparent;

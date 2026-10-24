@@ -12,7 +12,11 @@ Medication guides retain their explanations, mechanisms, quizzes, condition dire
 
 ## Assets and coverage
 
-Local split assets live in public/models/reference/{male,female}. Each enabled layer loads independently with Meshopt decoding. Male has 142 skeletal meshes and female 143, including their own skull, rib cage, spine, pelvis, arms, hands, legs, and feet. Source elbow regions are truncated; some bones are grouped or absent. Soft-tissue coverage is partial. Neither HRA assembly includes stomach, thyroid gland, or adrenal gland meshes. Search only offers targets present in the chosen reference.
+Local split assets live in public/models/reference/{male,female}. Each enabled layer loads independently with Meshopt decoding. The CT skeletons contain 142 male and 143 female meshes, including their own skull, rib cage, spine, pelvis, arms, hands, legs, and feet. The male reference also retains its HRA hyoid. HRA spinal discs and nuclei pulposi are restored in the joints layer. Brain and eyes are visible by default. Source elbow regions are truncated; some bones are grouped or absent. Soft-tissue coverage is partial. Neither HRA assembly includes stomach, esophagus, thyroid gland, adrenal gland, or pituitary gland geometry; male testes and penis are absent. Search only offers targets present in the chosen reference.
+
+Both references use rigid segment articulation toward standard anatomical position: extended arms slightly away from the trunk, lateral thumbs, and anterior feet. Bone shape is preserved, with no mirroring or stretching. The pose is an educational approximation because source elbows are truncated and the scans are not validated articulated rigs. Organs retain their registered positions. scripts/anatomical-pose.mjs computes the transforms; the registration report records them.
+
+The shared Model coverage panel reports included and missing major structures for the selected reference. A generated inventory.json lists every exported mesh by name, layer, system, and source. Neither model is presented as complete. Additional validated geometry is required to fill genuine source gaps.
 
 Registration reports and a generated manifest accompany the models. Global vertebral landmark RMS is 5.9 mm male and 3.9 mm female; knee connective tissue uses local rigid similarity registration. These are reference assemblies, not clinically validated patient-specific models. Do not interpret landmark RMS as whole-body anatomical accuracy.
 
