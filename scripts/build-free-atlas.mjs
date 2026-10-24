@@ -8,6 +8,7 @@ import { ALL_EXTENSIONS } from "@gltf-transform/extensions";
 import { meshopt } from "@gltf-transform/functions";
 import { MeshoptEncoder, MeshoptDecoder, MeshoptSimplifier } from "meshoptimizer";
 import { Matrix, SingularValueDecomposition } from "ml-matrix";
+import { articulateAnatomicalPose } from "./anatomical-pose.mjs";
 
 const source = "assets-source/free-atlas";
 const output = "public/models/reference";
@@ -19,6 +20,18 @@ const boneLoader = new STLLoader();
 const layers = ["skeletal", "joints", "muscular", "visceral", "cardiovascular", "nervous", "lymphatic"];
 const organPatterns = { Brain: /brain|cerebr|cerebell|pons|medulla oblongata|thalam|gyrus|gyri|sulcus|sulci|lobule|hippocamp/i, Lungs: /lung|bronch|trachea/i, Heart: /heart|atrium|ventricle|aortic valve|mitral|tricuspid/i, Liver: /liver/i, Stomach: /stomach/i, Kidneys: /kidney|renal pelvis/i };
 const organColors = { Brain: "#d1a292", Lungs: "#cd9793", Heart: "#b65548", Liver: "#753b25", Kidneys: "#975446", Stomach: "#c88e87" };
+// Stage complete files; fall back to copying when Windows sync locks prevent replacement.
+async function publish(filename, data) {
+  const temporary = `${filename}.tmp`;
+  await fs.writeFile(temporary, data);
+  for (let attempt = 0; ; attempt++) {
+    try { await fs.rename(temporary, filename); return; }
+    catch (error) {
+      try { await fs.copyFile(temporary, filename); await fs.unlink(temporary); return; }
+      catch { if (attempt >= 29) throw error; await new Promise((resolve) => setTimeout(resolve, 200)); }
+    }
+  }
+}
 function boneKey(text) {
   const limb = text.match(/(?:^|_)(femur|tibia|fibula|patella)_([RL])(?:\s|$|_)/i);
   if (limb) return `${limb[1].toUpperCase()}_${limb[2].toUpperCase() === "L" ? "LEFT" : "RIGHT"}`;
@@ -159,10 +172,12 @@ for (const subject of manifest.subjects) {
       const geometry = sourceGeometry(node, primitive);
       const key = boneKey(text);
       const skeletalSource = /skeletal_system|lower_limb/i.test(text);
+      const additionalBone = /^VH_[FM]_hyoid$/.test(rawName);
       if (skeletalSource && key) { if (!landmarks.has(key)) landmarks.set(key, new THREE.Box3()); landmarks.get(key).union(geometry.boundingBox); }
       // BoneHub supplies the entire skeleton; keep only HRA connective tissue here.
-      if (skeletalSource && !/cartilage|ligament|meniscus/i.test(text) || /placenta|chorionic|amnion|VH_[FM]_skin\b/i.test(text)) { geometry.dispose(); continue; }
+      if (skeletalSource && !additionalBone && !/cartilage|ligament|meniscus|intervertebral|nucleus_pulposus/i.test(text) || /placenta|chorionic|amnion|VH_[FM]_skin\b/i.test(text)) { geometry.dispose(); continue; }
       const meta = classify(text, name);
+      if (additionalBone) meta.layer = "skeletal";
       if (meta.system === "integumentary") { geometry.dispose(); continue; }
       const color = primitive.getMaterial()?.getBaseColorFactor();
       const original = color ? new THREE.Color().setRGB(...color.slice(0, 3)).getStyle() : undefined;
@@ -183,12 +198,36 @@ for (const subject of manifest.subjects) {
   }
   for (const entry of bones) entry.geometry.applyMatrix4(display);
   for (const entry of entries) { const transform = entry.knee && kneeFits[entry.knee] ? display.clone().multiply(kneeFits[entry.knee].matrix) : organTransform; entry.geometry.applyMatrix4(transform); entry.geometry = simplifyGeometry(entry.geometry, .55, .0005); }
+  const pose = articulateAnatomicalPose(bones, entries);
   const all = [...bones, ...entries];
   const report = { sex, sources: { skeleton: "BoneHub/visible-human-3d-models", skeletonRevision: manifest.revision, organs: "Human Reference Atlas united v1.10" }, boneCount: bones.length, registration: { method: "Uniform scale and translation using shared vertebral bounding-box centers; known patient axes converted from CT millimetres Z-up to glTF metres Y-up. No anatomy deformation.", scale: fit.scale, translation: fit.translation, landmarks: fit.errors, rmsMm: fit.rmsMm, maxMm: fit.maxMm }, localKneeRegistration: Object.fromEntries(Object.entries(kneeFits).map(([side, fit]) => [side, { method: "Rigid rotation, uniform scale and translation using shared limb-bone bounding-box centers", scale: fit.scale, matrix: fit.matrix.toArray(), landmarks: fit.errors, rmsMm: fit.rmsMm }])), limitations: ["Reference assembly registration, not a patient-specific or clinically validated model.", "BoneHub elbow regions are truncated in the source CT; some bones are grouped or absent.", "HRA organ, muscle, and nerve coverage is incomplete."] };
   const extraSearch = { pancreas: ["visceral", /pancrea/i], bladder: ["visceral", /urinary bladder|urinary_bladder/i], gallbladder: ["visceral", /gallbladder|gall bladder/i], "small-intestine": ["visceral", /jejun|ileum|small intestine|duoden/i], "large-intestine": ["visceral", /colon|large intestine/i], trachea: ["visceral", /trachea/i], thyroid: ["visceral", /thyroid gland/i], adrenal: ["visceral", /suprarenal gland/i], prostate: ["visceral", /prostate/i], uterus: ["visceral", /uterus|uterine/i], ovaries: ["visceral", /ovary|ovaries|ovarian/i], spleen: ["lymphatic", /spleen/i] };
   const availableTargets = [...new Set(all.filter((entry) => entry.organ).map((entry) => entry.organ.toLowerCase()))];
   for (const [id, [layer, pattern]] of Object.entries(extraSearch)) if (all.some((entry) => entry.layer === layer && pattern.test(entry.searchText ?? entry.name))) availableTargets.push(id);
   const info = { sex, boneCount: bones.length, source: "BoneHub + HRA / Visible Human", availableTargets, organs: {}, layers: {}, registrationRmsMm: fit.rmsMm };
+  info.ctBoneCount = bones.length;
+  info.boneCount += entries.filter((entry) => entry.layer === "skeletal").length;
+  report.pose = pose;
+  info.pose = "Reposed reference: extended arms, lateral thumbs, anterior feet";
+  const organChecklist = {
+    Brain: /brain|cerebr|cerebell|thalam|gyrus/i, Eyes: /sclera|cornea/i,
+    Heart: /heart|atrium|ventricle/i, Lungs: /lung|bronch/i, Trachea: /trachea/i,
+    Liver: /liver/i, Gallbladder: /gallbladder|gall bladder/i, Stomach: /^(?:stomach|gastric wall)(?: |$)/i,
+    Esophagus: /^(?:esophagus|oesophagus)(?: |$)/i, Pancreas: /pancrea/i,
+    "Small intestine": /jejun|ileum|duoden/i, "Large intestine": /colon|large intestine/i,
+    Spleen: /spleen/i, Kidneys: /kidney/i, Ureters: /ureter/i, "Urinary bladder": /urinary bladder/i,
+    "Thyroid gland": /thyroid gland/i, "Adrenal glands": /adrenal gland|suprarenal gland/i,
+    "Pituitary gland": /pituitary|hypophysis/i, "Hyoid bone": /hyoid bone/i,
+    ...(sex === "male" ? { Prostate: /prostate/i, Testes: /testis|testicle/i, Penis: /^(?:penis|glans penis|corpus cavernosum of penis)/i } : { Uterus: /uterus|uterine/i, Ovaries: /ovary|ovaries/i, Vagina: /^vagina(?: |$)/i }),
+  };
+  info.coverage = {
+    complete: false,
+    checklistScope: "Major organs and selected skeletal landmarks; not an exhaustive inventory of human anatomy.",
+    included: Object.entries(organChecklist).filter(([, pattern]) => entries.some((entry) => pattern.test(entry.name))).map(([name]) => name),
+    missing: Object.entries(organChecklist).filter(([, pattern]) => !entries.some((entry) => pattern.test(entry.name))).map(([name]) => name),
+    partial: ["Elbows: source scan is truncated", "Some small bones are missing or grouped", "Muscles, peripheral nerves, blood vessels, external ears, and external soft tissues are incomplete"],
+  };
+  report.coverage = info.coverage;
   await fs.mkdir(`${output}/${sex}`, { recursive: true });
   for (const layer of layers) {
     const selected = all.filter((entry) => entry.layer === layer);
@@ -207,15 +246,16 @@ for (const subject of manifest.subjects) {
       if (entry.organ) info.organs[entry.organ] = (info.organs[entry.organ] ?? 0) + 1;
     }
     if (selected.length) await document.transform(meshopt({ encoder: MeshoptEncoder, level: "medium", quantizePosition: 16, quantizeNormal: 12 }));
-    await io.write(`${output}/${sex}/${layer}.glb`, document);
+    await publish(`${output}/${sex}/${layer}.glb`, await io.writeBinary(document));
     const bytes = (await fs.stat(`${output}/${sex}/${layer}.glb`)).size;
     info.layers[layer] = { structures: selected.length, bytes };
     console.log(`${sex}/${layer}: ${selected.length} structures, ${(bytes / 1e6).toFixed(2)} MB`);
   }
-  await fs.writeFile(`${output}/${sex}/registration.json`, JSON.stringify(report, null, 2));
+  await publish(`${output}/${sex}/registration.json`, JSON.stringify(report, null, 2));
+  await publish(`${output}/${sex}/inventory.json`, JSON.stringify({ sex, coverage: info.coverage, structures: all.map((entry) => ({ name: entry.name, layer: entry.layer, system: entry.system, source: entry.source, organ: entry.organ })) }, null, 2));
   catalog[sex] = info;
   for (const entry of all) entry.geometry.dispose();
 }
-await fs.writeFile(`${output}/manifest.json`, JSON.stringify(catalog, null, 2));
-await fs.writeFile("src/data/referenceManifest.json", JSON.stringify(catalog, null, 2));
+await publish(`${output}/manifest.json`, JSON.stringify(catalog, null, 2));
+await publish("src/data/referenceManifest.json", JSON.stringify(catalog, null, 2));
 console.log("Matched free atlas exported.");

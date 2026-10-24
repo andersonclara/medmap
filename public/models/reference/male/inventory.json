@@ -1,0 +1,6915 @@
+{
+  "sex": "male",
+  "coverage": {
+    "complete": false,
+    "checklistScope": "Major organs and selected skeletal landmarks; not an exhaustive inventory of human anatomy.",
+    "included": [
+      "Brain",
+      "Eyes",
+      "Heart",
+      "Lungs",
+      "Trachea",
+      "Liver",
+      "Gallbladder",
+      "Pancreas",
+      "Small intestine",
+      "Large intestine",
+      "Spleen",
+      "Kidneys",
+      "Ureters",
+      "Urinary bladder",
+      "Hyoid bone",
+      "Prostate"
+    ],
+    "missing": [
+      "Stomach",
+      "Esophagus",
+      "Thyroid gland",
+      "Adrenal glands",
+      "Pituitary gland",
+      "Testes",
+      "Penis"
+    ],
+    "partial": [
+      "Elbows: source scan is truncated",
+      "Some small bones are missing or grouped",
+      "Muscles, peripheral nerves, blood vessels, external ears, and external soft tissues are incomplete"
+    ]
+  },
+  "structures": [
+    {
+      "name": "Skull cranial maxilla",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Skull mandible",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Vertebra c1",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Vertebra c2",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Vertebra c3",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Vertebra c4",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Vertebra c5",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Vertebra c6",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Vertebra c7",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Vertebra t1",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Vertebra t2",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Vertebra t3",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Vertebra t4",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Vertebra t5",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Vertebra t6",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Vertebra t7",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Vertebra t8",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Vertebra t9",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Vertebra t10",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Vertebra t11",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Vertebra t12",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Vertebra l1",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Vertebra l2",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Vertebra l3",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Vertebra l4",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Vertebra l5",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Sacrum",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Rib 1 left",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Rib 1 right",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Rib 2 left",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Rib 2 right",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Rib 3 left",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Rib 3 right",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Rib 4 left",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Rib 4 right",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Rib 5 left",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Rib 5 right",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Rib 6 left",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Rib 6 right",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Rib 7 left",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Rib 7 right",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Rib 8 left",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Rib 8 right",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Rib 9 left",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Rib 9 right",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Rib 10 left",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Rib 10 right",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Rib 11 left",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Rib 11 right",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Rib 12 left",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Rib 12 right",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Sternum",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Clavicle left",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Humerus left",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Radius left",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Scapula left",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Ulna left",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Clavicle right",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Humerus right",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Radius right",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Scapula right",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Ulna right",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Capitate left",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Hamate left",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Lunate left",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Metacarpal 1 left",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Metacarpal 2 left",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Metacarpal 3 left",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Metacarpal 4 left",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Metacarpal 5 left",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Phalange hand 1 left",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Phalange hand 2 left",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Phalange hand 3 left",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Phalange hand 4 left",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Phalange hand 5 left",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Pisiform left",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Scaphoid left",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Trapezium left",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Trapezoid left",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Triquetrum left",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Capitate right",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Hamate right",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Lunate right",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Metacarpal 1 right",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Metacarpal 2 right",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Metacarpal 3 right",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Metacarpal 4 right",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Metacarpal 5 right",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Phalange hand 1 right",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Phalange hand 2 right",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Phalange hand 3 right",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Phalange hand 4 right",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Phalange hand 5 right",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Pisiform right",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Scaphoid right",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Trapezium right",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Trapezoid right",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Triquetrum right",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Femur left",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Fibula left",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Hip left",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Patella left",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Tibia left",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Femur right",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Fibula right",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Hip right",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Patella right",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Tibia right",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Calcaneus left",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Cuboid left",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Intermediate cuneiform left",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Lateral cuneiform left",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Medial cuneiform left",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Metatarsal 1 left",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Metatarsal 2 left",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Metatarsal 3 left",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Metatarsal 4 left",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Metatarsal 5 left",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Navicular left",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Phalange foot 1 left",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Phalange foot 2 left",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Phalange foot 3 left",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Phalange foot 4 left",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Phalange foot 5 left",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Talus left",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Calcaneus right",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Cuboid right",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Intermediate cuneiform right",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Lateral cuneiform right",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Medial cuneiform right",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Metatarsal 1 right",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Metatarsal 2 right",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Metatarsal 3 right",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Metatarsal 4 right",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Metatarsal 5 right",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Navicular right",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Phalange foot 1 right",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Phalange foot 2 right",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Phalange foot 3 right",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Phalange foot 4 right",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Phalange foot 5 right",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "Talus right",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "BoneHub",
+      "organ": null
+    },
+    {
+      "name": "C1 segment of cervical spinal cord",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "C2 segment of cervical spinal cord",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "C3 segment of cervical spinal cord",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "C4 segment of cervical spinal cord",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "C5 segment of cervical spinal cord",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "C6 segment of cervical spinal cord",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "C7 segment of cervical spinal cord",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "C8 segment of cervical spinal cord",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "first thoracic spinal cord segment",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "second thoracic spinal cord segment",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "third thoracic spinal cord segment",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "fourth thoracic spinal cord segment",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "fifth thoracic spinal cord segment",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "sixth thoracic spinal cord segment",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "seventh thoracic spinal cord segment",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "eighth thoracic spinal cord segment",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "ninth thoracic spinal cord segment",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "tenth thoracic spinal cord segment",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "eleventh thoracic spinal cord segment",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "twelfth thoracic spinal cord segment",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "first lumbar spinal cord segment",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "second lumbar spinal cord segment",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "third lumbar spinal cord segment",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "fourth lumbar spinal cord segment",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "fifth lumbar spinal cord segment",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "first sacral spinal cord segment",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "second sacral spinal cord segment",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "third sacral spinal cord segment",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "fourth sacral spinal cord segment",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "fifth sacral spinal cord segment",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "olfactory bulb",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "anterior olfactory nucleus",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "piriform cortex",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen frontal agranular insular cortex area Fl L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen temporal agranular insular cortex area Tl L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen head of caudate L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen body of caudate L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen tail of caudate L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "left putamen",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen nucleus accumbens L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen external segment of globus pallidus L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen internal segment of globus pallidus L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen claustrum L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen basal forebrain L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen septal nuclei L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen amygdaloid complex L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen anterior amygdaloid area L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen central nuclear group L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen lateral nucleus L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen basolateral nucleus basal nucleus L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen basomedial nucleus accessory basal nucleus L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen anterior cortical nucleus L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen posterior cortical nucleus L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen medial nucleus L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen amygdalohippocampal area L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen bed nucleus of stria terminalis L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen thalamus L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen anterior nuclear complex of thalamus L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen lateral dorsal nucleus of thalamus L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen mediodorsal nucleus of thalamus L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen reuniens nucleus medioventral nucleus of thalamus L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen lateral posterior nucleus of thalamus L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen pulvinar of thalamus L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen ventral anterior nucleus of thalamus L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen ventral lateral nucleus of thalamus L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen ventral posterior lateral nucleus L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen ventral posterior medial nucleus L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen dorsal lateral geniculate nucleus L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen medial geniculate nuclei L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen centromedian nucleus of thalamus L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen parafascicular nucleus of thalamus L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen habenular nuclei L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "pineal body",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen zona incerta L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen supraoptic region of HTH L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen preoptic region of HTH L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen tuberal region of HTH L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen white matter of forebrain L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "anterior commissure",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "corpus callosum",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "fornix of brain",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen mammillothalamic tract L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "optic tract",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen anterior horn of lateral ventricle L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen body of lateral ventricle L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen posterior horn of lateral ventricle L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen inferior horn of lateral ventricle L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen third ventricle L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "cerebellar vermis",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen cerebellar deep nuclei L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen white matter of hindbrain L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen olfactory tract L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "primary motor cortex",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "superior frontal gyrus",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "middle frontal gyrus",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "triangular part of inferior frontal gyrus",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "opercular part of inferior frontal gyrus",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "gyrus rectus",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "medial orbital gyrus",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "intermediate orbital gyrus",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "intermediate orbital gyrus",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "lateral orbital gyrus",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "anterior segment of paracentral lobule",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "frontal operculum",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "postcentral gyrus",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen supraparietal lobule L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen supramarginal gyrus L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen angular gyrus L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "precuneus cortex",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen paracentral lobule caudal part L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "superior temporal gyrus",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "middle temporal gyrus",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "inferior temporal gyrus",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen occipitotemporal fusiform gyrus temporal part L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen transverse temporal gyrus Heschls gyrus L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "planum temporale",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "temporal pole",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "planum polare",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "occipital pole",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "cuneus cortex",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "lingual gyrus",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "occipital fusiform gyrus",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "inferior occipital gyrus",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "superior occipital gyrus",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "anterior cingulate gyrus",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "posterior cingulate gyrus",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "isthmus of cingulate gyrus",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "subcallosal area",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "anterior parahippocampal gyrus",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "posterior parahippocampal gyrus",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen gyrus ambiens L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen long insular gyri L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen short insular gyri L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen limen insula L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen pretectal region L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "substantia nigra",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "superior colliculus",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "cerebral peduncle",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen superior cerebellar peduncle brachium conjunctivum L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen cerebral aqueduct L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen paravermis of cerebellum L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen lateral hemisphere of cerebellum L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "pontine nuclear group",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "pontine tegmentum",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen pyramidal part of medulla oblongata L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen tegmentum of medulla oblongata L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen inferior olive L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen middle cerebellar peduncle L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "fourth ventricle",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen central canal of medulla oblongata L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen midline nuclear complex L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen lateral olfactory gyrus L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "parietal operculum",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "optic radiation",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen posteroventral putamen L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen atrium of lateral ventricle L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen paracingulate gyrus L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen rostral gyrus L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen frontomarginal gyrus L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen frontal pole L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen inferior cerebellar peduncle L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen perirhinal gyrus rostral part of FuGt L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen head of hippocampus L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen body of hippocampus L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen tail of hippocampus L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen olfactory bulb R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen anterior olfactory nucleus R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen piriform region R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen frontal agranular insular cortex area Fl R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen temporal agranular insular cortex area Tl R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen head of caudate R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen body of caudate R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen tail of caudate R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "right putamen",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen nucleus accumbens R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen external segment of globus pallidus R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen internal segment of globus pallidus R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen claustrum R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen basal forebrain R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen septal nuclei R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen amygdaloid complex R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen anterior amygdaloid area R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen central nuclear group R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen lateral nucleus R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen basolateral nucleus basal nucleus R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen basomedial nucleus accessory basal nucleus R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen anterior cortical nucleus R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen posterior cortical nucleus R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen medial nucleus R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen amygdalohippocampal area R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen bed nucleus of stria terminalis R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen thalamus R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen anterior nuclear complex of thalamus R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen lateral dorsal nucleus of thalamus R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen mediodorsal nucleus of thalamus R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen reuniens nucleus medioventral nucleus of thalamus R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen lateral posterior nucleus of thalamus R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen pulvinar of thalamus R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen ventral anterior nucleus of thalamus R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen ventral lateral nucleus of thalamus R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen ventral posterior lateral nucleus R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen ventral posterior medial nucleus R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen dorsal lateral geniculate nucleus R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen medial geniculate nuclei R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen centromedian nucleus of thalamus R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen parafascicular nucleus of thalamus R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen habenular nuclei R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "pineal body",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen zona incerta R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen supraoptic region of HTH R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen white matter of forebrain R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "anterior commissure",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "corpus callosum",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "fornix of brain",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen mammillothalamic tract R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "optic tract",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen anterior horn of lateral ventricle R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen body of lateral ventricle R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen posterior horn of lateral ventricle R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen inferior horn of lateral ventricle R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen third ventricle R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen cerebellar vermis R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen cerebellar deep nuclei R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen white matter of hindbrain R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen olfactory tract R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "primary motor cortex",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "superior frontal gyrus",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "middle frontal gyrus",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "triangular part of inferior frontal gyrus",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "opercular part of inferior frontal gyrus",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "gyrus rectus",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "medial orbital gyrus",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "intermediate orbital gyrus",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "intermediate orbital gyrus",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "lateral orbital gyrus",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "anterior segment of paracentral lobule",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "frontal operculum",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "postcentral gyrus",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen supraparietal lobule R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen supramarginal gyrus R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen angular gyrus R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "precuneus cortex",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen paracentral lobule caudal part R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "superior temporal gyrus",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "middle temporal gyrus",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "inferior temporal gyrus",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen occipitotemporal fusiform gyrus temporal part R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen transverse temporal gyrus Heschls gyrus R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "planum temporale",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "temporal pole",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "planum polare",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "occipital pole",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "cuneus cortex",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "lingual gyrus",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "occipital fusiform gyrus",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "inferior occipital gyrus",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "superior occipital gyrus",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "anterior cingulate gyrus",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "posterior cingulate gyrus",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "isthmus of cingulate gyrus",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "subcallosal area",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "anterior parahippocampal gyrus",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "posterior parahippocampal gyrus",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen gyrus ambiens R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen long insular gyri R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen short insular gyri R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen limen insula R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen pretectal region R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "red nucleus",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "substantia nigra",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "superior colliculus",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "inferior colliculus",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "cerebral peduncle",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen superior cerebellar peduncle brachium conjunctivum R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen cerebral aqueduct R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen paravermis of cerebellum R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen lateral hemisphere of cerebellum R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "pontine nuclear group",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "pontine tegmentum",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen pyramidal part of medulla oblongata R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen tegmentum of medulla oblongata R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen inferior olive R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen inferior cerebellar peduncle R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen middle cerebellar peduncle R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "fourth ventricle",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen central canal of medulla oblongata R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen midline nuclear complex R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen lateral olfactory gyrus R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "parietal operculum",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "optic radiation",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen posteroventral putamen R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen atrium of lateral ventricle R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen paracingulate gyrus R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen rostral gyrus R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen frontomarginal gyrus R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen frontal pole R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen perirhinal gyrus rostral part of FuGt R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "hypothalamus",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "hypothalamus",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen subthalamic nucleus R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen mammillary region of HTH R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen midbrain tegmentum R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen tuberal region of HTH R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen preoptic region of HTH R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen midbrain tegmentum L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "red nucleus",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "inferior colliculus",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen mammillary region of HTH L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen subthalamic nucleus L",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen head of hippocampus R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen body of hippocampus R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "Allen tail of hippocampus R",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "optic chiasma",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": "Brain"
+    },
+    {
+      "name": "dura mater",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Left optic nerve",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "dura mater",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Right optic nerve",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Right retina",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Right fovea centralis",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Right macula lutea",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Right optic disc",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Palpebral conjunctiva of right upper eyelid",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Palpebral conjunctiva of right lower eyelid",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Right sclera",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Right choroid",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "right pupil",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "ciliary processes",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Suspensory ligament of right lens",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Right ora serrata",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Right corneoscleral junction",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Right lens",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Right scleral venous sinus",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Aqueous humor of right eyeball",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Right ciliary body",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Right ciliary muscle",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "eye trabecular meshwork",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Right iris",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Right bulbar conjunctiva",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Right cornea",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Humor of right vitreous body",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Left retina",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Left fovea centralis",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Left macula lutea",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Left optic disc",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Palpebral conjunctiva of left upper eyelid",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Palpebral conjunctiva of left lower eyelid",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Humor of left vitreous body",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Left cornea",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Left bulbar conjunctiva",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Left iris",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "eye trabecular meshwork",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Left ciliary body",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Left ciliary muscle",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Aqueous humor of left eyeball",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Left scleral venous sinus",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Left lens",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Left corneoscleral junction",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Left ora serrata",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Suspensory ligament of left lens",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "ciliary processes",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "left pupil",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Left choroid",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Left sclera",
+      "layer": "nervous",
+      "system": "nervous",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Left medial rectus",
+      "layer": "muscular",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Left inferior rectus",
+      "layer": "muscular",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Left superior rectus",
+      "layer": "muscular",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Left inferior oblique",
+      "layer": "muscular",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Left lateral rectus",
+      "layer": "muscular",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Left superior oblique",
+      "layer": "muscular",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Right superior rectus",
+      "layer": "muscular",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Right medial rectus",
+      "layer": "muscular",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Right inferior rectus",
+      "layer": "muscular",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Right inferior oblique",
+      "layer": "muscular",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Right lateral rectus",
+      "layer": "muscular",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Right superior oblique",
+      "layer": "muscular",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Left rectus femoris",
+      "layer": "muscular",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Tendon of left quadriceps femoris",
+      "layer": "muscular",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Right rectus femoris",
+      "layer": "muscular",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Tendon of right quadriceps femoris",
+      "layer": "muscular",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "thyroepiglotticus muscle",
+      "layer": "muscular",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "vocalis muscle",
+      "layer": "muscular",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Muscle fasciculus of left posterior crico-arytenoid",
+      "layer": "muscular",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Muscle fasciculus of right posterior crico-arytenoid",
+      "layer": "muscular",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Muscle fasciculus of right lateral crico-arytenoid",
+      "layer": "muscular",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Muscle fasciculus of left lateral crico-arytenoid",
+      "layer": "muscular",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Right cricothyroid muscle",
+      "layer": "muscular",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Left cricothyroid muscle",
+      "layer": "muscular",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Left thyro-arytenoid",
+      "layer": "muscular",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "right thyro-arytenoid",
+      "layer": "muscular",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "arytenoid muscle",
+      "layer": "muscular",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Left deferent duct",
+      "layer": "visceral",
+      "system": "reproductive",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Right deferent duct",
+      "layer": "visceral",
+      "system": "reproductive",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "seminal vesicle",
+      "layer": "visceral",
+      "system": "reproductive",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "ejaculatory duct",
+      "layer": "visceral",
+      "system": "reproductive",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "prostatic utricle",
+      "layer": "visceral",
+      "system": "reproductive",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Verumontanum",
+      "layer": "visceral",
+      "system": "reproductive",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "prostate duct",
+      "layer": "visceral",
+      "system": "reproductive",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "prostate duct",
+      "layer": "visceral",
+      "system": "reproductive",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "apex of prostate",
+      "layer": "visceral",
+      "system": "reproductive",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "base of prostate",
+      "layer": "visceral",
+      "system": "reproductive",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "peripheral zone of prostate",
+      "layer": "visceral",
+      "system": "reproductive",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "peripheral zone of prostate",
+      "layer": "visceral",
+      "system": "reproductive",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "transition zone of prostate",
+      "layer": "visceral",
+      "system": "reproductive",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "transition zone of prostate",
+      "layer": "visceral",
+      "system": "reproductive",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "central zone of prostate",
+      "layer": "visceral",
+      "system": "reproductive",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "central zone of prostate",
+      "layer": "visceral",
+      "system": "reproductive",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Anterior fibromuscular stroma of prostate",
+      "layer": "visceral",
+      "system": "reproductive",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Anterior fibromuscular stroma of prostate",
+      "layer": "visceral",
+      "system": "reproductive",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Right submandibular gland",
+      "layer": "visceral",
+      "system": "digestive",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Left submandibular gland",
+      "layer": "visceral",
+      "system": "digestive",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Right parotid gland",
+      "layer": "visceral",
+      "system": "digestive",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Left parotid gland",
+      "layer": "visceral",
+      "system": "digestive",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Left sublingual gland",
+      "layer": "visceral",
+      "system": "digestive",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Right sublingual gland",
+      "layer": "visceral",
+      "system": "digestive",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Buccal mucosa",
+      "layer": "visceral",
+      "system": "digestive",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Frenulum of upper lip",
+      "layer": "visceral",
+      "system": "digestive",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Frenulum of lower lip",
+      "layer": "visceral",
+      "system": "digestive",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Mouth floor",
+      "layer": "visceral",
+      "system": "digestive",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Gingiva of lower jaw",
+      "layer": "visceral",
+      "system": "digestive",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Gingiva of upper jaw",
+      "layer": "visceral",
+      "system": "digestive",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Posterior part of tongue",
+      "layer": "visceral",
+      "system": "digestive",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Superior surface of tongue",
+      "layer": "visceral",
+      "system": "digestive",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Inferior surface of tongue",
+      "layer": "visceral",
+      "system": "digestive",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Fungiform papilla",
+      "layer": "visceral",
+      "system": "digestive",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Vallate papilla",
+      "layer": "visceral",
+      "system": "digestive",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Hard palate",
+      "layer": "visceral",
+      "system": "digestive",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Mucosa of soft palate",
+      "layer": "visceral",
+      "system": "digestive",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Lower teeth",
+      "layer": "visceral",
+      "system": "digestive",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Upper teeth",
+      "layer": "visceral",
+      "system": "digestive",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "bare area of liver",
+      "layer": "visceral",
+      "system": "digestive",
+      "source": "HRA",
+      "organ": "Liver"
+    },
+    {
+      "name": "capsule of the liver",
+      "layer": "visceral",
+      "system": "digestive",
+      "source": "HRA",
+      "organ": "Liver"
+    },
+    {
+      "name": "diaphragmatic surface of liver",
+      "layer": "visceral",
+      "system": "digestive",
+      "source": "HRA",
+      "organ": "Liver"
+    },
+    {
+      "name": "Suprarenal impression of liver",
+      "layer": "visceral",
+      "system": "endocrine",
+      "source": "HRA",
+      "organ": "Liver"
+    },
+    {
+      "name": "renal impression of liver",
+      "layer": "visceral",
+      "system": "digestive",
+      "source": "HRA",
+      "organ": "Liver"
+    },
+    {
+      "name": "gastric impression of liver",
+      "layer": "visceral",
+      "system": "digestive",
+      "source": "HRA",
+      "organ": "Liver"
+    },
+    {
+      "name": "colic impression of liver",
+      "layer": "visceral",
+      "system": "digestive",
+      "source": "HRA",
+      "organ": "Liver"
+    },
+    {
+      "name": "esophageal impression of liver",
+      "layer": "visceral",
+      "system": "digestive",
+      "source": "HRA",
+      "organ": "Liver"
+    },
+    {
+      "name": "duodenal impression of liver",
+      "layer": "visceral",
+      "system": "digestive",
+      "source": "HRA",
+      "organ": "Liver"
+    },
+    {
+      "name": "porta hepatis",
+      "layer": "visceral",
+      "system": "digestive",
+      "source": "HRA",
+      "organ": "Liver"
+    },
+    {
+      "name": "caudate lobe of liver",
+      "layer": "visceral",
+      "system": "digestive",
+      "source": "HRA",
+      "organ": "Liver"
+    },
+    {
+      "name": "right posteroinferior segment",
+      "layer": "visceral",
+      "system": "digestive",
+      "source": "HRA",
+      "organ": "Liver"
+    },
+    {
+      "name": "right posterosuperior segment",
+      "layer": "visceral",
+      "system": "digestive",
+      "source": "HRA",
+      "organ": "Liver"
+    },
+    {
+      "name": "right anterosuperior segment",
+      "layer": "visceral",
+      "system": "digestive",
+      "source": "HRA",
+      "organ": "Liver"
+    },
+    {
+      "name": "right anteroinferior segment",
+      "layer": "visceral",
+      "system": "digestive",
+      "source": "HRA",
+      "organ": "Liver"
+    },
+    {
+      "name": "left anterolateral segment",
+      "layer": "visceral",
+      "system": "digestive",
+      "source": "HRA",
+      "organ": "Liver"
+    },
+    {
+      "name": "left posterolateral segment",
+      "layer": "visceral",
+      "system": "digestive",
+      "source": "HRA",
+      "organ": "Liver"
+    },
+    {
+      "name": "left superiomedial segment",
+      "layer": "visceral",
+      "system": "digestive",
+      "source": "HRA",
+      "organ": "Liver"
+    },
+    {
+      "name": "left inferomedial segment",
+      "layer": "visceral",
+      "system": "digestive",
+      "source": "HRA",
+      "organ": "Liver"
+    },
+    {
+      "name": "quadrate lobe of liver",
+      "layer": "visceral",
+      "system": "digestive",
+      "source": "HRA",
+      "organ": "Liver"
+    },
+    {
+      "name": "hepatoduodenal ligament",
+      "layer": "visceral",
+      "system": "digestive",
+      "source": "HRA",
+      "organ": "Liver"
+    },
+    {
+      "name": "ligamentum venosum",
+      "layer": "visceral",
+      "system": "digestive",
+      "source": "HRA",
+      "organ": "Liver"
+    },
+    {
+      "name": "round ligament of liver",
+      "layer": "visceral",
+      "system": "digestive",
+      "source": "HRA",
+      "organ": "Liver"
+    },
+    {
+      "name": "triangular ligament of liver",
+      "layer": "visceral",
+      "system": "digestive",
+      "source": "HRA",
+      "organ": "Liver"
+    },
+    {
+      "name": "falciform ligament",
+      "layer": "visceral",
+      "system": "digestive",
+      "source": "HRA",
+      "organ": "Liver"
+    },
+    {
+      "name": "coronary ligament of liver",
+      "layer": "visceral",
+      "system": "digestive",
+      "source": "HRA",
+      "organ": "Liver"
+    },
+    {
+      "name": "body of pancreas",
+      "layer": "visceral",
+      "system": "endocrine",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "tail of pancreas",
+      "layer": "visceral",
+      "system": "endocrine",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "head of pancreas",
+      "layer": "visceral",
+      "system": "endocrine",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Neck of pancreas",
+      "layer": "visceral",
+      "system": "endocrine",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "uncinate process of pancreas",
+      "layer": "visceral",
+      "system": "endocrine",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "dorsal pancreatic duct",
+      "layer": "visceral",
+      "system": "endocrine",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "common bile duct",
+      "layer": "visceral",
+      "system": "endocrine",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Ventral pancreatic duct",
+      "layer": "visceral",
+      "system": "endocrine",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "hepatopancreatic ampulla",
+      "layer": "visceral",
+      "system": "endocrine",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "right hepatic duct",
+      "layer": "visceral",
+      "system": "digestive",
+      "source": "HRA",
+      "organ": "Liver"
+    },
+    {
+      "name": "left hepatic duct",
+      "layer": "visceral",
+      "system": "digestive",
+      "source": "HRA",
+      "organ": "Liver"
+    },
+    {
+      "name": "common hepatic duct",
+      "layer": "visceral",
+      "system": "digestive",
+      "source": "HRA",
+      "organ": "Liver"
+    },
+    {
+      "name": "cystic duct",
+      "layer": "visceral",
+      "system": "digestive",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "ileum",
+      "layer": "visceral",
+      "system": "digestive",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "distal part of ileum",
+      "layer": "visceral",
+      "system": "digestive",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "jejunum",
+      "layer": "visceral",
+      "system": "digestive",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "ascending part of duodenum",
+      "layer": "visceral",
+      "system": "digestive",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "descending part of duodenum",
+      "layer": "visceral",
+      "system": "digestive",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "horizontal part of duodenum",
+      "layer": "visceral",
+      "system": "digestive",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "superior part of duodenum",
+      "layer": "visceral",
+      "system": "digestive",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "duodenal ampulla",
+      "layer": "visceral",
+      "system": "digestive",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Sphincter of hepatopancreatic ampulla",
+      "layer": "visceral",
+      "system": "endocrine",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "duodenal papilla",
+      "layer": "visceral",
+      "system": "digestive",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Left palatine tonsil",
+      "layer": "visceral",
+      "system": "digestive",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Right palatine tonsil",
+      "layer": "visceral",
+      "system": "digestive",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "ascending colon",
+      "layer": "visceral",
+      "system": "digestive",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "descending colon",
+      "layer": "visceral",
+      "system": "digestive",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "hepatic flexure of colon",
+      "layer": "visceral",
+      "system": "digestive",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "rectum",
+      "layer": "visceral",
+      "system": "digestive",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "sigmoid colon",
+      "layer": "visceral",
+      "system": "digestive",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "splenic flexure of colon",
+      "layer": "visceral",
+      "system": "digestive",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "transverse colon",
+      "layer": "visceral",
+      "system": "digestive",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "ileocecal valve",
+      "layer": "visceral",
+      "system": "digestive",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "caecum",
+      "layer": "visceral",
+      "system": "digestive",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "vermiform appendix",
+      "layer": "visceral",
+      "system": "digestive",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "gallbladder",
+      "layer": "visceral",
+      "system": "digestive",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "omentum",
+      "layer": "visceral",
+      "system": "digestive",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "epiploic appendage of transverse colon",
+      "layer": "visceral",
+      "system": "digestive",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "major calyx",
+      "layer": "visceral",
+      "system": "urinary",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "major calyx",
+      "layer": "visceral",
+      "system": "urinary",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "minor calyx",
+      "layer": "visceral",
+      "system": "urinary",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "minor calyx",
+      "layer": "visceral",
+      "system": "urinary",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "minor calyx",
+      "layer": "visceral",
+      "system": "urinary",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "minor calyx",
+      "layer": "visceral",
+      "system": "urinary",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "minor calyx",
+      "layer": "visceral",
+      "system": "urinary",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "minor calyx",
+      "layer": "visceral",
+      "system": "urinary",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "minor calyx",
+      "layer": "visceral",
+      "system": "urinary",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "minor calyx",
+      "layer": "visceral",
+      "system": "urinary",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "minor calyx",
+      "layer": "visceral",
+      "system": "urinary",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "renal pelvis",
+      "layer": "visceral",
+      "system": "urinary",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "right ureter",
+      "layer": "visceral",
+      "system": "urinary",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "renal pelvis",
+      "layer": "visceral",
+      "system": "urinary",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "major calyx",
+      "layer": "visceral",
+      "system": "urinary",
+      "source": "HRA",
+      "organ": "Kidneys"
+    },
+    {
+      "name": "major calyx",
+      "layer": "visceral",
+      "system": "urinary",
+      "source": "HRA",
+      "organ": "Kidneys"
+    },
+    {
+      "name": "major calyx",
+      "layer": "visceral",
+      "system": "urinary",
+      "source": "HRA",
+      "organ": "Kidneys"
+    },
+    {
+      "name": "minor calyx",
+      "layer": "visceral",
+      "system": "urinary",
+      "source": "HRA",
+      "organ": "Kidneys"
+    },
+    {
+      "name": "minor calyx",
+      "layer": "visceral",
+      "system": "urinary",
+      "source": "HRA",
+      "organ": "Kidneys"
+    },
+    {
+      "name": "minor calyx",
+      "layer": "visceral",
+      "system": "urinary",
+      "source": "HRA",
+      "organ": "Kidneys"
+    },
+    {
+      "name": "minor calyx",
+      "layer": "visceral",
+      "system": "urinary",
+      "source": "HRA",
+      "organ": "Kidneys"
+    },
+    {
+      "name": "minor calyx",
+      "layer": "visceral",
+      "system": "urinary",
+      "source": "HRA",
+      "organ": "Kidneys"
+    },
+    {
+      "name": "minor calyx",
+      "layer": "visceral",
+      "system": "urinary",
+      "source": "HRA",
+      "organ": "Kidneys"
+    },
+    {
+      "name": "minor calyx",
+      "layer": "visceral",
+      "system": "urinary",
+      "source": "HRA",
+      "organ": "Kidneys"
+    },
+    {
+      "name": "minor calyx",
+      "layer": "visceral",
+      "system": "urinary",
+      "source": "HRA",
+      "organ": "Kidneys"
+    },
+    {
+      "name": "minor calyx",
+      "layer": "visceral",
+      "system": "urinary",
+      "source": "HRA",
+      "organ": "Kidneys"
+    },
+    {
+      "name": "left ureter",
+      "layer": "visceral",
+      "system": "urinary",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "kidney capsule",
+      "layer": "visceral",
+      "system": "urinary",
+      "source": "HRA",
+      "organ": "Kidneys"
+    },
+    {
+      "name": "hilum of kidney",
+      "layer": "visceral",
+      "system": "urinary",
+      "source": "HRA",
+      "organ": "Kidneys"
+    },
+    {
+      "name": "renal column",
+      "layer": "visceral",
+      "system": "urinary",
+      "source": "HRA",
+      "organ": "Kidneys"
+    },
+    {
+      "name": "outer cortex of kidney",
+      "layer": "visceral",
+      "system": "urinary",
+      "source": "HRA",
+      "organ": "Kidneys"
+    },
+    {
+      "name": "renal papilla",
+      "layer": "visceral",
+      "system": "urinary",
+      "source": "HRA",
+      "organ": "Kidneys"
+    },
+    {
+      "name": "renal papilla",
+      "layer": "visceral",
+      "system": "urinary",
+      "source": "HRA",
+      "organ": "Kidneys"
+    },
+    {
+      "name": "renal papilla",
+      "layer": "visceral",
+      "system": "urinary",
+      "source": "HRA",
+      "organ": "Kidneys"
+    },
+    {
+      "name": "renal papilla",
+      "layer": "visceral",
+      "system": "urinary",
+      "source": "HRA",
+      "organ": "Kidneys"
+    },
+    {
+      "name": "renal papilla",
+      "layer": "visceral",
+      "system": "urinary",
+      "source": "HRA",
+      "organ": "Kidneys"
+    },
+    {
+      "name": "renal papilla",
+      "layer": "visceral",
+      "system": "urinary",
+      "source": "HRA",
+      "organ": "Kidneys"
+    },
+    {
+      "name": "renal papilla",
+      "layer": "visceral",
+      "system": "urinary",
+      "source": "HRA",
+      "organ": "Kidneys"
+    },
+    {
+      "name": "renal papilla",
+      "layer": "visceral",
+      "system": "urinary",
+      "source": "HRA",
+      "organ": "Kidneys"
+    },
+    {
+      "name": "renal papilla",
+      "layer": "visceral",
+      "system": "urinary",
+      "source": "HRA",
+      "organ": "Kidneys"
+    },
+    {
+      "name": "renal pyramid",
+      "layer": "visceral",
+      "system": "urinary",
+      "source": "HRA",
+      "organ": "Kidneys"
+    },
+    {
+      "name": "renal pyramid",
+      "layer": "visceral",
+      "system": "urinary",
+      "source": "HRA",
+      "organ": "Kidneys"
+    },
+    {
+      "name": "renal pyramid",
+      "layer": "visceral",
+      "system": "urinary",
+      "source": "HRA",
+      "organ": "Kidneys"
+    },
+    {
+      "name": "renal pyramid",
+      "layer": "visceral",
+      "system": "urinary",
+      "source": "HRA",
+      "organ": "Kidneys"
+    },
+    {
+      "name": "renal pyramid",
+      "layer": "visceral",
+      "system": "urinary",
+      "source": "HRA",
+      "organ": "Kidneys"
+    },
+    {
+      "name": "renal pyramid",
+      "layer": "visceral",
+      "system": "urinary",
+      "source": "HRA",
+      "organ": "Kidneys"
+    },
+    {
+      "name": "renal pyramid",
+      "layer": "visceral",
+      "system": "urinary",
+      "source": "HRA",
+      "organ": "Kidneys"
+    },
+    {
+      "name": "renal pyramid",
+      "layer": "visceral",
+      "system": "urinary",
+      "source": "HRA",
+      "organ": "Kidneys"
+    },
+    {
+      "name": "renal pyramid",
+      "layer": "visceral",
+      "system": "urinary",
+      "source": "HRA",
+      "organ": "Kidneys"
+    },
+    {
+      "name": "kidney capsule",
+      "layer": "visceral",
+      "system": "urinary",
+      "source": "HRA",
+      "organ": "Kidneys"
+    },
+    {
+      "name": "hilum of kidney",
+      "layer": "visceral",
+      "system": "urinary",
+      "source": "HRA",
+      "organ": "Kidneys"
+    },
+    {
+      "name": "renal papilla",
+      "layer": "visceral",
+      "system": "urinary",
+      "source": "HRA",
+      "organ": "Kidneys"
+    },
+    {
+      "name": "renal papilla",
+      "layer": "visceral",
+      "system": "urinary",
+      "source": "HRA",
+      "organ": "Kidneys"
+    },
+    {
+      "name": "renal papilla",
+      "layer": "visceral",
+      "system": "urinary",
+      "source": "HRA",
+      "organ": "Kidneys"
+    },
+    {
+      "name": "renal papilla",
+      "layer": "visceral",
+      "system": "urinary",
+      "source": "HRA",
+      "organ": "Kidneys"
+    },
+    {
+      "name": "renal papilla",
+      "layer": "visceral",
+      "system": "urinary",
+      "source": "HRA",
+      "organ": "Kidneys"
+    },
+    {
+      "name": "renal papilla",
+      "layer": "visceral",
+      "system": "urinary",
+      "source": "HRA",
+      "organ": "Kidneys"
+    },
+    {
+      "name": "renal papilla",
+      "layer": "visceral",
+      "system": "urinary",
+      "source": "HRA",
+      "organ": "Kidneys"
+    },
+    {
+      "name": "renal papilla",
+      "layer": "visceral",
+      "system": "urinary",
+      "source": "HRA",
+      "organ": "Kidneys"
+    },
+    {
+      "name": "renal papilla",
+      "layer": "visceral",
+      "system": "urinary",
+      "source": "HRA",
+      "organ": "Kidneys"
+    },
+    {
+      "name": "renal papilla",
+      "layer": "visceral",
+      "system": "urinary",
+      "source": "HRA",
+      "organ": "Kidneys"
+    },
+    {
+      "name": "renal pyramid",
+      "layer": "visceral",
+      "system": "urinary",
+      "source": "HRA",
+      "organ": "Kidneys"
+    },
+    {
+      "name": "renal pyramid",
+      "layer": "visceral",
+      "system": "urinary",
+      "source": "HRA",
+      "organ": "Kidneys"
+    },
+    {
+      "name": "renal pyramid",
+      "layer": "visceral",
+      "system": "urinary",
+      "source": "HRA",
+      "organ": "Kidneys"
+    },
+    {
+      "name": "renal pyramid",
+      "layer": "visceral",
+      "system": "urinary",
+      "source": "HRA",
+      "organ": "Kidneys"
+    },
+    {
+      "name": "renal pyramid",
+      "layer": "visceral",
+      "system": "urinary",
+      "source": "HRA",
+      "organ": "Kidneys"
+    },
+    {
+      "name": "renal pyramid",
+      "layer": "visceral",
+      "system": "urinary",
+      "source": "HRA",
+      "organ": "Kidneys"
+    },
+    {
+      "name": "renal pyramid",
+      "layer": "visceral",
+      "system": "urinary",
+      "source": "HRA",
+      "organ": "Kidneys"
+    },
+    {
+      "name": "renal pyramid",
+      "layer": "visceral",
+      "system": "urinary",
+      "source": "HRA",
+      "organ": "Kidneys"
+    },
+    {
+      "name": "renal pyramid",
+      "layer": "visceral",
+      "system": "urinary",
+      "source": "HRA",
+      "organ": "Kidneys"
+    },
+    {
+      "name": "renal pyramid",
+      "layer": "visceral",
+      "system": "urinary",
+      "source": "HRA",
+      "organ": "Kidneys"
+    },
+    {
+      "name": "renal column",
+      "layer": "visceral",
+      "system": "urinary",
+      "source": "HRA",
+      "organ": "Kidneys"
+    },
+    {
+      "name": "outer cortex of kidney",
+      "layer": "visceral",
+      "system": "urinary",
+      "source": "HRA",
+      "organ": "Kidneys"
+    },
+    {
+      "name": "urinary bladder neck smooth muscle",
+      "layer": "visceral",
+      "system": "urinary",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "fundus of urinary bladder",
+      "layer": "visceral",
+      "system": "urinary",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Right ureteral orifice",
+      "layer": "visceral",
+      "system": "urinary",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Left ureteral orifice",
+      "layer": "visceral",
+      "system": "urinary",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "fundus of urinary bladder",
+      "layer": "visceral",
+      "system": "urinary",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "trigone of urinary bladder",
+      "layer": "visceral",
+      "system": "urinary",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "other urethra",
+      "layer": "visceral",
+      "system": "urinary",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "prostatic urethra",
+      "layer": "visceral",
+      "system": "urinary",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "mitral valve",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": "Heart"
+    },
+    {
+      "name": "tricuspid valve",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": "Heart"
+    },
+    {
+      "name": "aortic valve",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": "Heart"
+    },
+    {
+      "name": "pulmonary valve",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": "Heart"
+    },
+    {
+      "name": "Anterior papillary muscle of left ventricle",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": "Heart"
+    },
+    {
+      "name": "Anterolateral head of lateral papillary muscle of left ventricle",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": "Heart"
+    },
+    {
+      "name": "Septal papillary muscle of right ventricle",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": "Heart"
+    },
+    {
+      "name": "Posterior papillary muscle of right ventricle",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": "Heart"
+    },
+    {
+      "name": "Posteromedial head of posterior papillary muscle of left ventricle",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": "Heart"
+    },
+    {
+      "name": "left cardiac atrium",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": "Heart"
+    },
+    {
+      "name": "right cardiac atrium",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": "Heart"
+    },
+    {
+      "name": "heart right ventricle",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": "Heart"
+    },
+    {
+      "name": "interventricular septum",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": "Heart"
+    },
+    {
+      "name": "heart left ventricle",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": "Heart"
+    },
+    {
+      "name": "ophthalmic vein",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Left superior ophthalmic vein",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Left inferior ophthalmic vein",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Left central retinal vein",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "ophthalmic vein",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Right superior ophthalmic vein",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Right inferior ophthalmic vein",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Right central retinal vein",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Left central retinal artery",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "ophthalmic artery",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Left long posterior ciliary artery",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Right central retinal artery",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "ophthalmic artery",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Right long posterior ciliary artery",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "inferior mesenteric vein",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "median sacral vein",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "sigmoid vein",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "superior mesenteric artery",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "superior rectal artery",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Left common iliac vein",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Right common iliac vein",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Inferior pancreaticoduodenal vein",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "external iliac vein",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "external iliac vein",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "left Inferior rectal vein",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "right Inferior rectal vein",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "internal pudendal vein",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "internal pudendal vein",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "internal iliac vein",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "internal iliac vein",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Left colic vein",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "ileocolic vein",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Right colic vein",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "middle colic vein",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Left middle rectal vein",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Right middle rectal vein",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Right colic artery",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "middle colic artery",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Left colic artery",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "ileocolic artery",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "sigmoid artery",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "sigmoid artery",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "sigmoid artery",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "inferior mesenteric artery",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "superior mesenteric artery",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "marginal colic artery",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "left renal vein",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "right renal vein",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "left renal artery",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "right renal artery",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "arch of aorta",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": "Heart"
+    },
+    {
+      "name": "ascending aorta",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": "Heart"
+    },
+    {
+      "name": "brachiocephalic artery",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": "Heart"
+    },
+    {
+      "name": "brachiocephalic artery",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": "Heart"
+    },
+    {
+      "name": "left common carotid artery plus branches",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": "Heart"
+    },
+    {
+      "name": "left common carotid artery plus branches",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": "Heart"
+    },
+    {
+      "name": "left subclavian artery",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": "Heart"
+    },
+    {
+      "name": "left subclavian artery",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": "Heart"
+    },
+    {
+      "name": "descending aorta",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": "Heart"
+    },
+    {
+      "name": "descending aorta",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": "Heart"
+    },
+    {
+      "name": "Anterior descending branch of left pulmonary artery",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": "Heart"
+    },
+    {
+      "name": "marginal branch of right coronary artery",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": "Heart"
+    },
+    {
+      "name": "Posterior interventricular branch of right coronary artery",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": "Heart"
+    },
+    {
+      "name": "Diagonal branch of anterior descending branch of left coronary artery",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": "Heart"
+    },
+    {
+      "name": "left coronary artery",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": "Heart"
+    },
+    {
+      "name": "right coronary artery",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": "Heart"
+    },
+    {
+      "name": "Diagonal branch of anterior descending branch of left coronary artery",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": "Heart"
+    },
+    {
+      "name": "Left marginal artery",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": "Heart"
+    },
+    {
+      "name": "left pulmonary artery",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": "Heart"
+    },
+    {
+      "name": "right pulmonary artery",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": "Heart"
+    },
+    {
+      "name": "pulmonary trunk",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": "Heart"
+    },
+    {
+      "name": "great vein of heart",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": "Heart"
+    },
+    {
+      "name": "middle cardiac vein",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": "Heart"
+    },
+    {
+      "name": "Oblique vein of left atrium",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": "Heart"
+    },
+    {
+      "name": "Anterior cardiac vein",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": "Heart"
+    },
+    {
+      "name": "coronary sinus",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": "Heart"
+    },
+    {
+      "name": "Posterior vein of left ventricle",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": "Heart"
+    },
+    {
+      "name": "small cardiac vein",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": "Heart"
+    },
+    {
+      "name": "right inferior pulmonary vein",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": "Heart"
+    },
+    {
+      "name": "right superior pulmonary vein",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": "Heart"
+    },
+    {
+      "name": "left inferior pulmonary vein",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": "Heart"
+    },
+    {
+      "name": "left superior pulmonary vein",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": "Heart"
+    },
+    {
+      "name": "Left brachiocephalic vein",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": "Heart"
+    },
+    {
+      "name": "Right brachiocephalic vein",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": "Heart"
+    },
+    {
+      "name": "superior vena cava",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": "Heart"
+    },
+    {
+      "name": "inferior vena cava",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": "Heart"
+    },
+    {
+      "name": "inferior vena cava",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": "Heart"
+    },
+    {
+      "name": "splenic vein",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "splenic artery",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "cystic vein",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "cystic artery",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Celiac trunk",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Left hepatic artery",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Hepatic artery proper",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "posterior segmental right hepatic artery",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Right hepatic artery",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "anterior segmental right hepatic artery",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "common hepatic artery",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "middle hepatic artery branch of left hepatic artery",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Right hepatic vein",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Left hepatic vein",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Middle hepatic vein",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "left branch of portal vein",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "right branch of portal vein",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "portal vein",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "hepatic portal vein",
+      "layer": "cardiovascular",
+      "system": "cardiovascular",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "left lung hilus",
+      "layer": "visceral",
+      "system": "respiratory",
+      "source": "HRA",
+      "organ": "Lungs"
+    },
+    {
+      "name": "left lung hilus",
+      "layer": "visceral",
+      "system": "respiratory",
+      "source": "HRA",
+      "organ": "Lungs"
+    },
+    {
+      "name": "Superior lingular bronchopulmonary segment",
+      "layer": "visceral",
+      "system": "respiratory",
+      "source": "HRA",
+      "organ": "Lungs"
+    },
+    {
+      "name": "Left posterior bronchopulmonary segment",
+      "layer": "visceral",
+      "system": "respiratory",
+      "source": "HRA",
+      "organ": "Lungs"
+    },
+    {
+      "name": "Left Anterior Bronchopulmonary Segment",
+      "layer": "visceral",
+      "system": "respiratory",
+      "source": "HRA",
+      "organ": "Lungs"
+    },
+    {
+      "name": "Left apical bronchopulmonary segment",
+      "layer": "visceral",
+      "system": "respiratory",
+      "source": "HRA",
+      "organ": "Lungs"
+    },
+    {
+      "name": "Inferior lingular bronchopulmonary segment",
+      "layer": "visceral",
+      "system": "respiratory",
+      "source": "HRA",
+      "organ": "Lungs"
+    },
+    {
+      "name": "left lung hilus",
+      "layer": "visceral",
+      "system": "respiratory",
+      "source": "HRA",
+      "organ": "Lungs"
+    },
+    {
+      "name": "left anterior basal bronchopulmonary segment",
+      "layer": "visceral",
+      "system": "respiratory",
+      "source": "HRA",
+      "organ": "Lungs"
+    },
+    {
+      "name": "left Lateral Basal Bronchopulmonary Segment",
+      "layer": "visceral",
+      "system": "respiratory",
+      "source": "HRA",
+      "organ": "Lungs"
+    },
+    {
+      "name": "Left Medial Basal Bronchopulmonary Segment",
+      "layer": "visceral",
+      "system": "respiratory",
+      "source": "HRA",
+      "organ": "Lungs"
+    },
+    {
+      "name": "Left posterior basal segmental bronchus",
+      "layer": "visceral",
+      "system": "respiratory",
+      "source": "HRA",
+      "organ": "Lungs"
+    },
+    {
+      "name": "Left superior bronchopulmonary segment",
+      "layer": "visceral",
+      "system": "respiratory",
+      "source": "HRA",
+      "organ": "Lungs"
+    },
+    {
+      "name": "right lung hilus",
+      "layer": "visceral",
+      "system": "respiratory",
+      "source": "HRA",
+      "organ": "Lungs"
+    },
+    {
+      "name": "Right Lateral Bronchopulmonary Segment",
+      "layer": "visceral",
+      "system": "respiratory",
+      "source": "HRA",
+      "organ": "Lungs"
+    },
+    {
+      "name": "Right Medial Bronchopulmonary Segment",
+      "layer": "visceral",
+      "system": "respiratory",
+      "source": "HRA",
+      "organ": "Lungs"
+    },
+    {
+      "name": "right lung hilus",
+      "layer": "visceral",
+      "system": "respiratory",
+      "source": "HRA",
+      "organ": "Lungs"
+    },
+    {
+      "name": "right lung hilus",
+      "layer": "visceral",
+      "system": "respiratory",
+      "source": "HRA",
+      "organ": "Lungs"
+    },
+    {
+      "name": "Right anterior basal bronchopulmonary segment",
+      "layer": "visceral",
+      "system": "respiratory",
+      "source": "HRA",
+      "organ": "Lungs"
+    },
+    {
+      "name": "Right Lateral Basal Bronchopulmonary Segment",
+      "layer": "visceral",
+      "system": "respiratory",
+      "source": "HRA",
+      "organ": "Lungs"
+    },
+    {
+      "name": "Right Medial Basal Bronchopulmonary Segment",
+      "layer": "visceral",
+      "system": "respiratory",
+      "source": "HRA",
+      "organ": "Lungs"
+    },
+    {
+      "name": "Right Posterior Basal Bronchopulmonary Segment",
+      "layer": "visceral",
+      "system": "respiratory",
+      "source": "HRA",
+      "organ": "Lungs"
+    },
+    {
+      "name": "Right Superior Bronchopulmonary Segment",
+      "layer": "visceral",
+      "system": "respiratory",
+      "source": "HRA",
+      "organ": "Lungs"
+    },
+    {
+      "name": "Right Apical Bronchopulmonary Segment",
+      "layer": "visceral",
+      "system": "respiratory",
+      "source": "HRA",
+      "organ": "Lungs"
+    },
+    {
+      "name": "Right Posterior Bronchopulmonary Segment",
+      "layer": "visceral",
+      "system": "respiratory",
+      "source": "HRA",
+      "organ": "Lungs"
+    },
+    {
+      "name": "Right Anterior Bronchopulmonary Segment",
+      "layer": "visceral",
+      "system": "respiratory",
+      "source": "HRA",
+      "organ": "Lungs"
+    },
+    {
+      "name": "right lung hilus",
+      "layer": "visceral",
+      "system": "respiratory",
+      "source": "HRA",
+      "organ": "Lungs"
+    },
+    {
+      "name": "Right arytenoid cartilage",
+      "layer": "visceral",
+      "system": "respiratory",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Left arytenoid cartilage",
+      "layer": "visceral",
+      "system": "respiratory",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "epiglottic cartilage",
+      "layer": "visceral",
+      "system": "respiratory",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "cricoid cartilage",
+      "layer": "visceral",
+      "system": "respiratory",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "thyroid cartilage",
+      "layer": "visceral",
+      "system": "respiratory",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Left corniculate cartilage",
+      "layer": "visceral",
+      "system": "respiratory",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Right corniculate cartilage",
+      "layer": "visceral",
+      "system": "respiratory",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "trachea",
+      "layer": "visceral",
+      "system": "respiratory",
+      "source": "HRA",
+      "organ": "Lungs"
+    },
+    {
+      "name": "trachea cartilage",
+      "layer": "visceral",
+      "system": "respiratory",
+      "source": "HRA",
+      "organ": "Lungs"
+    },
+    {
+      "name": "carina of trachea",
+      "layer": "visceral",
+      "system": "respiratory",
+      "source": "HRA",
+      "organ": "Lungs"
+    },
+    {
+      "name": "Left Main Bronchus",
+      "layer": "visceral",
+      "system": "respiratory",
+      "source": "HRA",
+      "organ": "Lungs"
+    },
+    {
+      "name": "Cartilage of left main bronchus",
+      "layer": "visceral",
+      "system": "respiratory",
+      "source": "HRA",
+      "organ": "Lungs"
+    },
+    {
+      "name": "Right Main Bronchus",
+      "layer": "visceral",
+      "system": "respiratory",
+      "source": "HRA",
+      "organ": "Lungs"
+    },
+    {
+      "name": "Cartilage of right main bronchus",
+      "layer": "visceral",
+      "system": "respiratory",
+      "source": "HRA",
+      "organ": "Lungs"
+    },
+    {
+      "name": "Cartilage of lobar bronchus",
+      "layer": "visceral",
+      "system": "respiratory",
+      "source": "HRA",
+      "organ": "Lungs"
+    },
+    {
+      "name": "Cartilage of segmental bronchus",
+      "layer": "visceral",
+      "system": "respiratory",
+      "source": "HRA",
+      "organ": "Lungs"
+    },
+    {
+      "name": "lobar bronchus of left lung upper lobe",
+      "layer": "visceral",
+      "system": "respiratory",
+      "source": "HRA",
+      "organ": "Lungs"
+    },
+    {
+      "name": "lobar bronchus of left lung lower lobe",
+      "layer": "visceral",
+      "system": "respiratory",
+      "source": "HRA",
+      "organ": "Lungs"
+    },
+    {
+      "name": "Left superior segmental bronchus",
+      "layer": "visceral",
+      "system": "respiratory",
+      "source": "HRA",
+      "organ": "Lungs"
+    },
+    {
+      "name": "Left posterior basal segmental bronchus",
+      "layer": "visceral",
+      "system": "respiratory",
+      "source": "HRA",
+      "organ": "Lungs"
+    },
+    {
+      "name": "Left medial basal segmental bronchus",
+      "layer": "visceral",
+      "system": "respiratory",
+      "source": "HRA",
+      "organ": "Lungs"
+    },
+    {
+      "name": "Left apical segmental bronchus",
+      "layer": "visceral",
+      "system": "respiratory",
+      "source": "HRA",
+      "organ": "Lungs"
+    },
+    {
+      "name": "Left anterior segmental bronchus",
+      "layer": "visceral",
+      "system": "respiratory",
+      "source": "HRA",
+      "organ": "Lungs"
+    },
+    {
+      "name": "left lingular bronchus",
+      "layer": "visceral",
+      "system": "respiratory",
+      "source": "HRA",
+      "organ": "Lungs"
+    },
+    {
+      "name": "Superior lingular bronchus",
+      "layer": "visceral",
+      "system": "respiratory",
+      "source": "HRA",
+      "organ": "Lungs"
+    },
+    {
+      "name": "Inferior lingular bronchus",
+      "layer": "visceral",
+      "system": "respiratory",
+      "source": "HRA",
+      "organ": "Lungs"
+    },
+    {
+      "name": "Left lateral basal segmental bronchus",
+      "layer": "visceral",
+      "system": "respiratory",
+      "source": "HRA",
+      "organ": "Lungs"
+    },
+    {
+      "name": "Left anterior basal segmental bronchus",
+      "layer": "visceral",
+      "system": "respiratory",
+      "source": "HRA",
+      "organ": "Lungs"
+    },
+    {
+      "name": "Cartilage of lobar bronchus",
+      "layer": "visceral",
+      "system": "respiratory",
+      "source": "HRA",
+      "organ": "Lungs"
+    },
+    {
+      "name": "Cartilage of segmental bronchus",
+      "layer": "visceral",
+      "system": "respiratory",
+      "source": "HRA",
+      "organ": "Lungs"
+    },
+    {
+      "name": "Interlobar bronchus",
+      "layer": "visceral",
+      "system": "respiratory",
+      "source": "HRA",
+      "organ": "Lungs"
+    },
+    {
+      "name": "Middle lobar bronchus",
+      "layer": "visceral",
+      "system": "respiratory",
+      "source": "HRA",
+      "organ": "Lungs"
+    },
+    {
+      "name": "Right superior lobar bronchus",
+      "layer": "visceral",
+      "system": "respiratory",
+      "source": "HRA",
+      "organ": "Lungs"
+    },
+    {
+      "name": "Right anterior segmental bronchus",
+      "layer": "visceral",
+      "system": "respiratory",
+      "source": "HRA",
+      "organ": "Lungs"
+    },
+    {
+      "name": "Right lateral basal segmental bronchus",
+      "layer": "visceral",
+      "system": "respiratory",
+      "source": "HRA",
+      "organ": "Lungs"
+    },
+    {
+      "name": "Lateral segmental bronchus",
+      "layer": "visceral",
+      "system": "respiratory",
+      "source": "HRA",
+      "organ": "Lungs"
+    },
+    {
+      "name": "Right inferior lobar bronchus",
+      "layer": "visceral",
+      "system": "respiratory",
+      "source": "HRA",
+      "organ": "Lungs"
+    },
+    {
+      "name": "Right medial basal segmental bronchus",
+      "layer": "visceral",
+      "system": "respiratory",
+      "source": "HRA",
+      "organ": "Lungs"
+    },
+    {
+      "name": "Medial segmental bronchus",
+      "layer": "visceral",
+      "system": "respiratory",
+      "source": "HRA",
+      "organ": "Lungs"
+    },
+    {
+      "name": "Right posterior basal segmental bronchus",
+      "layer": "visceral",
+      "system": "respiratory",
+      "source": "HRA",
+      "organ": "Lungs"
+    },
+    {
+      "name": "Right posterior segmental bronchus",
+      "layer": "visceral",
+      "system": "respiratory",
+      "source": "HRA",
+      "organ": "Lungs"
+    },
+    {
+      "name": "Right superior segmental bronchus",
+      "layer": "visceral",
+      "system": "respiratory",
+      "source": "HRA",
+      "organ": "Lungs"
+    },
+    {
+      "name": "Right superior segmental bronchus",
+      "layer": "visceral",
+      "system": "respiratory",
+      "source": "HRA",
+      "organ": "Lungs"
+    },
+    {
+      "name": "Right posterior segmental bronchus",
+      "layer": "visceral",
+      "system": "respiratory",
+      "source": "HRA",
+      "organ": "Lungs"
+    },
+    {
+      "name": "bronchus",
+      "layer": "visceral",
+      "system": "respiratory",
+      "source": "HRA",
+      "organ": "Lungs"
+    },
+    {
+      "name": "colic surface of spleen",
+      "layer": "lymphatic",
+      "system": "lymphatic",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "diaphragmatic surface of spleen",
+      "layer": "lymphatic",
+      "system": "lymphatic",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "gastric surface of spleen",
+      "layer": "lymphatic",
+      "system": "lymphatic",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "hilum of spleen",
+      "layer": "lymphatic",
+      "system": "lymphatic",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "renal surface of spleen",
+      "layer": "lymphatic",
+      "system": "lymphatic",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "afferent lymphatic vessel",
+      "layer": "lymphatic",
+      "system": "lymphatic",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "capsule of lymph node",
+      "layer": "lymphatic",
+      "system": "lymphatic",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "lymph node follicle",
+      "layer": "lymphatic",
+      "system": "lymphatic",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "efferent lymphatic vessel",
+      "layer": "lymphatic",
+      "system": "lymphatic",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "medulla of lymph node",
+      "layer": "lymphatic",
+      "system": "lymphatic",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "lymph node T cell domain",
+      "layer": "lymphatic",
+      "system": "lymphatic",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Lymph vasculature",
+      "layer": "lymphatic",
+      "system": "lymphatic",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "left thymus lobe",
+      "layer": "lymphatic",
+      "system": "lymphatic",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "right thymus lobe",
+      "layer": "lymphatic",
+      "system": "lymphatic",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "hyoid bone",
+      "layer": "skeletal",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Right anterior cruciate ligament",
+      "layer": "joints",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Right fibular collateral ligament",
+      "layer": "joints",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Right tibial collateral ligament",
+      "layer": "joints",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Right posterior cruciate ligament",
+      "layer": "joints",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "anterolateral ligament of knee",
+      "layer": "joints",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Right patellar ligament",
+      "layer": "joints",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Articular cartilage of distal epiphysis of right femur",
+      "layer": "joints",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Articular disk of knee joint",
+      "layer": "joints",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "anterolateral ligament of knee",
+      "layer": "joints",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Left fibular collateral ligament",
+      "layer": "joints",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Left posterior cruciate ligament",
+      "layer": "joints",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Left tibial collateral ligament",
+      "layer": "joints",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Left anterior cruciate ligament",
+      "layer": "joints",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Left patellar ligament",
+      "layer": "joints",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Articular disk of knee joint",
+      "layer": "joints",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "Articular cartilage of distal epiphysis of left femur",
+      "layer": "joints",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "intervertebral disk of axis",
+      "layer": "joints",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "intervertebral disk of third cervical vertebra",
+      "layer": "joints",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "intervertebral disk of fourth cervical vertebra",
+      "layer": "joints",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "intervertebral disk of fifth cervical vertebra",
+      "layer": "joints",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "intervertebral disk of sixth cervical vertebra",
+      "layer": "joints",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "intervertebral disk of seventh cervical vertebra",
+      "layer": "joints",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "nucleus pulposus of intervertebral disk of third cervical vertebra",
+      "layer": "joints",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "nucleus pulposus of intervertebral disk of fourth cervical vertebra",
+      "layer": "joints",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "nucleus pulposus of intervertebral disk of fifth cervical vertebra",
+      "layer": "joints",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "nucleus pulposus of intervertebral disk of sixth cervical vertebra",
+      "layer": "joints",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "nucleus pulposus of intervertebral disk of seventh cervical vertebra",
+      "layer": "joints",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "intervertebral disk of twelfth thoracic vertebra",
+      "layer": "joints",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "intervertebral disk of eleventh thoracic vertebra",
+      "layer": "joints",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "intervertebral disk of tenth thoracic vertebra",
+      "layer": "joints",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "intervertebral disk of ninth thoracic vertebra",
+      "layer": "joints",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "intervertebral disk of eighth thoracic vertebra",
+      "layer": "joints",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "intervertebral disk of seventh thoracic vertebra",
+      "layer": "joints",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "intervertebral disk of sixth thoracic vertebra",
+      "layer": "joints",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "intervertebral disk of fifth thoracic vertebra",
+      "layer": "joints",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "intervertebral disk of fourth thoracic vertebra",
+      "layer": "joints",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "intervertebral disk of third thoracic vertebra",
+      "layer": "joints",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "intervertebral disk of second thoracic vertebra",
+      "layer": "joints",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "intervertebral disk of first thoracic vertebra",
+      "layer": "joints",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "nucleus pulposus of intervertebral disk of first thoracic vertebra",
+      "layer": "joints",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "nucleus pulposus of intervertebral disk of second thoracic vertebra",
+      "layer": "joints",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "nucleus pulposus of intervertebral disk of third thoracic vertebra",
+      "layer": "joints",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "nucleus pulposus of intervertebral disk of fourth thoracic vertebra",
+      "layer": "joints",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "nucleus pulposus of intervertebral disk of fifth thoracic vertebra",
+      "layer": "joints",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "nucleus pulposus of intervertebral disk of sixth thoracic vertebra",
+      "layer": "joints",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "nucleus pulposus of intervertebral disk of seventh thoracic vertebra",
+      "layer": "joints",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "nucleus pulposus of intervertebral disk of eighth thoracic vertebra",
+      "layer": "joints",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "nucleus pulposus of intervertebral disk of ninth thoracic vertebra",
+      "layer": "joints",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "nucleus pulposus of intervertebral disk of tenth thoracic vertebra",
+      "layer": "joints",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "nucleus pulposus of intervertebral disk of eleventh thoracic vertebra",
+      "layer": "joints",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "nucleus pulposus of intervertebral disk of twelfth thoracic vertebra",
+      "layer": "joints",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "intervertebral disk of fourth lumbar vertebra",
+      "layer": "joints",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "intervertebral disk of third lumbar vertebra",
+      "layer": "joints",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "intervertebral disk of second lumbar vertebra",
+      "layer": "joints",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "intervertebral disk of first lumbar vertebra",
+      "layer": "joints",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "nucleus pulposus of intervertebral disk of first lumbar vertebra",
+      "layer": "joints",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "nucleus pulposus of intervertebral disk of second lumbar vertebra",
+      "layer": "joints",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "nucleus pulposus of intervertebral disk of third lumbar vertebra",
+      "layer": "joints",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    },
+    {
+      "name": "nucleus pulposus of intervertebral disk of fourth lumbar vertebra",
+      "layer": "joints",
+      "system": "musculoskeletal",
+      "source": "HRA",
+      "organ": null
+    }
+  ]
+}

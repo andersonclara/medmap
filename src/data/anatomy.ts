@@ -1,7 +1,7 @@
 import { medications, type Organ } from "./medications";
 
 export const layerNames = {
-  skeletal: "Bones", joints: "Joints & ligaments", muscular: "Muscles",
+  skeletal: "Bones", joints: "Joints, discs & ligaments", muscular: "Muscles",
   visceral: "Organs", cardiovascular: "Blood vessels", nervous: "Nerves & brain", lymphatic: "Lymphatic",
 } as const;
 export type Layer = keyof typeof layerNames;

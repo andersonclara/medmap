@@ -100,7 +100,7 @@ test("male and female diagrams share controls, layout, and interaction settings"
   await page.goto("/#explore");
   const scene = page.getByTestId("anatomy-scene");
   await expect.poll(async () => Number(await scene.getAttribute("data-visible-structures")), { timeout: 30_000 }).toBeGreaterThan(300);
-  await expect(scene).toHaveAttribute("data-skeletal-structures", "142");
+  await expect(scene).toHaveAttribute("data-skeletal-structures", "143");
   const controls = page.locator(".atlas-controls");
   const labels = await controls.locator("label").allTextContents();
   const options = await controls.locator("select option").allTextContents();

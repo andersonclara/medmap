@@ -1,7 +1,7 @@
 {
   "male": {
     "sex": "male",
-    "boneCount": 142,
+    "boneCount": 143,
     "source": "BoneHub + HRA / Visible Human",
     "availableTargets": [
       "brain",
@@ -27,12 +27,12 @@
     },
     "layers": {
       "skeletal": {
-        "structures": 142,
-        "bytes": 11157524
+        "structures": 143,
+        "bytes": 11161060
       },
       "joints": {
-        "structures": 16,
-        "bytes": 95808
+        "structures": 59,
+        "bytes": 1177712
       },
       "muscular": {
         "structures": 27,
@@ -55,7 +55,45 @@
         "bytes": 1689772
       }
     },
-    "registrationRmsMm": 5.949406390051466
+    "registrationRmsMm": 5.949406390051466,
+    "ctBoneCount": 142,
+    "pose": "Reposed reference: extended arms, lateral thumbs, anterior feet",
+    "coverage": {
+      "complete": false,
+      "checklistScope": "Major organs and selected skeletal landmarks; not an exhaustive inventory of human anatomy.",
+      "included": [
+        "Brain",
+        "Eyes",
+        "Heart",
+        "Lungs",
+        "Trachea",
+        "Liver",
+        "Gallbladder",
+        "Pancreas",
+        "Small intestine",
+        "Large intestine",
+        "Spleen",
+        "Kidneys",
+        "Ureters",
+        "Urinary bladder",
+        "Hyoid bone",
+        "Prostate"
+      ],
+      "missing": [
+        "Stomach",
+        "Esophagus",
+        "Thyroid gland",
+        "Adrenal glands",
+        "Pituitary gland",
+        "Testes",
+        "Penis"
+      ],
+      "partial": [
+        "Elbows: source scan is truncated",
+        "Some small bones are missing or grouped",
+        "Muscles, peripheral nerves, blood vessels, external ears, and external soft tissues are incomplete"
+      ]
+    }
   },
   "female": {
     "sex": "female",
@@ -87,11 +125,11 @@
     "layers": {
       "skeletal": {
         "structures": 143,
-        "bytes": 13209960
+        "bytes": 13195724
       },
       "joints": {
-        "structures": 28,
-        "bytes": 164392
+        "structures": 76,
+        "bytes": 2265208
       },
       "muscular": {
         "structures": 16,
@@ -114,6 +152,44 @@
         "bytes": 1659992
       }
     },
-    "registrationRmsMm": 3.8957704604937233
+    "registrationRmsMm": 3.8957704604937233,
+    "ctBoneCount": 143,
+    "pose": "Reposed reference: extended arms, lateral thumbs, anterior feet",
+    "coverage": {
+      "complete": false,
+      "checklistScope": "Major organs and selected skeletal landmarks; not an exhaustive inventory of human anatomy.",
+      "included": [
+        "Brain",
+        "Eyes",
+        "Heart",
+        "Lungs",
+        "Trachea",
+        "Liver",
+        "Gallbladder",
+        "Pancreas",
+        "Small intestine",
+        "Large intestine",
+        "Spleen",
+        "Kidneys",
+        "Ureters",
+        "Urinary bladder",
+        "Uterus",
+        "Ovaries",
+        "Vagina"
+      ],
+      "missing": [
+        "Stomach",
+        "Esophagus",
+        "Thyroid gland",
+        "Adrenal glands",
+        "Pituitary gland",
+        "Hyoid bone"
+      ],
+      "partial": [
+        "Elbows: source scan is truncated",
+        "Some small bones are missing or grouped",
+        "Muscles, peripheral nerves, blood vessels, external ears, and external soft tissues are incomplete"
+      ]
+    }
   }
 }

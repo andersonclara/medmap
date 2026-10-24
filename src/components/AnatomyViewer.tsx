@@ -8,9 +8,9 @@ import type { OrganSearchEntry } from "../data/organSearch";
 import { hasReferenceOrgan, referenceAtlas } from "../data/referenceAtlas";
 
 const AnatomyScene = lazy(() => import("./AnatomyScene"));
-const initialLayers: Record<Layer, number> = { skeletal: .5, joints: 0, muscular: 0, visceral: 1, cardiovascular: 1, nervous: 0, lymphatic: 0 };
+const initialLayers: Record<Layer, number> = { skeletal: .5, joints: 0, muscular: 0, visceral: 1, cardiovascular: 1, nervous: 1, lymphatic: 0 };
 const presets: { name: string; layers: Partial<Record<Layer, number>> }[] = [
-  { name: "Internal organs", layers: { skeletal: .5, visceral: 1, cardiovascular: 1 } },
+  { name: "Internal organs", layers: { skeletal: .5, visceral: 1, cardiovascular: 1, nervous: 1 } },
   { name: "Muscle & bone", layers: { skeletal: 1, muscular: .45, joints: 1 } },
   { name: "Circulation", layers: { skeletal: .12, cardiovascular: 1 } },
   { name: "Nervous system", layers: { skeletal: .12, nervous: 1 } },
@@ -69,7 +69,15 @@ export function AnatomyViewer({ target = "Lungs", compact = false, medicationId,
       }}>{variant === "male" ? "Male" : "Female"}</button>)}
     </div>
     <OrganSearch key={`${bodyVariant}-${searchReset}`} variant={bodyVariant} onSelect={inspectOrgan} />
-    <p className="atlas-source-summary">{referenceAtlas[bodyVariant].boneCount} CT-derived skeletal meshes ? BoneHub + Human Reference Atlas</p>
+    <p className="atlas-source-summary">{referenceAtlas[bodyVariant].ctBoneCount} CT-derived skeletal meshes &middot; BoneHub + Human Reference Atlas</p>
+    <details className="atlas-coverage">
+      <summary>Partial anatomical reference &middot; model coverage</summary>
+      <p>Arms and hands are reposed toward standard anatomical position, with thumbs outward and feet facing forward. The source scans have missing anatomy.</p>
+      <p><strong>Included organs and structures:</strong> {referenceAtlas[bodyVariant].coverage.included.join(", ")}.</p>
+      <p><strong>Not modeled:</strong> {referenceAtlas[bodyVariant].coverage.missing.join(", ")}.</p>
+      <p><strong>Partial coverage:</strong> {referenceAtlas[bodyVariant].coverage.partial.join("; ")}. Skin and an enclosing body surface are omitted from this cutaway.</p>
+      <p>A complete anatomical model requires additional source geometry. This checklist covers major structures, not every structure in the human body.</p>
+    </details>
     <div className="atlas-workspace">
       <div className="atlas-viewport">
         <Suspense fallback={<div className="atlas-loading" role="status">Opening the 3D atlas…</div>}>
