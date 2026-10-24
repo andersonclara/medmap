@@ -75,7 +75,7 @@ export function AnatomyViewer({ target = "Lungs", compact = false, medicationId,
         <Suspense fallback={<div className="atlas-loading" role="status">Opening the 3D atlas…</div>}>
           <AnatomyScene layers={layers} system={system} medicine={showEffects ? medicine : null} selected={selected} selectedStructure={structure} command={command} hiddenStructures={hiddenStructures} membranes={membranes} hoveredOrgan={hoveredOrgan} bodyVariant={bodyVariant} focusRequest={focusRequest}
             onSelect={(name, organ) => { setFocusRequest(null); setStructure(name); setSelected(organ); }}
-            onDeselect={() => { setSelected(null); setStructure(null); setFocusRequest(null); setHoveredOrgan(null); setSearchReset((value) => value + 1); }} />
+            onDeselect={() => { setSelected(null); setStructure(null); setFocusRequest(null); setHoveredOrgan(null); setSystem("all"); setSearchReset((value) => value + 1); }} />
         </Suspense>
         {interactive && <>
           <div className="atlas-views" aria-label="Body orientation">{(["front", "back", "left", "right"] as const).map((view) => <button key={view} onClick={() => act(view)} aria-label={`View body from ${view}`}>{view}</button>)}</div>

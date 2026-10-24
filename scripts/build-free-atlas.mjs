@@ -7,10 +7,11 @@ import { Document, NodeIO, Logger } from "@gltf-transform/core";
 import { ALL_EXTENSIONS } from "@gltf-transform/extensions";
 import { meshopt } from "@gltf-transform/functions";
 import { MeshoptEncoder, MeshoptDecoder, MeshoptSimplifier } from "meshoptimizer";
+import { Matrix, SingularValueDecomposition } from "ml-matrix";
 
 const source = "assets-source/free-atlas";
 const output = "public/models/reference";
-const manifest = JSON.parse(await fs.readFile(`${source}/bonehub-manifest.json`, "utf8"));
+const manifest = JSON.parse(await fs.readFile("scripts/sources/bonehub-manifest.json", "utf8"));
 await Promise.all([MeshoptEncoder.ready, MeshoptDecoder.ready, MeshoptSimplifier.ready]);
 const io = new NodeIO().registerExtensions(ALL_EXTENSIONS).registerDependencies({ "meshopt.encoder": MeshoptEncoder, "meshopt.decoder": MeshoptDecoder });
 const logger = new Logger(Logger.Verbosity.WARN);
@@ -19,10 +20,32 @@ const layers = ["skeletal", "joints", "muscular", "visceral", "cardiovascular", 
 const organPatterns = { Brain: /brain|cerebr|cerebell|pons|medulla oblongata|thalam|gyrus|gyri|sulcus|sulci|lobule|hippocamp/i, Lungs: /lung|bronch|trachea/i, Heart: /heart|atrium|ventricle|aortic valve|mitral|tricuspid/i, Liver: /liver/i, Stomach: /stomach/i, Kidneys: /kidney|renal pelvis/i };
 const organColors = { Brain: "#d1a292", Lungs: "#cd9793", Heart: "#b65548", Liver: "#753b25", Kidneys: "#975446", Stomach: "#c88e87" };
 function boneKey(text) {
+  const limb = text.match(/(?:^|_)(femur|tibia|fibula|patella)_([RL])(?:\s|$|_)/i);
+  if (limb) return `${limb[1].toUpperCase()}_${limb[2].toUpperCase() === "L" ? "LEFT" : "RIGHT"}`;
   const match = text.match(/(cervical|thoracic|lumbar)_vertebra_(\d+)(?:\D|$)/i);
   if (match) return `VERTEBRA_${{ cervical: "C", thoracic: "T", lumbar: "L" }[match[1].toLowerCase()]}${match[2]}`;
   if (/\bsacrum\b/i.test(text.replace(/_/g, " "))) return "SACRUM";
   return null;
+}
+function fitRigidSimilarity(pairs) {
+  const from = new THREE.Vector3(), to = new THREE.Vector3();
+  for (const pair of pairs) { from.add(pair.from); to.add(pair.to); }
+  from.divideScalar(pairs.length); to.divideScalar(pairs.length);
+  const x = new Matrix(pairs.map((pair) => pair.from.clone().sub(from).toArray()));
+  const y = new Matrix(pairs.map((pair) => pair.to.clone().sub(to).toArray()));
+  const svd = new SingularValueDecomposition(x.transpose().mmul(y));
+  const u = svd.leftSingularVectors, v = svd.rightSingularVectors;
+  let r = v.mmul(u.transpose());
+  const determinant = (m) => m.get(0,0)*(m.get(1,1)*m.get(2,2)-m.get(1,2)*m.get(2,1))-m.get(0,1)*(m.get(1,0)*m.get(2,2)-m.get(1,2)*m.get(2,0))+m.get(0,2)*(m.get(1,0)*m.get(2,1)-m.get(1,1)*m.get(2,0));
+  if (determinant(r) < 0) { for (let i = 0; i < 3; i++) v.set(i, 2, -v.get(i, 2)); r = v.mmul(u.transpose()); }
+  const rotation = new THREE.Matrix4().set(r.get(0,0),r.get(0,1),r.get(0,2),0,r.get(1,0),r.get(1,1),r.get(1,2),0,r.get(2,0),r.get(2,1),r.get(2,2),0,0,0,0,1);
+  let numerator = 0, denominator = 0;
+  for (const pair of pairs) { const a = pair.from.clone().sub(from), b = pair.to.clone().sub(to); numerator += a.clone().applyMatrix4(rotation).dot(b); denominator += a.lengthSq(); }
+  const scale = numerator / denominator;
+  const translation = to.clone().sub(from.clone().applyMatrix4(rotation).multiplyScalar(scale));
+  const matrix = rotation.clone().scale(new THREE.Vector3(scale, scale, scale)).setPosition(translation);
+  const errors = pairs.map((pair) => ({ bone: pair.key, residualMm: pair.from.clone().applyMatrix4(matrix).distanceTo(pair.to) * 1000 }));
+  return { matrix, scale, errors, rmsMm: Math.sqrt(errors.reduce((sum, item) => sum + item.residualMm ** 2, 0) / errors.length) };
 }
 function simplifyGeometry(input, ratio = .3, error = .0005) {
   input.deleteAttribute("normal");
@@ -57,7 +80,7 @@ function classify(text, name) {
   let layer = "visceral", system = "digestive";
   if (/nervous_system/i.test(text)) { layer = "nervous"; system = "nervous"; }
   else if (/muscular_system/i.test(text)) { layer = "muscular"; system = "musculoskeletal"; }
-  else if (/skeletal_system/i.test(text)) { layer = "joints"; system = "musculoskeletal"; }
+  else if (/skeletal_system|lower_limb/i.test(text)) { layer = "joints"; system = "musculoskeletal"; }
   else if (/circulatory_system/i.test(text)) { layer = "cardiovascular"; system = "cardiovascular"; }
   else if (/lymphatic_system/i.test(text)) { layer = "lymphatic"; system = "lymphatic"; }
   else if (/reproductive_system/i.test(text)) system = "reproductive";
@@ -80,6 +103,7 @@ function colorFor(meta, text, original) {
   if (meta.layer === "muscular") return "#b66154";
   if (/artery|arteries|aorta/i.test(text)) return "#ba554c";
   if (/vein|venous/i.test(text)) return "#637a9d";
+  if (/mouth|lip|tongue|palate/i.test(text)) return "#bb8e86";
   if (/colon|intestin|jejun|ileum|duoden/i.test(text)) return "#c78e83";
   if (/pancrea/i.test(text)) return "#c6a080";
   if (/uterus|uterine|cervix|vagina|ovary|ovaries/i.test(text)) return "#c58f89";
@@ -134,26 +158,33 @@ for (const subject of manifest.subjects) {
       if (!primitive.getAttribute("POSITION") || primitive.getMode() !== 4) continue;
       const geometry = sourceGeometry(node, primitive);
       const key = boneKey(text);
-      if (/skeletal_system/i.test(text) && key) { if (!landmarks.has(key)) landmarks.set(key, new THREE.Box3()); landmarks.get(key).union(geometry.boundingBox); }
+      const skeletalSource = /skeletal_system|lower_limb/i.test(text);
+      if (skeletalSource && key) { if (!landmarks.has(key)) landmarks.set(key, new THREE.Box3()); landmarks.get(key).union(geometry.boundingBox); }
       // BoneHub supplies the entire skeleton; keep only HRA connective tissue here.
-      if (/skeletal_system/i.test(text) && !/cartilage|ligament|meniscus/i.test(text) || /placenta|chorionic|amnion|VH_[FM]_skin\b/i.test(text)) { geometry.dispose(); continue; }
+      if (skeletalSource && !/cartilage|ligament|meniscus/i.test(text) || /placenta|chorionic|amnion|VH_[FM]_skin\b/i.test(text)) { geometry.dispose(); continue; }
       const meta = classify(text, name);
       if (meta.system === "integumentary") { geometry.dispose(); continue; }
       const color = primitive.getMaterial()?.getBaseColorFactor();
       const original = color ? new THREE.Color().setRGB(...color.slice(0, 3)).getStyle() : undefined;
-      entries.push({ ...meta, geometry, name, searchText: `${name} ${text}`, source: "HRA", color: colorFor(meta, text, original) });
+      const knee = /lower_limb_R|knee_R/i.test(text) ? "RIGHT" : /lower_limb_L|knee_L/i.test(text) ? "LEFT" : null;
+      entries.push({ ...meta, geometry, name, knee, searchText: `${name} ${text}`, source: "HRA", color: colorFor(meta, text, original) });
     }
   }
-  const pairs = bones.filter((bone) => landmarks.has(bone.key)).map((bone) => ({ key: bone.key, from: landmarks.get(bone.key).getCenter(new THREE.Vector3()), to: bone.center }));
+  const pairs = bones.filter((bone) => /^VERTEBRA_|^SACRUM$/.test(bone.key) && landmarks.has(bone.key)).map((bone) => ({ key: bone.key, from: landmarks.get(bone.key).getCenter(new THREE.Vector3()), to: bone.center }));
   if (pairs.length < 12) throw new Error(`${sex}: too few shared registration landmarks (${pairs.length})`);
   const fit = fitUniform(pairs);
   console.log(`${sex}: ${pairs.length} vertebral landmarks, RMS ${fit.rmsMm.toFixed(1)} mm, max ${fit.maxMm.toFixed(1)} mm, scale ${fit.scale.toFixed(4)}`);
   if (fit.rmsMm > 45) throw new Error(`${sex}: registration requires review; RMS ${fit.rmsMm.toFixed(1)} mm`);
   const organTransform = display.clone().multiply(fit.matrix);
+  const kneeFits = {};
+  for (const side of ["LEFT", "RIGHT"]) {
+    const anchors = bones.filter((bone) => ["FEMUR", "TIBIA", "FIBULA", "PATELLA"].some((part) => bone.key === `${part}_${side}`) && landmarks.has(bone.key)).map((bone) => ({ key: bone.key, from: landmarks.get(bone.key).getCenter(new THREE.Vector3()), to: bone.center }));
+    if (anchors.length >= 3) { kneeFits[side] = fitRigidSimilarity(anchors); console.log(`${sex}: ${side} knee registration RMS ${kneeFits[side].rmsMm.toFixed(1)} mm`); }
+  }
   for (const entry of bones) entry.geometry.applyMatrix4(display);
-  for (const entry of entries) { entry.geometry.applyMatrix4(organTransform); entry.geometry = simplifyGeometry(entry.geometry, .55, .0005); }
+  for (const entry of entries) { const transform = entry.knee && kneeFits[entry.knee] ? display.clone().multiply(kneeFits[entry.knee].matrix) : organTransform; entry.geometry.applyMatrix4(transform); entry.geometry = simplifyGeometry(entry.geometry, .55, .0005); }
   const all = [...bones, ...entries];
-  const report = { sex, sources: { skeleton: "BoneHub/visible-human-3d-models", skeletonRevision: manifest.revision, organs: "Human Reference Atlas united v1.10" }, boneCount: bones.length, registration: { method: "Uniform scale and translation using shared vertebral bounding-box centers; known patient axes converted from CT millimetres Z-up to glTF metres Y-up. No anatomy deformation.", scale: fit.scale, translation: fit.translation, landmarks: fit.errors, rmsMm: fit.rmsMm, maxMm: fit.maxMm }, limitations: ["Reference assembly registration, not a patient-specific or clinically validated model.", "BoneHub elbow regions are truncated in the source CT; some bones are grouped or absent.", "HRA organ, muscle, and nerve coverage is incomplete."] };
+  const report = { sex, sources: { skeleton: "BoneHub/visible-human-3d-models", skeletonRevision: manifest.revision, organs: "Human Reference Atlas united v1.10" }, boneCount: bones.length, registration: { method: "Uniform scale and translation using shared vertebral bounding-box centers; known patient axes converted from CT millimetres Z-up to glTF metres Y-up. No anatomy deformation.", scale: fit.scale, translation: fit.translation, landmarks: fit.errors, rmsMm: fit.rmsMm, maxMm: fit.maxMm }, localKneeRegistration: Object.fromEntries(Object.entries(kneeFits).map(([side, fit]) => [side, { method: "Rigid rotation, uniform scale and translation using shared limb-bone bounding-box centers", scale: fit.scale, matrix: fit.matrix.toArray(), landmarks: fit.errors, rmsMm: fit.rmsMm }])), limitations: ["Reference assembly registration, not a patient-specific or clinically validated model.", "BoneHub elbow regions are truncated in the source CT; some bones are grouped or absent.", "HRA organ, muscle, and nerve coverage is incomplete."] };
   const extraSearch = { pancreas: ["visceral", /pancrea/i], bladder: ["visceral", /urinary bladder|urinary_bladder/i], gallbladder: ["visceral", /gallbladder|gall bladder/i], "small-intestine": ["visceral", /jejun|ileum|small intestine|duoden/i], "large-intestine": ["visceral", /colon|large intestine/i], trachea: ["visceral", /trachea/i], thyroid: ["visceral", /thyroid gland/i], adrenal: ["visceral", /suprarenal gland/i], prostate: ["visceral", /prostate/i], uterus: ["visceral", /uterus|uterine/i], ovaries: ["visceral", /ovary|ovaries|ovarian/i], spleen: ["lymphatic", /spleen/i] };
   const availableTargets = [...new Set(all.filter((entry) => entry.organ).map((entry) => entry.organ.toLowerCase()))];
   for (const [id, [layer, pattern]] of Object.entries(extraSearch)) if (all.some((entry) => entry.layer === layer && pattern.test(entry.searchText ?? entry.name))) availableTargets.push(id);

@@ -1,7 +1,8 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 const root = "assets-source/free-atlas";
-const manifest = JSON.parse(await fs.readFile(`${root}/bonehub-manifest.json`, "utf8"));
+await fs.mkdir(root, { recursive: true });
+const manifest = JSON.parse(await fs.readFile("scripts/sources/bonehub-manifest.json", "utf8"));
 const jobs = manifest.subjects.flatMap((subject) => manifest.regions.flatMap((region) => region.bones.filter((bone) => bone.files[subject.id]?.stl).map((bone) => ({ subject: subject.id, region: region.id, ...bone.files[subject.id] }))));
 let completed = 0;
 async function worker() {

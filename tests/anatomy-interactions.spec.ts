@@ -84,6 +84,7 @@ test("organ search supports aliases, keyboard selection, empty results, and fema
   await page.getByRole("button", { name: "Back to full body", exact: true }).click();
   await expect(scene).toHaveAttribute("data-selected-structures", "0");
   await expect(scene).toHaveAttribute("data-focused-structure", "");
+  await expect(page.getByRole("combobox", { name: "Isolate a body system" })).toHaveValue("all");
   await expect(search).toHaveValue("");
   await search.fill("cerebrum");
   await search.press("Enter");
@@ -99,6 +100,7 @@ test("male and female diagrams share controls, layout, and interaction settings"
   await page.goto("/#explore");
   const scene = page.getByTestId("anatomy-scene");
   await expect.poll(async () => Number(await scene.getAttribute("data-visible-structures")), { timeout: 30_000 }).toBeGreaterThan(300);
+  await expect(scene).toHaveAttribute("data-skeletal-structures", "142");
   const controls = page.locator(".atlas-controls");
   const labels = await controls.locator("label").allTextContents();
   const options = await controls.locator("select option").allTextContents();
@@ -110,6 +112,7 @@ test("male and female diagrams share controls, layout, and interaction settings"
   await page.getByRole("button", { name: "Female", exact: true }).click();
   await expect(scene).toHaveAttribute("data-body-variant", "female");
   await expect.poll(async () => Number(await scene.getAttribute("data-visible-structures")), { timeout: 30_000 }).toBeGreaterThan(20);
+  await expect(scene).toHaveAttribute("data-skeletal-structures", "143");
   expect(await controls.locator("label").allTextContents()).toEqual(labels);
   expect(await controls.locator("select option").allTextContents()).toEqual(options);
   const femaleBounds = (await controls.boundingBox())!;

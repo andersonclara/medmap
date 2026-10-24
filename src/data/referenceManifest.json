@@ -3,6 +3,21 @@
     "sex": "male",
     "boneCount": 142,
     "source": "BoneHub + HRA / Visible Human",
+    "availableTargets": [
+      "brain",
+      "liver",
+      "kidneys",
+      "heart",
+      "lungs",
+      "pancreas",
+      "bladder",
+      "gallbladder",
+      "small-intestine",
+      "large-intestine",
+      "trachea",
+      "prostate",
+      "spleen"
+    ],
     "organs": {
       "Liver": 29,
       "Kidneys": 58,
@@ -17,15 +32,15 @@
       },
       "joints": {
         "structures": 16,
-        "bytes": 96416
+        "bytes": 95808
       },
       "muscular": {
         "structures": 27,
-        "bytes": 486220
+        "bytes": 486160
       },
       "visceral": {
         "structures": 256,
-        "bytes": 11489504
+        "bytes": 11489056
       },
       "cardiovascular": {
         "structures": 120,
@@ -40,27 +55,28 @@
         "bytes": 1689772
       }
     },
-    "registrationRmsMm": 5.949406390051466,
+    "registrationRmsMm": 5.949406390051466
+  },
+  "female": {
+    "sex": "female",
+    "boneCount": 143,
+    "source": "BoneHub + HRA / Visible Human",
     "availableTargets": [
+      "brain",
       "liver",
       "kidneys",
-      "lungs",
       "heart",
-      "brain",
+      "lungs",
       "pancreas",
       "bladder",
       "gallbladder",
       "small-intestine",
       "large-intestine",
       "trachea",
-      "prostate",
+      "uterus",
+      "ovaries",
       "spleen"
-    ]
-  },
-  "female": {
-    "sex": "female",
-    "boneCount": 143,
-    "source": "BoneHub + HRA / Visible Human",
+    ],
     "organs": {
       "Liver": 29,
       "Kidneys": 64,
@@ -74,16 +90,16 @@
         "bytes": 13209960
       },
       "joints": {
-        "structures": 0,
-        "bytes": 164
+        "structures": 28,
+        "bytes": 164392
       },
       "muscular": {
         "structures": 16,
-        "bytes": 414200
+        "bytes": 413864
       },
       "visceral": {
-        "structures": 331,
-        "bytes": 11113384
+        "structures": 279,
+        "bytes": 10796708
       },
       "cardiovascular": {
         "structures": 124,
@@ -98,22 +114,6 @@
         "bytes": 1659992
       }
     },
-    "registrationRmsMm": 3.8957704604937233,
-    "availableTargets": [
-      "liver",
-      "kidneys",
-      "lungs",
-      "heart",
-      "brain",
-      "pancreas",
-      "bladder",
-      "gallbladder",
-      "small-intestine",
-      "large-intestine",
-      "trachea",
-      "uterus",
-      "ovaries",
-      "spleen"
-    ]
+    "registrationRmsMm": 3.8957704604937233
   }
 }

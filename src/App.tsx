@@ -15,6 +15,7 @@ import {
   X,
 } from "lucide-react";
 import { TargetRegion } from "./components/TargetRegion";
+import { AnatomicalGraphic } from "./components/AnatomicalGraphic";
 import { conditionTreatments } from "./data/conditionTreatments";
 import { AnatomicalGraphic } from "./components/AnatomicalGraphic";
 import { AnatomyViewer } from "./components/AnatomyViewer";
@@ -379,11 +380,7 @@ export default function App() {
                   onClick={() => choose(m.id)}
                 >
                   <span className={`med-symbol ${m.id}`}>
-                    {m.organ ? (
-                      <AnatomicalGraphic organ={m.organ} decorative />
-                    ) : (
-                      <HeartPulse />
-                    )}
+                    {m.organ ? <AnatomicalGraphic organ={m.organ} decorative /> : <HeartPulse />}
                   </span>
                   <div>
                     <strong>{m.name}</strong>
@@ -449,11 +446,7 @@ export default function App() {
                     aria-pressed={m.id === id}
                   >
                     <span className={`med-symbol ${m.id}`}>
-                      {m.organ ? (
-                        <AnatomicalGraphic organ={m.organ} decorative />
-                      ) : (
-                        <HeartPulse size={20} />
-                      )}
+                      {m.organ ? <AnatomicalGraphic organ={m.organ} decorative /> : <HeartPulse size={20} />}
                     </span>
                     <span>
                       <strong>{m.name}</strong>
@@ -523,17 +516,7 @@ export default function App() {
               )}
               <div className="detail-grid">
                 {med.organ ? (
-                  <section
-                    className="card guide-anatomy-summary"
-                    aria-label="Medication target summary"
-                  >
-                    <AnatomicalGraphic organ={med.organ} />
-                    <h3>{med.target ?? med.organ}</h3>
-                    <p>
-                      The atlas above locates representative anatomy. Explore
-                      the mechanism below to learn about the medicine’s action.
-                    </p>
-                  </section>
+                  <AnatomyViewer key={id} target={med.organ} medicationId={id} onGuideSelect={choose} />
                 ) : (
                   <TargetRegion
                     target={med.target ?? "Target area"}
@@ -657,6 +640,7 @@ export default function App() {
           Med<span>Map</span>
         </a>
         <p>See how your medicine works.</p>
+        <p className="anatomy-attribution">Anatomy: BoneHub CT skeletons (Alavi &amp; Asseln, 2026) and Human Reference Atlas v1.10 organs (Browne &amp; Schlehlein), based on the NLM Visible Human Project. CC BY 4.0. <a href={`${import.meta.env.BASE_URL}models/reference/NOTICE.md`}>Sources and attribution</a>.</p>
         <div className="disclaimer">
           <ShieldCheck size={19} />
           <p>
@@ -674,25 +658,6 @@ export default function App() {
           Made for understanding. Built with care.{" "}
           <span>MedMap · Educational prototype</span>
         </span>
-        <details className="anatomy-art-credits">
-          <summary>Anatomical artwork credits</summary>
-          <p>
-            BodyParts3D — The Database Center for Life Science — CC-BY-SA 2.1
-            Japan. Z-Anatomy — CC-BY-SA 4.0.
-          </p>
-          <p>
-            Reference anatomy includes BoneHub CT-derived skeletons and Human
-            Reference Atlas organs. See{" "}
-            <a href={`${import.meta.env.BASE_URL}models/NOTICE`}>
-              model credits
-            </a>{" "}
-            and{" "}
-            <a href={`${import.meta.env.BASE_URL}models/female/ATTRIBUTION.md`}>
-              female reference attribution
-            </a>
-            .
-          </p>
-        </details>
       </footer>
     </>
   );

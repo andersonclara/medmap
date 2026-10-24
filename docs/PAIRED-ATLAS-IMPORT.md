@@ -1,11 +1,7 @@
-# Matched licensed anatomy references
+# Paired anatomy source decision
 
-The selected replacement route is one licensed male/female atlas from the same publisher and release, including complete skeletons and the organ/muscle layers. The current app still uses Z-Anatomy for male anatomy and the incomplete HuBMAP female reference. Styling changes do not supply the female model's missing bones. No licensed replacement files are present in this workspace, so the reference replacement has not yet been performed.
+The user selected the free source route. The active implementation uses sex-specific BoneHub CT skeletons and HRA v1.10 organs for both body variants. No paid atlas or license purchase is needed for this implementation.
 
-A candidate is Plasticboy Anatomy's [STANDARD Complete Male and Female Anatomy PACK V9 2025](https://plasticboyanatomy.com/products/standard-complete-male-and-female-anatomy-pack-v9), listed at USD 1,499 when checked on October 24, 2026. It includes Blender, FBX, and OBJ formats with PBR textures. This is a candidate, not a purchase or an assertion of clinical validation.
+See [the current pipeline and rebuild instructions](3D-ATLAS.md) and [source attribution, licensing, changes, and coverage limitations](../public/models/reference/NOTICE.md).
 
-The publisher's [license](https://plasticboyanatomy.com/pages/license) lists web applications among permitted uses, but also restricts use that allows standalone model extraction and use as a logo. The current viewer serves model files directly from public URLs, and the current brand uses an organ render. Confirm the applicable web-delivery and branding permissions with the publisher before buying this pack for that implementation. No purchase or vendor contact has been made.
-
-Place the licensed source archive or extracted Blender/FBX files, accompanying textures, and applicable license or written permissions in `assets-source/licensed-anatomy/`. This directory is excluded from Git and is outside Vite's public asset directory. Do not put unprocessed licensed archives in `public/`.
-
-Once the assets are available, inspect their object names and system grouping before building the import mapping. Convert both references together, retain independently selectable organ/bone meshes, and use a consistent coordinate frame and material pipeline. Replace both existing 3D reference sources, update organ-search availability and medication targets against the actual meshes, regenerate body and organ artwork from the same pair, and update credits and loading paths for the approved delivery method. Validate full skeleton visibility, direct picking, blue selection outlines, search, layers, and pointer-directed zoom in both references on desktop and mobile.
+A future licensed comprehensive atlas could expand soft-tissue coverage, but is not a pending requirement of the current source replacement.

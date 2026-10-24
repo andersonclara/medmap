@@ -42,7 +42,17 @@ export interface MedicineMap {
   context: string;
   source: string;
 }
-const guideMaps: MedicineMap[] = medications.map(med=>({
+const representativeMaps: MedicineMap[] = [
+  ...medications.filter((med) => ["albuterol", "metformin", "omeprazole"].includes(med.id)).map((med) => ({
+    id: med.id, name: med.name, category: med.category,
+    systems: [organSystem(med.organ!)], organs: [med.organ!], layers: ["visceral"] as Layer[],
+    effect: med.simple,
+    context: med.id === "metformin" ? "The liver is one important site; metformin also acts through the gut and insulin-sensitive tissues." : med.id === "albuterol" ? "The highlight locates the lungs. The medicine acts on airway smooth muscle, which is too small to resolve in this atlas." : "The highlight locates the stomach. Proton pumps are microscopic and are not shown in the atlas.",
+        source: med.source,
+  })),
+];
+
+const guideMaps: MedicineMap[] = medications.map((med): MedicineMap => ({
  id:med.id,name:med.name,category:med.category,
  systems:med.organ?[organSystem(med.organ)]:[],organs:med.organ?[med.organ]:[],
  layers:med.organ==="Brain"?["nervous"]:med.organ==="Heart"?["cardiovascular"]:["visceral"],
@@ -64,6 +74,13 @@ const additionalMaps: MedicineMap[] = [
 ];
 
 export const medicineMaps: MedicineMap[] = [
- ...guideMaps.map(med=>additionalMaps.find(example=>example.id===med.id)??med),
- ...additionalMaps.filter(med=>!guideMaps.some(guide=>guide.id===med.id)),
+  ...guideMaps.map(
+    (med) =>
+      representativeMaps.find((rep) => rep.id === med.id) ??
+      additionalMaps.find((extra) => extra.id === med.id) ??
+      med
+  ),
+  ...additionalMaps.filter(
+    (extra) => !guideMaps.some((guide) => guide.id === extra.id)
+  ),
 ];
