@@ -1,100 +1,11 @@
-import { useId, useState } from "react";
+import { useState } from "react";
 import { ArrowRight, Ban, CheckCircle2, RotateCcw, Wind } from "lucide-react";
 import type { Medication } from "../data/medications";
 import { AnatomicalGraphic } from "./AnatomicalGraphic";
 import { mechanismGuides } from "../data/mechanisms";
+import { AirwayCrossSection } from "./AirwayMechanism";
 
-function AirwayDetail({ after }: { after: boolean }) {
-  const uid = useId();
-  const radius = after ? 45 : 25;
-  const lumen =
-    Array.from({ length: 72 }, (_, i) => {
-      const angle = (i * Math.PI * 2) / 72;
-      const r = radius + Math.cos(angle * 9) * (after ? 1.7 : 4.5);
-      return `${i ? "L" : "M"}${100 + Math.cos(angle) * r},${100 + Math.sin(angle) * r}`;
-    }).join(" ") + "Z";
-  return (
-    <figure className="airway-detail">
-      <svg
-        viewBox="0 0 200 200"
-        role="img"
-        aria-label={
-          after
-            ? "Airway cross-section with relaxed smooth muscle and a wider opening"
-            : "Airway cross-section with contracted smooth muscle and a narrow opening"
-        }
-      >
-        <defs>
-          <radialGradient id={`${uid}-tissue`} cx="40%" cy="30%">
-            <stop stopColor="#f0d7c8" />
-            <stop offset=".7" stopColor="#d0a18f" />
-            <stop offset="1" stopColor="#926157" />
-          </radialGradient>
-          <radialGradient id={`${uid}-muscle`} cx="35%" cy="30%">
-            <stop stopColor="#d9a294" />
-            <stop offset=".7" stopColor="#ae7064" />
-            <stop offset="1" stopColor="#7f4d48" />
-          </radialGradient>
-          <radialGradient id={`${uid}-lumen`} cx="40%" cy="65%">
-            <stop stopColor="#8dada6" />
-            <stop offset=".75" stopColor="#415d5e" />
-            <stop offset="1" stopColor="#263c40" />
-          </radialGradient>
-        </defs>
-        <circle
-          cx="100"
-          cy="100"
-          r="84"
-          fill={`url(#${uid}-tissue)`}
-          stroke="#c49989"
-          strokeWidth="1.5"
-        />
-        <circle
-          cx="100"
-          cy="100"
-          r="70"
-          fill={`url(#${uid}-muscle)`}
-          stroke="#e6b9a9"
-          strokeWidth="3"
-        />
-        {Array.from({ length: 32 }, (_, i) => (
-          <ellipse
-            key={i}
-            cx="100"
-            cy="37"
-            rx="1.6"
-            ry="4.5"
-            fill="#f4c7b4"
-            opacity=".45"
-            transform={`rotate(${i * 11.25} 100 100)`}
-          />
-        ))}
-        <path
-          className="airway-lumen"
-          d={lumen}
-          fill={`url(#${uid}-lumen)`}
-          stroke="#e7b6a5"
-          strokeWidth={after ? 11 : 17}
-          strokeLinejoin="round"
-        />
-        {Array.from({ length: 9 }, (_, i) => (
-          <path
-            key={i}
-            d="M100 20 Q104 25 101 31"
-            stroke="#8c514d"
-            opacity=".35"
-            strokeWidth="1.5"
-            fill="none"
-            transform={`rotate(${i * 40} 100 100)`}
-          />
-        ))}
-      </svg>
-      <figcaption>
-        Airway smooth muscle <span>Magnified cross-section · schematic</span>
-      </figcaption>
-    </figure>
-  );
-}
+function AirwayDetail({ after }: { after: boolean }) { return <AirwayCrossSection progress={after ? 100 : 0} />; }
 
 function AnatomicalMechanism({ med }: { med: Medication }) {
   const [after, setAfter] = useState(false);

@@ -22,7 +22,7 @@ export interface SceneProps {
   selectedStructure: string | null;
   hoveredOrgan?: Organ | null;
   bodyVariant: BodyVariant;
-  focusRequest: { target: OrganSearchEntry; sequence: number } | null;
+  focusRequest: { target: OrganSearchEntry; sequence: number; cameraOnly?: boolean } | null;
   hiddenStructures: string[];
   membranes: boolean;
   command: { action: ViewAction; sequence: number };
@@ -141,7 +141,7 @@ export default function AnatomyScene(props: SceneProps) {
           ? (organ !== null && state.medicine.organs.includes(organ)) || (state.medicine.id === "insulin" && layer === "muscular") || (state.medicine.id === "warfarin" && layer === "cardiovascular")
           : state.medicine.systems.includes(itemSystem));
         const searchTarget = state.focusRequest?.target;
-        const searchMatch = searchTarget && !searchTarget.organ && layer === searchTarget.layer && new RegExp(searchTarget.pattern!, "i").test(item.searchText ?? name);
+        const searchMatch = searchTarget && !state.focusRequest?.cameraOnly && !searchTarget.organ && layer === searchTarget.layer && new RegExp(searchTarget.pattern!, "i").test(item.searchText ?? name);
         const inspected = state.selectedStructure === name || (state.selected !== null && state.selected === organ) || !!searchMatch;
         const previewed = (state.hoveredOrgan != null && state.hoveredOrgan === organ) || (hovered?.organ ? hovered.organ === organ : hovered?.name === name);
         if (inspected) selectedCount++;

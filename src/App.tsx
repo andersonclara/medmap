@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
+import "./learning.css";
 import {
   ArrowRight,
   ArrowUpRight,
@@ -31,6 +32,7 @@ import { USRankings } from "./components/USRankings";
 import { SimulationMode } from "./components/SimulationMode";
 import { AilmentPicker } from "./components/AilmentPicker";
 import { firstAilmentForMedicine, medicinesForAilment, resolveAilment } from "./data/ailments";
+const PatientStory = lazy(() => import("./components/PatientStory").then((module) => ({ default: module.PatientStory })));
 function readRoute() {
   const [path, queryString] = location.hash.slice(1).split("?");
   const [section, medicationId, comparisonId] = path.split("/");
@@ -39,7 +41,7 @@ function readRoute() {
   const allowed = medicinesForAilment(condition);
   return {
     page:
-      section === "rankings" ? "rankings" : section === "simulate" ? "explore" : section === "compare"
+      section === "demo" ? "demo" : section === "stories" ? "stories" : section === "rankings" ? "rankings" : section === "simulate" ? "explore" : section === "compare"
         ? "compare"
         : section === "explore"
           ? "explore"
@@ -155,12 +157,13 @@ export default function App() {
             How it works
           </a>
           <a className={page === "rankings" ? "current" : ""} href="#rankings">U.S. rankings</a>
+          <a className={page === "stories" || page === "demo" ? "current" : ""} href="#stories/asthma">Patient Stories</a>
         </nav>
-        <a className="nav-cta" href="#explore">
-          Start exploring <ArrowUpRight size={16} />
+        <a className="nav-cta" href="#demo">
+          Start demo <ArrowUpRight size={16} />
         </a>
       </header>
-      {page === "rankings" ? <USRankings /> : page === "compare" ? (
+      {page === "demo" || page === "stories" ? <Suspense fallback={<main className="explorer" role="status">Opening your interactive patient story...</main>}><PatientStory key={page} demo={page === "demo"} /></Suspense> : page === "rankings" ? <USRankings /> : page === "compare" ? (
         <MedicationComparison ids={compareIds} />
       ) : page === "conditions" ? (
         <main className="explorer conditions-page">
@@ -312,9 +315,11 @@ export default function App() {
                 Your medicine has a story. See it unfold with interactive
                 anatomy and clear explanations that make the science feel human.
               </p>
-              <a className="primary large" href="#explore">
-                Explore Medications <ArrowRight size={19} />
+              <a className="primary large" href="#demo">
+                Start Interactive Demo <ArrowRight size={19} />
               </a>
+              <a className="hero-secondary" href="#explore">Explore Medications <ArrowUpRight size={16} /></a>
+              <p className="hero-demo-note">One fictional asthma story. From anatomy to a mechanism you can explore.</p>
               <div className="hero-assurance">
                 <ShieldCheck size={16} /> Free to explore. No sign-up. Just
                 understanding.

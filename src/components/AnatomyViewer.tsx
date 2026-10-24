@@ -1,10 +1,10 @@
-import { lazy, Suspense, useId, useRef, useState } from "react";
+import { lazy, Suspense, useEffect, useId, useRef, useState } from "react";
 import { ChevronDown, Info, Layers, RotateCcw, Rotate3D, ZoomIn, ZoomOut } from "lucide-react";
 import { layerNames, medicineMaps, systemNames, type BodySystem, type BodyVariant, type Layer, type MedicineMap } from "../data/anatomy";
 import { organInfo, type Organ } from "../data/medications";
 import type { ViewAction } from "./AnatomyScene";
 import { OrganSearch } from "./OrganSearch";
-import type { OrganSearchEntry } from "../data/organSearch";
+import { organSearchEntries, type OrganSearchEntry } from "../data/organSearch";
 import { hasReferenceOrgan, referenceAtlas } from "../data/referenceAtlas";
 
 const AnatomyScene = lazy(() => import("./AnatomyScene"));
@@ -21,19 +21,21 @@ function savedBodyVariant(): BodyVariant {
   catch { return "male"; }
 }
 
-export function AnatomyViewer({ target = "Lungs", compact = false, medicationId, onGuideSelect, medicineProfile, showMedicineControls = true, showMedicineSelector = true, simulationStage }: {
+export function AnatomyViewer({ target = "Lungs", compact = false, medicationId, onGuideSelect, medicineProfile, showMedicineControls = true, showMedicineSelector = true, simulationStage, autoFocusTarget = false, focusSignal = 0, initialControlsExpanded }: {
   target?: Organ; compact?: boolean; medicationId?: string; onGuideSelect?: (id: string) => void;
   medicineProfile?: MedicineMap; showMedicineControls?: boolean; showMedicineSelector?: boolean; simulationStage?: "baseline" | "target";
+  autoFocusTarget?: boolean; focusSignal?: number;
+  initialControlsExpanded?: boolean;
 }) {
   const uid = useId();
   const [bodyVariant, setBodyVariant] = useState<BodyVariant>(savedBodyVariant);
   const [hoveredOrgan, setHoveredOrgan] = useState<Organ | null>(null);
   const searchSequence = useRef(0);
   const [searchReset, setSearchReset] = useState(0);
-  const [focusRequest, setFocusRequest] = useState<{ target: OrganSearchEntry; sequence: number } | null>(null);
+  const [focusRequest, setFocusRequest] = useState<{ target: OrganSearchEntry; sequence: number; cameraOnly?: boolean } | null>(null);
   const initialMedicine = medicineProfile ?? medicineMaps.find((med) => med.id === medicationId) ?? medicineMaps.find((med) => med.organs.includes(target)) ?? medicineMaps[0];
   const interactive = true;
-  const [expanded, setExpanded] = useState(!compact);
+  const [expanded, setExpanded] = useState(initialControlsExpanded ?? !compact);
   const [layers, setLayers] = useState(() => ({ ...initialLayers, ...Object.fromEntries(initialMedicine.layers.map((layer) => [layer, 1])) }));
   const [system, setSystem] = useState<BodySystem>("all");
   const [medicineId, setMedicineId] = useState(initialMedicine.id);
@@ -46,6 +48,17 @@ export function AnatomyViewer({ target = "Lungs", compact = false, medicationId,
   const medicine = medicineProfile ?? medicineMaps.find((med) => med.id === medicineId)!;
   const highlightActive = showEffects && simulationStage !== "baseline";
   const missingTargets = medicine.organs.filter((organ) => !hasReferenceOrgan(bodyVariant, organ));
+  useEffect(() => {
+    if (!autoFocusTarget) return;
+    const organ = medicine.organs.find((name) => hasReferenceOrgan(bodyVariant, name));
+    const target = organ ? organSearchEntries.find((entry) => entry.organ === organ) : !medicine.organs.length && medicine.systems.length ? { id: `medicine-${medicine.id}`, label: systemNames[medicine.systems[0]], aliases: "", layer: medicine.layers[0], system: medicine.systems[0], pattern: ".*" } : undefined;
+    if (target) {
+      setSelected(null); setStructure(null); setHoveredOrgan(null); setSystem("all"); setHiddenStructures([]);
+      setLayers((current) => ({ ...current, ...Object.fromEntries(medicine.layers.map((layer) => [layer, 1])) }));
+      setFocusRequest({ target, sequence: ++searchSequence.current, cameraOnly: true });
+    }
+    // A reference switch preserves the user's camera; a new medicine or explicit focus request refocuses.
+  }, [autoFocusTarget, medicine.id, focusSignal]);
   const act = (action: ViewAction) => setCommand((value) => ({ action, sequence: value.sequence + 1 }));
   function chooseMedicine(id: string) {
     const next = medicineMaps.find((med) => med.id === id)!;
