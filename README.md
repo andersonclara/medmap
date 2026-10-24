@@ -10,6 +10,8 @@ Knowing a medication's name is different from understanding what it does. MedMap
 
 Built for curious patients, caregivers, and students, this hackathon prototype turns medication education into something you can explore at your own pace: rotate reference anatomy, open a signaling pathway, move a before-and-after illustration, and explain what you learned.
 
+Deployed site: https://medmap-health.vercel.app/
+
 [Record the hackathon demo →](docs/HACKATHON-DEMO.md) · [Guided lesson details](docs/PATIENT-STORIES-DEMO.md)
 
 ## Meet Maya. Make the mechanism click.
