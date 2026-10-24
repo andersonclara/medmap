@@ -7,6 +7,7 @@ import {
   ChevronDown,
   Compass,
   HeartPulse,
+  GitCompareArrows,
   Menu,
   Search,
   ShieldCheck,
@@ -14,6 +15,10 @@ import {
   Stethoscope,
   X,
 } from "lucide-react";
+import { BrandLogo } from "./components/BrandLogo";
+import { SimilarMedications } from "./components/SimilarMedications";
+import { MedicationComparison } from "./components/MedicationComparison";
+import { comparisonHref } from "./data/medicationRelationships";
 import { TargetRegion } from "./components/TargetRegion";
 import { AnatomicalGraphic } from "./components/AnatomicalGraphic";
 import { conditionTreatments } from "./data/conditionTreatments";
@@ -24,23 +29,27 @@ import { conditionSource, conditions } from "./data/conditions";
 import { medications } from "./data/medications";
 function readRoute() {
   const [path, queryString] = location.hash.slice(1).split("?");
-  const [section, medicationId] = path.split("/");
+  const [section, medicationId, comparisonId] = path.split("/");
   return {
     page:
-      section === "explore"
-        ? "explore"
-        : section === "conditions"
-          ? "conditions"
-          : "home",
+      section === "compare"
+        ? "compare"
+        : section === "explore"
+          ? "explore"
+          : section === "conditions"
+            ? "conditions"
+            : "home",
     id: medications.some((m) => m.id === medicationId)
       ? medicationId
       : "albuterol",
     condition: new URLSearchParams(queryString).get("condition") ?? "",
+    compareIds: [medicationId ?? "", comparisonId ?? ""] as [string, string],
   };
 }
 export default function App() {
   const [page, setPage] = useState(readRoute().page);
   const [id, setId] = useState(readRoute().id);
+  const [compareIds, setCompareIds] = useState(readRoute().compareIds);
   const [conditionContext, setConditionContext] = useState(
     readRoute().condition,
   );
@@ -54,6 +63,7 @@ export default function App() {
     const sync = () => {
       const route = readRoute();
       setPage(route.page);
+      setCompareIds(route.compareIds);
       setId(route.id);
       setConditionContext(route.condition);
       setScientific(false);
@@ -85,10 +95,7 @@ export default function App() {
     <>
       <header className="navbar">
         <a className="brand" href="#home" aria-label="MedMap home">
-          <span className="brand-icon">
-            <AnatomicalGraphic organ="Heart" decorative eager />
-          </span>
-          Med<span>Map</span>
+          <BrandLogo />
         </a>
         <button
           className="mobile-menu"
@@ -102,7 +109,12 @@ export default function App() {
           <a className={page === "home" ? "current" : ""} href="#home">
             Home
           </a>
-          <a className={page === "explore" ? "current" : ""} href="#explore">
+          <a
+            className={
+              page === "explore" || page === "compare" ? "current" : ""
+            }
+            href="#explore"
+          >
             Medication explorer
           </a>
           <a
@@ -131,7 +143,9 @@ export default function App() {
           Start exploring <ArrowUpRight size={16} />
         </a>
       </header>
-      {page === "conditions" ? (
+      {page === "compare" ? (
+        <MedicationComparison ids={compareIds} />
+      ) : page === "conditions" ? (
         <main className="explorer conditions-page">
           <div className="explorer-heading">
             <div>
@@ -379,7 +393,11 @@ export default function App() {
                   onClick={() => choose(m.id)}
                 >
                   <span className={`med-symbol ${m.id}`}>
-                    {m.organ ? <AnatomicalGraphic organ={m.organ} decorative /> : <HeartPulse />}
+                    {m.organ ? (
+                      <AnatomicalGraphic organ={m.organ} decorative />
+                    ) : (
+                      <HeartPulse />
+                    )}
                   </span>
                   <div>
                     <strong>{m.name}</strong>
@@ -445,7 +463,11 @@ export default function App() {
                     aria-pressed={m.id === id}
                   >
                     <span className={`med-symbol ${m.id}`}>
-                      {m.organ ? <AnatomicalGraphic organ={m.organ} decorative /> : <HeartPulse size={20} />}
+                      {m.organ ? (
+                        <AnatomicalGraphic organ={m.organ} decorative />
+                      ) : (
+                        <HeartPulse size={20} />
+                      )}
                     </span>
                     <span>
                       <strong>{m.name}</strong>
@@ -482,7 +504,12 @@ export default function App() {
                     {(med.target ?? med.organ ?? "Target area").toLowerCase()}
                   </p>
                 </div>
-                <span className="small-pill">Medication guide</span>
+                <a
+                  className="guide-compare-button"
+                  href={comparisonHref(med.id)}
+                >
+                  <GitCompareArrows size={16} /> Compare medicines
+                </a>
               </div>
               {conditionContext &&
                 conditionTreatments[conditionContext]?.medicationIds.includes(
@@ -514,7 +541,19 @@ export default function App() {
                 />
               )}
               <div className="detail-grid">
-                {!med.organ && (
+                {med.organ ? (
+                  <section
+                    className="card guide-anatomy-summary"
+                    aria-label="Medication target summary"
+                  >
+                    <AnatomicalGraphic organ={med.organ} />
+                    <h3>{med.target ?? med.organ}</h3>
+                    <p>
+                      The atlas above locates representative anatomy. Explore
+                      the mechanism below to learn about the medicine’s action.
+                    </p>
+                  </section>
+                ) : (
                   <TargetRegion
                     target={med.target ?? "Target area"}
                     category={med.category}
@@ -566,6 +605,7 @@ export default function App() {
                   </div>
                 </section>
               </div>
+              <SimilarMedications medication={med} />
               <MechanismAnimation key={id + "mechanism"} med={med} />
               <div className="education-grid">
                 <details className="card education" open>
@@ -631,13 +671,18 @@ export default function App() {
       )}
       <footer>
         <a className="brand" href="#home">
-          <span className="brand-icon">
-            <AnatomicalGraphic organ="Heart" decorative />
-          </span>
-          Med<span>Map</span>
+          <BrandLogo />
         </a>
         <p>See how your medicine works.</p>
-        <p className="anatomy-attribution">Anatomy: BoneHub CT skeletons (Alavi &amp; Asseln, 2026) and Human Reference Atlas v1.10 organs (Browne &amp; Schlehlein), based on the NLM Visible Human Project. CC BY 4.0. <a href={`${import.meta.env.BASE_URL}models/reference/NOTICE.md`}>Sources and attribution</a>.</p>
+        <p className="anatomy-attribution">
+          Anatomy: BoneHub CT skeletons (Alavi &amp; Asseln, 2026) and Human
+          Reference Atlas v1.10 organs (Browne &amp; Schlehlein), based on the
+          NLM Visible Human Project. CC BY 4.0.{" "}
+          <a href={`${import.meta.env.BASE_URL}models/reference/NOTICE.md`}>
+            Sources and attribution
+          </a>
+          .
+        </p>
         <div className="disclaimer">
           <ShieldCheck size={19} />
           <p>

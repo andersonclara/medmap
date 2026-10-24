@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 76" fill="none">
+  <title>MedMap — medication education, mapped clearly</title>
+  <path d="M36 5C21 5 10 16 10 31C10 47.5 32.5 67.5 35 69.6C35.6 70.1 36.4 70.1 37 69.6C39.5 67.5 62 47.5 62 31C62 16 51 5 36 5Z" fill="#087F76"/>
+  <g transform="rotate(35 36 30)">
+    <rect x="25" y="12" width="22" height="36" rx="11" fill="white"/>
+    <path d="M25 30H47V37A11 11 0 0 1 25 37V30Z" fill="#BCE3D7"/>
+    <path d="M25 30H47" stroke="#087F76" stroke-width="2"/>
+    <rect x="25" y="12" width="22" height="36" rx="11" stroke="#E5F3ED" stroke-width="1.5"/>
+  </g>
+</svg>
