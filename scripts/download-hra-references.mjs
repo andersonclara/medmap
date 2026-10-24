@@ -1,0 +1,20 @@
+import fs from "node:fs";
+import { Readable } from "node:stream";
+import { pipeline } from "node:stream/promises";
+await Promise.all(["male", "female"].map(async (sex) => {
+  const filename = `assets-source/free-atlas/hra-${sex}.glb`;
+  const url = `https://cdn.humanatlas.io/digital-objects/ref-organ/united-${sex}/v1.10/assets/3d-vh-${sex[0]}-united.glb`;
+  const total = Number((await fetch(url, { method: "HEAD" })).headers.get("content-length"));
+  const existing = fs.existsSync(filename) ? fs.statSync(filename).size : 0;
+  if (existing === total) return console.log(`${sex}: source already downloaded`);
+  const response = await fetch(url, { headers: existing ? { Range: `bytes=${existing}-` } : {} });
+  if (!response.ok) throw new Error(`${sex}: HTTP ${response.status}`);
+  const append = response.status === 206;
+  let received = append ? existing : 0;
+  let last = received;
+  const stream = Readable.fromWeb(response.body);
+  stream.on("data", (chunk) => { received += chunk.length; if (received - last > 32e6) { last = received; console.log(`${sex}: ${(received / 1e6).toFixed(0)}/${(total / 1e6).toFixed(0)} MB`); } });
+  await pipeline(stream, fs.createWriteStream(filename, { flags: append ? "a" : "w" }));
+  if (fs.statSync(filename).size !== total) throw new Error(`${sex}: source size mismatch`);
+  console.log(`${sex}: source ready`);
+}));

@@ -1,3 +1,25 @@
+export type Organ =
+  "Brain" | "Lungs" | "Heart" | "Liver" | "Stomach" | "Kidneys";
+export interface Medication {
+  id: string;
+  name: string;
+  category: string;
+  organ: Organ;
+  system: string;
+  uses: string;
+  simple: string;
+  scientific: string;
+  definition: string;
+  safety: string;
+  questions: string[];
+  source: string;
+  quiz: string;
+  choices: string[];
+  correct: number;
+}
+export const medications: Medication[] = [
+  {
+    id: "albuterol",
 import type { Medication, Organ } from "../types/medication";
 import { extendedMedications } from "./extendedMedications";
 export type { Medication, Organ, Mechanism } from "../types/medication";
@@ -98,6 +120,7 @@ const originalMedications: Medication[] = [
     ],
     correct: 2,
   },
+];
 
   {
     id: "atorvastatin",

@@ -14,6 +14,17 @@ import {
   Stethoscope,
   X,
 } from "lucide-react";
+import { AnatomyViewer } from "./components/AnatomyViewer";
+import { AnatomicalGraphic } from "./components/AnatomicalGraphic";
+import { MechanismAnimation } from "./components/MechanismAnimation";
+import { KnowledgeQuiz } from "./components/KnowledgeQuiz";
+import { medications } from "./data/medications";
+export default function App() {
+  const [page, setPage] = useState(
+    location.hash.startsWith("#explore") ? "explore" : "home",
+  );
+  const [id, setId] = useState("albuterol");
+  const [query, setQuery] = useState("");
 import { TargetRegion } from "./components/TargetRegion";
 import { conditionTreatments } from "./data/conditionTreatments";
 import { AnatomyViewer } from "./components/AnatomyViewer";
@@ -51,6 +62,7 @@ export default function App() {
   const med = medications.find((m) => m.id === id)!;
   useEffect(() => {
     const sync = () => {
+      setPage(location.hash.startsWith("#explore") ? "explore" : "home");
       const route = readRoute();
       setPage(route.page);
       setId(route.id);
@@ -63,6 +75,9 @@ export default function App() {
     return () => window.removeEventListener("hashchange", sync);
   }, []);
   const filtered = medications.filter((m) =>
+    `${m.name} ${m.category} ${m.organ} ${m.uses}`
+      .toLowerCase()
+      .includes(query.toLowerCase()),
     `${m.name} ${m.category} ${m.organ ?? ""} ${m.target ?? ""} ${m.uses} ${m.conditions.join(" ")} ${conditions
       .filter((c) => conditionTreatments[c.name].medicationIds.includes(m.id))
       .map((c) => c.name)
@@ -85,6 +100,7 @@ export default function App() {
       <header className="navbar">
         <a className="brand" href="#home" aria-label="MedMap home">
           <span className="brand-icon">
+            <AnatomicalGraphic organ="Heart" decorative eager />
             <HeartPulse size={24} />
           </span>
           Med<span>Map</span>
@@ -130,6 +146,7 @@ export default function App() {
           Start exploring <ArrowUpRight size={16} />
         </a>
       </header>
+      {page === "home" ? (
       {page === "conditions" ? (
         <main className="explorer conditions-page">
           <div className="explorer-heading">
@@ -294,6 +311,7 @@ export default function App() {
               <AnatomyViewer compact />
               <div className="floating-card">
                 <span className="float-icon">
+                  <AnatomicalGraphic organ="Lungs" decorative eager />
                   <WindIcon />
                 </span>
                 <div>
@@ -332,6 +350,7 @@ export default function App() {
             <div className="feature-grid">
               {[
                 {
+                  icon: <AnatomicalGraphic organ="Body" decorative />,
                   icon: <Compass />,
                   number: "01",
                   title: "Explore your body",
@@ -365,6 +384,13 @@ export default function App() {
             <div>
               <span className="eyebrow">SMALL LIBRARY. BIG UNDERSTANDING.</span>
               <h2>Meet the medicines.</h2>
+              <p>Three familiar medications. Three stories inside the body.</p>
+            </div>
+            <div className="med-preview-grid">
+              {medications.map((m) => (
+                <a href="#explore" key={m.id} onClick={() => choose(m.id)}>
+                  <span className={`med-symbol ${m.id}`}>
+                    <AnatomicalGraphic organ={m.organ} decorative />
               <p>
                 Explore {medications.length} medication guides for common
                 conditions.
@@ -405,6 +431,7 @@ export default function App() {
               <p>Choose a medication. Explore the connection.</p>
             </div>
             <span className="library-pill">
+              <BookOpen size={16} /> 3 medication guides
               <BookOpen size={16} /> {medications.length} medication guides
             </span>
           </div>
@@ -428,6 +455,7 @@ export default function App() {
                 )}
               </label>
               <span className="eyebrow sidebar-label">MEDICATION LIBRARY</span>
+              <div className="med-list">
               <p className="search-help">
                 Search by name, organ, or condition, such as high blood
                 pressure.
@@ -444,6 +472,7 @@ export default function App() {
                     aria-pressed={m.id === id}
                   >
                     <span className={`med-symbol ${m.id}`}>
+                      <AnatomicalGraphic organ={m.organ} decorative />
                       <HeartPulse size={20} />
                     </span>
                     <span>
@@ -469,6 +498,7 @@ export default function App() {
               </div>
             </aside>
             <div className="med-detail">
+              <AnatomyViewer key={id} target={med.organ} medicationId={id} onGuideSelect={choose} />
               <div className="med-heading">
                 <div>
                   <span className="eyebrow">{med.system}</span>
@@ -478,11 +508,13 @@ export default function App() {
                   </h2>
                   <p>
                     <span className="target-dot" /> Primary focus:{" "}
+                    {med.organ.toLowerCase()}
                     {(med.target ?? med.organ ?? "Target area").toLowerCase()}
                   </p>
                 </div>
                 <span className="small-pill">Medication guide</span>
               </div>
+              <div className="detail-grid">
               {conditionContext &&
                 conditionTreatments[conditionContext]?.medicationIds.includes(
                   id,
@@ -550,6 +582,8 @@ export default function App() {
                     )}
                   </div>
                   <div className="connection-note">
+                    <span className="target-dot" /> Follow the highlighted{" "}
+                    {med.organ.toLowerCase()} on the body map.
                     <span className="target-dot" />{" "}
                     {med.organ ? "Follow the highlighted" : "Explore the"}{" "}
                     {(med.target ?? med.organ ?? "Target area").toLowerCase()}{" "}
@@ -609,6 +643,7 @@ export default function App() {
                 <span>
                   Keep learning:{" "}
                   <a href={med.source} target="_blank" rel="noreferrer">
+                    MedlinePlus — {med.name} <ArrowUpRight size={13} />
                     {med.sourceLabel ?? "MedlinePlus"} — {med.name}{" "}
                     <ArrowUpRight size={13} />
                   </a>
@@ -625,6 +660,7 @@ export default function App() {
       <footer>
         <a className="brand" href="#home">
           <span className="brand-icon">
+            <AnatomicalGraphic organ="Heart" decorative />
             <HeartPulse size={21} />
           </span>
           Med<span>Map</span>
@@ -647,6 +683,12 @@ export default function App() {
           Made for understanding. Built with care.{" "}
           <span>MedMap · Educational prototype</span>
         </span>
+        <details className="anatomy-art-credits">
+          <summary>Anatomical artwork credits</summary>
+          <p>BodyParts3D - The Database Center for Life Science - CC-BY-SA 2.1 Japan<br />Z-Anatomy - The open source atlas of anatomy - CC-BY-SA 4.0</p>
+          <p>Female: HuBMAP Consortium / Human Reference Atlas, 3D Reference Organ Set for Female v1.5, CC BY 4.0. Web mesh export from Femora Atlas. <a href={`${import.meta.env.BASE_URL}models/female/ATTRIBUTION.md`}>Female reference attribution</a>.</p>
+          <p>Body and organ renders use the same meshes as the interactive atlas. See <a href={`${import.meta.env.BASE_URL}models/NOTICE`}>male model credits</a> and <a href={`${import.meta.env.BASE_URL}models/LICENSE`}>male model licensing</a>.</p>
+        </details>
       </footer>
     </>
   );

@@ -1,0 +1,131 @@
+{
+  "sex": "female",
+  "sources": {
+    "skeleton": "BoneHub/visible-human-3d-models",
+    "skeletonRevision": "7d520ffe410b3f79d82991b8368b2d51844feb80",
+    "organs": "Human Reference Atlas united v1.10"
+  },
+  "boneCount": 143,
+  "registration": {
+    "method": "Uniform scale and translation using shared vertebral bounding-box centers; known patient axes converted from CT millimetres Z-up to glTF metres Y-up. No anatomy deformation.",
+    "scale": 1.0054836639958709,
+    "translation": [
+      0.2472330712046132,
+      0.8609915914655493,
+      -0.16294405875503332
+    ],
+    "landmarks": [
+      {
+        "bone": "VERTEBRA_C1",
+        "residualMm": 5.299449069591409
+      },
+      {
+        "bone": "VERTEBRA_C2",
+        "residualMm": 5.447647374548124
+      },
+      {
+        "bone": "VERTEBRA_C3",
+        "residualMm": 5.475199312016022
+      },
+      {
+        "bone": "VERTEBRA_C4",
+        "residualMm": 4.539654800698892
+      },
+      {
+        "bone": "VERTEBRA_C5",
+        "residualMm": 4.4047828519719445
+      },
+      {
+        "bone": "VERTEBRA_C6",
+        "residualMm": 3.1177564701338882
+      },
+      {
+        "bone": "VERTEBRA_C7",
+        "residualMm": 2.648918619586624
+      },
+      {
+        "bone": "VERTEBRA_T1",
+        "residualMm": 2.522760585174558
+      },
+      {
+        "bone": "VERTEBRA_T2",
+        "residualMm": 1.6986904118693973
+      },
+      {
+        "bone": "VERTEBRA_T3",
+        "residualMm": 1.0960975676402982
+      },
+      {
+        "bone": "VERTEBRA_T4",
+        "residualMm": 1.8011598525626145
+      },
+      {
+        "bone": "VERTEBRA_T5",
+        "residualMm": 1.186870728188991
+      },
+      {
+        "bone": "VERTEBRA_T6",
+        "residualMm": 0.8091914702594303
+      },
+      {
+        "bone": "VERTEBRA_T7",
+        "residualMm": 1.0992728641905012
+      },
+      {
+        "bone": "VERTEBRA_T8",
+        "residualMm": 1.6227480374071501
+      },
+      {
+        "bone": "VERTEBRA_T9",
+        "residualMm": 2.0298160936286758
+      },
+      {
+        "bone": "VERTEBRA_T10",
+        "residualMm": 1.2925992892408569
+      },
+      {
+        "bone": "VERTEBRA_T11",
+        "residualMm": 1.6835698937082695
+      },
+      {
+        "bone": "VERTEBRA_T12",
+        "residualMm": 1.6808811539368047
+      },
+      {
+        "bone": "VERTEBRA_L1",
+        "residualMm": 7.332561945169308
+      },
+      {
+        "bone": "VERTEBRA_L2",
+        "residualMm": 3.5557660143251355
+      },
+      {
+        "bone": "VERTEBRA_L3",
+        "residualMm": 3.44703521428484
+      },
+      {
+        "bone": "VERTEBRA_L4",
+        "residualMm": 5.1025527834651
+      },
+      {
+        "bone": "VERTEBRA_L5",
+        "residualMm": 4.805798542534015
+      },
+      {
+        "bone": "VERTEBRA_L6",
+        "residualMm": 3.458123535702401
+      },
+      {
+        "bone": "SACRUM",
+        "residualMm": 8.926500057203286
+      }
+    ],
+    "rmsMm": 3.8957704604937233,
+    "maxMm": 8.926500057203286
+  },
+  "limitations": [
+    "Reference assembly registration, not a patient-specific or clinically validated model.",
+    "BoneHub elbow regions are truncated in the source CT; some bones are grouped or absent.",
+    "HRA organ, muscle, and nerve coverage is incomplete."
+  ]
+}

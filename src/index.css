@@ -332,6 +332,143 @@ svg {
   outline: none;
   filter: drop-shadow(0 0 4px #e7b77077);
 }
+.anatomy-render .anatomical-hotspot {
+  fill: transparent;
+  stroke: transparent;
+  stroke-width: 1.5;
+}
+.anatomy-render .anatomical-hotspot.active {
+  fill: #40c7af22;
+  stroke: #3bb79c;
+  animation: none;
+  filter: drop-shadow(0 0 5px #35c9ae99);
+}
+.anatomy-render .anatomical-hotspot:hover,
+.anatomy-render .anatomical-hotspot:focus-visible,
+.anatomy-render .anatomical-hotspot.inspected {
+  fill: #ffe5ac33;
+  stroke: #b88029;
+  filter: drop-shadow(0 0 4px #e7b77088);
+}
+.anatomical-hotspot > path[stroke="white"] {
+  display: none;
+}
+.anatomy-explorer { margin-bottom: 28px; }
+.atlas-heading { padding: 14px 22px 0; }
+.atlas-source-summary { margin: 12px 18px 0; font-size: 10px; color: #658270; line-height: 1.5; }
+.unavailable-organ { display: grid; place-content: center; text-align: center; border: 1px dashed #cbd9cd; border-radius: 10px; background: #f1f6f1; color: #6a7e6b; padding: 12px; }
+.unavailable-organ strong { font-size: 15px; }
+.unavailable-organ small { display: block; font-size: 10px; margin-top: 5px; }
+.med-symbol .unavailable-organ { padding: 2px; border: 0; }
+.med-symbol .unavailable-organ strong { font-size: 7px; }
+.med-symbol .unavailable-organ small { display: none; }
+.organ-search { position: relative; margin: 14px 18px 0; z-index: 5; }
+.organ-search > label { display: block; margin-bottom: 7px; font-size: 11px; font-weight: 600; color: #4c6e60; }
+.organ-search-input { display: flex; gap: 8px; align-items: center; border: 1px solid #cfded5; background: #fff; padding: 10px 12px; border-radius: 7px; color: #6f8c7c; }
+.organ-search-input:focus-within { outline: 2px solid #3994d9; outline-offset: 2px; }
+.organ-search-input input { width: 100%; min-width: 0; border: 0; background: transparent; font: inherit; font-size: 12px; outline: none !important; color: #365f49; }
+.organ-search-input button { display: flex; background: none; padding: 2px; color: #6f8c7c; }
+.organ-search ul { position: absolute; top: 100%; left: 0; right: 0; margin: 5px 0 0; padding: 5px; list-style: none; background: #fff; border: 1px solid #cfded5; border-radius: 8px; box-shadow: 0 8px 24px #2347351a; max-height: 260px; overflow-y: auto; }
+.organ-search li[role="option"] { display: flex; justify-content: space-between; gap: 12px; padding: 11px 10px; cursor: pointer; border-radius: 5px; font-size: 12px; color: #365f49; }
+.organ-search li[aria-selected="true"], .organ-search li[role="option"]:hover { background: #eaf4fe; color: #176bb1; }
+.organ-search li span { font-size: 10px; color: #839389; }
+.organ-search-empty { padding: 12px; font-size: 12px; color: #718274; }
+.atlas-body-selector { display: flex; flex-wrap: wrap; gap: 5px; align-items: center; padding: 15px 18px 0; }
+.atlas-body-selector > span { font-size: 10px; color: #6a8577; margin-right: 7px; }
+.atlas-body-selector button { background: #ffffffcf; color: #50715f; border: 1px solid #d1e0d6; padding: 8px 15px; border-radius: 6px; font-size: 11px; }
+.atlas-body-selector button[aria-pressed="true"] { background: #257d68; border-color: #257d68; color: #fff; }
+.atlas-coverage-note { font-size: 9px; line-height: 1.6; color: #829182; }
+.scene-hover-label { position: absolute; top: 59px; left: 12px; right: 12px; width: fit-content; margin: auto; max-width: calc(100% - 24px); border: 1px solid #a1cae8; background: #f5fbffed; padding: 7px 10px; border-radius: 5px; font-size: 10px; color: #36749e; pointer-events: none; }
+.anatomy-scene-shell:has(.scene-focus-label) .scene-hover-label { top: 120px; }
+.atlas-heading h3 { margin: 0 0 6px; font-size: 23px; letter-spacing: -.6px; }
+.atlas-heading p { margin: 0; font-size: 12px; color: #627f77; }
+.atlas-workspace { display: grid; grid-template-columns: minmax(0, 1fr) 245px; padding: 16px; gap: 14px; }
+.atlas-viewport { position: relative; min-width: 0; height: 520px; border: 1px solid #dce8e2; border-radius: 12px; overflow: hidden; background: radial-gradient(ellipse at 50% 40%, #fff 0%, #e8f1ee 78%); }
+.anatomy-scene-shell, .anatomy-scene { width: 100%; height: 100%; }
+.anatomy-scene canvas { display: block; width: 100%; height: 100%; touch-action: none; cursor: grab; }
+.anatomy-scene canvas:active { cursor: grabbing; }
+.anatomy-scene canvas:focus-visible { outline: 3px solid #248b79; outline-offset: -4px; }
+.atlas-views { position: absolute; top: 12px; left: 50%; transform: translateX(-50%); display: flex; background: #ffffffed; border: 1px solid #d5e3db; border-radius: 7px; padding: 3px; }
+.atlas-views button { text-transform: capitalize; background: transparent; font-size: 10px; padding: 7px 9px; color: #47695e; border-radius: 5px; }
+.atlas-views button:hover { background: #e0f0e9; }
+.atlas-zoom { position: absolute; right: 12px; bottom: 42px; display: grid; gap: 5px; }
+.atlas-zoom button { background: #ffffffed; border: 1px solid #d9e6df; border-radius: 7px; display: grid; place-items: center; padding: 9px; color: #326659; }
+.atlas-gesture { position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 5px; white-space: nowrap; font-size: 10px; color: #5b7b6f; padding: 5px 8px; border-radius: 5px; background: #f4f9f5e6; pointer-events: none; }
+.atlas-orientation { position: absolute; bottom: 47px; left: 12px; background: #f7fcf9d9; padding: 5px 8px; border-radius: 5px; color: #3a7765; font-size: 9px; pointer-events: none; }
+.atlas-medication-key { position: absolute; bottom: 83px; left: 12px; display: flex; align-items: center; gap: 7px; max-width: calc(100% - 70px); background: #f6fffbef; border: 1px solid #9ddac9; border-radius: 7px; padding: 8px 10px; color: #17634f; pointer-events: none; }
+.atlas-medication-key > i { width: 9px; height: 9px; flex-shrink: 0; background: #16c9a3; border-radius: 50%; box-shadow: 0 0 0 3px #16c9a31a; }
+.atlas-medication-key strong { display: block; font-size: 11px; }
+.atlas-medication-key small { display: block; font-size: 9px; margin-top: 3px; }
+.atlas-controls { min-width: 0; border: 1px solid #dbe7df; background: #ffffffba; padding: 14px; border-radius: 12px; }
+.atlas-controls-toggle { display: flex; align-items: center; gap: 7px; background: none; width: 100%; padding: 0 0 12px; color: #294d40; font-weight: 600; font-size: 12px; }
+.atlas-controls-toggle svg:last-child { margin-left: auto; }
+.atlas-select { display: grid; gap: 8px; font-size: 11px; font-weight: 600; color: #4c6e60; margin: 8px 0 14px; }
+.atlas-select select { display: block; width: 100%; min-width: 0; max-width: 100%; font: inherit; font-size: 11px; color: #294e40; background: #fff; border: 1px solid #cfded5; padding: 10px 7px; border-radius: 6px; }
+.atlas-presets { display: grid; grid-template-columns: 1fr 1fr; gap: 5px; margin: 12px 0 18px; }
+.atlas-presets button { background: #eaf3ee; border: 1px solid #dbe8e0; border-radius: 5px; color: #426d59; font-size: 9px; padding: 8px 4px; }
+.atlas-layers { border: 0; padding: 0; margin: 0; min-width: 0; }
+.atlas-layers legend { font-size: 11px; font-weight: 600; color: #375b4a; margin-bottom: 10px; }
+.atlas-layers legend span { display: block; font-size: 9px; font-weight: 400; color: #7d9288; margin-top: 4px; }
+.atlas-layer { display: grid; grid-template-columns: minmax(0, 1fr) 58px 28px; gap: 6px; align-items: center; min-height: 35px; }
+.atlas-layer label { display: flex; gap: 5px; align-items: center; font-size: 10px; color: #395e4c; }
+.atlas-layer input[type="range"] { width: 100%; min-width: 0; height: 20px; }
+.atlas-layer input, .atlas-highlight-toggle input { accent-color: #208675; }
+.atlas-layer input[type="checkbox"] { margin: 0; width: 13px; height: 13px; flex-shrink: 0; }
+.atlas-layer output { font-size: 9px; color: #789186; text-align: right; }
+.atlas-reset-layers { margin-top: 14px; padding: 8px 0; background: transparent; color: #208675; font-size: 10px; text-decoration: underline; }
+.atlas-membranes { display: flex; align-items: center; gap: 5px; font-size: 10px; color: #527561; line-height: 1.5; margin-top: 13px; }
+.atlas-membranes input { accent-color: #208675; }
+.atlas-hide-structure { display: block; background: #e2eee5; color: #35795a; border-radius: 4px; padding: 5px 8px; margin-top: 7px; font-size: 10px; }
+.atlas-structure { display: block; margin-top: 4px; color: #8c6b38; }
+.atlas-medicine { margin: 4px 18px 14px; border-top: 1px solid #d9e6dc; padding-top: 18px; }
+.atlas-medicine > .atlas-select { margin-top: 12px; }
+.atlas-highlight-toggle { display: flex; gap: 6px; align-items: center; font-size: 11px; color: #4c715f; }
+.atlas-effect { margin-top: 14px; padding: 16px; background: #ffffffbd; border: 1px solid #dce8df; border-left: 3px solid #309d84; border-radius: 7px; }
+.atlas-effect > strong { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 15px; color: #284b3a; }
+.atlas-effect strong span { font-size: 10px; font-weight: 400; color: #6f8d7b; }
+.atlas-effect p { font-size: 12px; line-height: 1.7; margin: 9px 0; color: #476d58; }
+.atlas-effect .atlas-effect-context { font-size: 10px; color: #7b8b7e; }
+.atlas-effect button { background: #dfefe6; padding: 8px 10px; border-radius: 5px; color: #2a7159; font-size: 10px; margin: 4px 12px 4px 0; }
+.atlas-effect a { font-size: 10px; color: #20775d; text-decoration: underline; }
+.atlas-scope { font-size: 9px; line-height: 1.6; color: #7b9081; margin: 10px 0; }
+.atlas-credits { margin: 0 18px 14px; font-size: 9px; line-height: 1.7; color: #759181; }
+.atlas-credits summary { cursor: pointer; }
+.atlas-credits a { color: #397962; text-decoration: underline; }
+.scene-status { position: absolute; top: 55px; left: 12px; right: 12px; margin: auto; width: fit-content; max-width: calc(100% - 24px); font-size: 10px; color: #547d69; background: #fffffff0; border-radius: 6px; padding: 7px 10px; pointer-events: none; }
+.scene-focus-label { position: absolute; top: 58px; left: 12px; right: 12px; width: fit-content; max-width: calc(100% - 24px); margin: auto; display: grid; gap: 5px; text-align: center; background: #ffffffed; border: 1px solid #d5e3db; padding: 8px 12px; border-radius: 7px; color: #47695e; font-size: 10px; }
+.scene-focus-label button { background: #e2f0e8; color: #246a51; border-radius: 5px; padding: 7px; font-size: 10px; }
+.scene-error { position: absolute; top: 65px; left: 12px; right: 12px; font-size: 11px; background: #fff6e4; padding: 12px; border-radius: 6px; color: #80622e; }
+.scene-error button { background: #efe0bf; color: #75531e; padding: 5px 8px; border-radius: 4px; }
+.scene-fallback { position: absolute; inset: 55px 20px 45px; text-align: center; }
+.scene-fallback img { height: 85%; max-width: 100%; object-fit: contain; }
+.scene-fallback p { font-size: 11px; color: #7f6d4c; margin: 7px 0; }
+.atlas-loading { height: 100%; display: grid; place-items: center; font-size: 12px; color: #4d7c67; }
+.atlas-poster { height: 100%; text-align: center; }
+.atlas-poster img { display: block; width: 100%; height: calc(100% - 30px); object-fit: contain; }
+.atlas-poster button { display: inline-flex; align-items: center; gap: 6px; background: #e0f1e9; border: 1px solid #c7e1d4; color: #27775e; border-radius: 20px; padding: 9px 14px; font-size: 11px; position: relative; z-index: 4; }
+.compact .atlas-workspace { display: block; padding: 0; }
+.compact .atlas-viewport { height: 442px; background: transparent; border: 0; overflow: visible; }
+.compact .atlas-controls { margin-top: 18px; }
+.compact .atlas-orientation { display: none; }
+.compact .atlas-credits, .compact .atlas-medicine { background: #f3f9f4; padding: 12px; border-radius: 8px; }
+.med-detail > .detail-grid { display: block; }
+.anatomy-explorer button:focus-visible, .anatomy-explorer select:focus-visible, .anatomy-explorer input:focus-visible { outline: 2px solid #238571; outline-offset: 3px; }
+@media (max-width: 1100px) {
+  .atlas-workspace { grid-template-columns: minmax(0, 1fr) 220px; padding: 12px; gap: 10px; }
+  .atlas-controls { padding: 11px; }
+  .atlas-layer { grid-template-columns: minmax(0, 1fr) 43px 25px; gap: 4px; }
+}
+@media (max-width: 760px) {
+  .atlas-workspace { display: block; }
+  .atlas-viewport { height: 470px; }
+  .atlas-controls { margin-top: 12px; }
+  .atlas-layer { grid-template-columns: minmax(0, 1fr) minmax(70px, 1fr) 32px; min-height: 39px; }
+  .atlas-layer label { font-size: 12px; }
+  .atlas-presets button { font-size: 11px; }
+  .atlas-heading { padding: 15px 16px 0; }
+  .atlas-heading h3 { font-size: 21px; }
+  .atlas-heading p { font-size: 11px; }
+}
 .svg-label {
   stroke: #92b6b0;
   stroke-width: 0.7;
@@ -1951,6 +2088,48 @@ footer > p {
   }
 }
 
+/* Shared atlas artwork across navigation, cards, organ controls, and mechanisms. */
+.hero-visual > .floating-card { position: relative; inset: auto; margin: 0 auto 15px; width: fit-content; max-width: 100%; }
+.hero-visual > .visual-note { position: static; margin-top: 18px; }
+.atlas-poster img { height: calc(100% - 50px); }
+.anatomical-graphic { display: block; width: 100%; height: 100%; object-fit: contain; }
+.brand-icon { background: #eaf2ed; border: 1px solid #d5e2da; }
+.brand-icon .anatomical-graphic { width: 32px; height: 32px; }
+.med-symbol { flex-shrink: 0; }
+.med-symbol .anatomical-graphic { width: 36px; height: 36px; }
+.med-list .med-symbol .anatomical-graphic { width: 31px; height: 31px; }
+.float-icon .anatomical-graphic { width: 43px; height: 43px; }
+.feature-top .anatomical-graphic { width: 38px; height: 38px; }
+.anatomy-art-credits { color: #7c9085; font-size: 10px; line-height: 1.7; margin-top: 18px; }
+.anatomy-art-credits summary { cursor: pointer; width: fit-content; }
+.anatomy-art-credits p { font-size: 10px; margin: 8px 0; }
+.anatomy-art-credits a { text-decoration: underline; color: #397962; }
+.anatomical-mechanism { background: radial-gradient(ellipse at 20% 40%, #fff, #edf3ef); grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); min-height: 300px; }
+.mechanism-anatomy { min-width: 0; display: grid; justify-items: center; position: relative; padding: 0 0 12px; }
+.mechanism-organ-render { width: min(100%, 240px); height: 235px; position: relative; }
+.mechanism-organ-render > .anatomical-graphic { height: 210px; filter: drop-shadow(0 10px 9px #5c3f3520); }
+.mechanism-organ-render > span { position: absolute; bottom: 0; left: 0; right: 0; text-align: center; font-size: 11px; font-weight: 600; color: #5e7566; }
+.mechanism-organ-render small { display: block; font-size: 8px; font-weight: 400; color: #8b9b8f; margin-top: 3px; letter-spacing: .6px; }
+.with-airway-detail { grid-template-columns: minmax(0, 1fr) minmax(0, .8fr); align-items: center; gap: 3px; }
+.with-airway-detail .mechanism-organ-render { height: 210px; }
+.with-airway-detail .mechanism-organ-render > .anatomical-graphic { height: 185px; }
+.airway-detail { margin: 0; width: 100%; position: relative; }
+.airway-detail:before { content: ""; position: absolute; top: 43%; left: -12%; width: 25%; border-top: 1px dashed #ac8f7d; }
+.airway-detail svg { width: 100%; height: auto; display: block; filter: drop-shadow(0 4px 4px #774b3f22); }
+.airway-detail figcaption { font-size: 9px; text-align: center; line-height: 1.5; color: #8d665a; }
+.airway-detail figcaption span { display: block; font-size: 8px; color: #9a9286; margin-top: 3px; }
+.airway-lumen { transition: d 1.2s ease, stroke-width 1.2s ease; }
+.mechanism-output { width: min(100%, 230px); padding: 14px 12px 0; text-align: center; }
+.mechanism-output-label { font-size: 10px; color: #7e7162; }
+.mechanism-output-particles { display: flex; justify-content: center; gap: 6px; margin: 12px 0 8px; min-height: 9px; }
+.mechanism-output-particles i { width: 8px; height: 8px; flex-shrink: 0; border-radius: 50%; background: #c69b5d; box-shadow: inset -1px -1px 2px #855c3c44; animation: particle 2s infinite; transition: opacity .8s; }
+.mechanism-output-particles i.reduced { opacity: .12; animation: none; }
+.mechanism-output-caption { font-size: 9px; color: #859383; }
+@media (max-width: 760px) {
+  .anatomical-mechanism { grid-template-columns: minmax(0, 1fr); padding: 20px 16px; gap: 20px; }
+  .mechanism-anatomy { width: min(100%, 320px); margin: auto; }
+  .with-airway-detail { grid-template-columns: minmax(0, 1fr) minmax(0, .8fr); }
+  .anatomical-mechanism .scene-copy { text-align: left; }
 /* A growing library stays browsable without squeezing medication names. */
 .search-help {
   font-size: 11px;

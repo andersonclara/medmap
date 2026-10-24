@@ -18,6 +18,8 @@ test("complete medication education demo", async ({ page }) => {
     .getByRole("textbox", { name: "Search medications" })
     .fill("albuterol");
   await expect(page.getByRole("button", { name: /^Albuterol/ })).toBeVisible();
+  await page.getByRole("combobox", { name: "Search organs" }).fill("lung");
+  await page.getByRole("option", { name: /Lungs/ }).click();
   await page
     .getByRole("button", { name: "Explore Lungs", exact: true })
     .locator("path")
@@ -38,6 +40,7 @@ test("complete medication education demo", async ({ page }) => {
       exact: false,
     })
     .click();
+  await expect(page.getByText("Session score: 1/3")).toBeVisible();
   await expect(
     page.getByText(`Session score: 1/${medications.length}`),
   ).toBeVisible();
@@ -58,6 +61,7 @@ test("complete medication education demo", async ({ page }) => {
   await page
     .getByRole("textbox", { name: "Search medications" })
     .fill("unlisted");
+  await expect(page.getByRole("status").filter({ hasText: "No medications found" })).toBeVisible();
   await expect(page.getByRole("status")).toContainText("No medications found");
   await expect(page.locator("body")).toHaveJSProperty(
     "scrollWidth",
@@ -67,6 +71,11 @@ test("complete medication education demo", async ({ page }) => {
 });
 test("anatomy supports keyboard and browser navigation", async ({ page }) => {
   await page.goto("/#explore");
+  const search = page.getByRole("combobox", { name: "Search organs" });
+  await search.fill("pulmonary");
+  await search.press("ArrowDown");
+  await search.press("Enter");
+  await expect.poll(async () => Number(await page.getByTestId("anatomy-scene").getAttribute("data-selected-structures")), { timeout: 30_000 }).toBeGreaterThan(0);
   const lungs = page.getByRole("button", {
     name: "Explore Lungs",
     exact: true,
