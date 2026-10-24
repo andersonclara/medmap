@@ -1,6 +1,9 @@
 
 import { test, expect } from "@playwright/test";
 import { medications } from "../src/data/medications";
+import { conditions } from "../src/data/conditions";
+import { conditionTreatments } from "../src/data/conditionTreatments";
+const ailmentFor = (id: string) => conditions.find((condition) => conditionTreatments[condition.name].medicationIds.includes(id))!.name;
 
 test("complete medication education demo", async ({ page }) => {
   const errors: string[] = [];
@@ -20,6 +23,8 @@ test("complete medication education demo", async ({ page }) => {
   await page
     .getByRole("link", { name: "Explore Medications", exact: true })
     .click();
+  await page.getByRole("combobox", { name: "Ailment", exact: true }).selectOption("Asthma");
+  await page.getByRole("button", { name: /^Albuterol/ }).click();
 
   await page
     .getByRole("textbox", { name: "Search medications" })
@@ -60,6 +65,7 @@ test("complete medication education demo", async ({ page }) => {
   ).toBeVisible();
 
   await page.getByRole("button", { name: "Clear search" }).click();
+  await page.getByRole("combobox", { name: "Ailment", exact: true }).selectOption(ailmentFor("metformin"));
   await page.getByRole("button", { name: /^Metformin/ }).click();
 
   await expect(
@@ -72,6 +78,7 @@ test("complete medication education demo", async ({ page }) => {
     page.getByRole("heading", { name: "Less glucose released." }),
   ).toBeVisible();
 
+  await page.getByRole("combobox", { name: "Ailment", exact: true }).selectOption(ailmentFor("omeprazole"));
   await page.getByRole("button", { name: /^Omeprazole/ }).click();
   await page.getByRole("button", { name: "Show medication effect" }).click();
 
@@ -96,7 +103,7 @@ test("complete medication education demo", async ({ page }) => {
 });
 
 test("anatomy supports keyboard and browser navigation", async ({ page }) => {
-  await page.goto("/#explore");
+  await page.goto("/#explore/albuterol");
 
   const search = page.getByRole("combobox", { name: "Search organs" });
 
@@ -147,7 +154,7 @@ test("anatomy supports keyboard and browser navigation", async ({ page }) => {
 test("common-condition guides have distinct mechanisms and complete education", async ({
   page,
 }) => {
-  await page.goto("/#explore");
+  await page.goto("/#explore/albuterol");
 
   const guides = [
     {
@@ -189,9 +196,8 @@ test("common-condition guides have distinct mechanisms and complete education", 
   ];
 
   for (const [index, guide] of guides.entries()) {
-    await page
-      .getByRole("textbox", { name: "Search medications" })
-      .fill(guide.condition);
+    const guideId = medications.find((med) => med.name === guide.name)!.id;
+    await page.getByRole("combobox", { name: "Ailment", exact: true }).selectOption(ailmentFor(guideId));
 
     await page
       .locator(".med-list")
@@ -281,9 +287,7 @@ test("common-condition guides have distinct mechanisms and complete education", 
   }
 
   // Revisiting a guide must not credit the same medication twice.
-  await page
-    .getByRole("textbox", { name: "Search medications" })
-    .fill("atorvastatin");
+  await page.getByRole("combobox", { name: "Ailment", exact: true }).selectOption(ailmentFor("atorvastatin"));
 
   await page
     .locator(".med-list")
@@ -299,13 +303,11 @@ test("common-condition guides have distinct mechanisms and complete education", 
     page.getByText(`Session score: 4/${medications.length}`),
   ).toBeVisible();
 
-  await page
-    .getByRole("textbox", { name: "Search medications" })
-    .fill("   HYPERTENSION   ");
+  await page.getByRole("combobox", { name: "Ailment", exact: true }).selectOption("High blood pressure (hypertension)");
 
   await expect(
     page.locator(".med-list").getByRole("button", { name: /^Metoprolol/ }),
-  ).toBeVisible();
+  ).toHaveCount(0);
 
   await expect(
     page

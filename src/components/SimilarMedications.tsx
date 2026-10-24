@@ -5,8 +5,8 @@ import {
   getSimilarMedications,
   relationshipLabels,
 } from "../data/medicationRelationships";
-export function SimilarMedications({ medication }: { medication: Medication }) {
-  const suggestions = getSimilarMedications(medication.id);
+export function SimilarMedications({ medication, allowedMedicationIds, ailment }: { medication: Medication; allowedMedicationIds?: string[]; ailment?: string }) {
+  const suggestions = getSimilarMedications(medication.id).filter((entry) => !allowedMedicationIds || allowedMedicationIds.includes(entry.medication.id));
   return (
     <section
       className="similar-medications card"
@@ -31,7 +31,7 @@ export function SimilarMedications({ medication }: { medication: Medication }) {
                 {relationshipLabels[relationships[0].kind]}
               </span>
               <h4>
-                <a href={`#explore/${peer.id}`}>{peer.name}</a>
+                <a href={`#explore/${peer.id}${ailment ? "?condition=" + encodeURIComponent(ailment) : ""}`}>{peer.name}</a>
               </h4>
               <p className="similar-category">{peer.category}</p>
               <p className="similar-reason">{relationships[0].title}</p>
@@ -48,9 +48,7 @@ export function SimilarMedications({ medication }: { medication: Medication }) {
       ) : (
         <div className="similar-empty">
           <p>
-            No close related guides are currently recorded for {medication.name}{" "}
-            in this library. Sharing an organ alone is not enough to suggest a
-            medicine.
+            {allowedMedicationIds ? "No other related medicine is documented for the selected ailment in this library." : <>No close related guides are currently recorded for {medication.name} in this library.</>} Sharing an organ alone is not enough to suggest a medicine.
           </p>
         </div>
       )}

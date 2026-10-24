@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test";
 
 test("hover and selection have distinct persistent highlights", async ({ page }) => {
-  await page.goto("/#explore");
+  await page.goto("/#explore/albuterol");
   const scene = page.getByTestId("anatomy-scene");
   await expect.poll(async () => Number(await scene.getAttribute("data-visible-structures")), { timeout: 30_000 }).toBeGreaterThan(300);
   await page.getByRole("checkbox", { name: "Highlight representative sites of action" }).uncheck();
@@ -24,7 +24,7 @@ test("hover and selection have distinct persistent highlights", async ({ page })
 });
 
 test("wheel zoom follows the pointer instead of the body center", async ({ page }) => {
-  await page.goto("/#explore");
+  await page.goto("/#explore/albuterol");
   const scene = page.getByTestId("anatomy-scene");
   await expect.poll(async () => Number(await scene.getAttribute("data-visible-structures")), { timeout: 30_000 }).toBeGreaterThan(300);
   const canvas = scene.locator("canvas");
@@ -46,7 +46,7 @@ test("wheel zoom follows the pointer instead of the body center", async ({ page 
 test("female reference has its own anatomy and persists across medicine guides", async ({ page }, testInfo) => {
   const errors: string[] = [];
   page.on("pageerror", (error) => errors.push(error.message));
-  await page.goto("/#explore");
+  await page.goto("/#explore/albuterol");
   const scene = page.getByTestId("anatomy-scene");
   await page.getByRole("button", { name: "Female", exact: true }).click();
   await expect(scene).toHaveAttribute("data-body-variant", "female");
@@ -56,6 +56,7 @@ test("female reference has its own anatomy and persists across medicine guides",
   await page.getByRole("combobox", { name: "Isolate a body system" }).selectOption("reproductive");
   await expect.poll(async () => Number(await scene.getAttribute("data-visible-structures"))).toBeGreaterThan(20);
   expect(Number(await scene.getAttribute("data-visible-structures"))).toBeLessThan(70);
+  await page.getByRole("combobox", { name: "Ailment", exact: true }).selectOption("Type 2 diabetes");
   await page.getByRole("button", { name: /^Metformin/ }).click();
   await expect(page.getByRole("button", { name: "Female", exact: true })).toHaveAttribute("aria-pressed", "true");
   await expect(scene).toHaveAttribute("data-body-variant", "female");
@@ -67,7 +68,7 @@ test("female reference has its own anatomy and persists across medicine guides",
 });
 
 test("organ search supports aliases, keyboard selection, empty results, and female organs", async ({ page }, testInfo) => {
-  await page.goto("/#explore");
+  await page.goto("/#explore/albuterol");
   await expect(page.locator(".atlas-organ-list, .atlas-highlight-legend")).toHaveCount(0);
   const search = page.getByRole("combobox", { name: "Search organs" });
   const scene = page.getByTestId("anatomy-scene");
@@ -97,7 +98,7 @@ test("organ search supports aliases, keyboard selection, empty results, and fema
 });
 
 test("male and female diagrams share controls, layout, and interaction settings", async ({ page }) => {
-  await page.goto("/#explore");
+  await page.goto("/#explore/albuterol");
   const scene = page.getByTestId("anatomy-scene");
   await expect.poll(async () => Number(await scene.getAttribute("data-visible-structures")), { timeout: 30_000 }).toBeGreaterThan(300);
   await expect(scene).toHaveAttribute("data-skeletal-structures", "143");

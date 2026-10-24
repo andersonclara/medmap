@@ -60,10 +60,9 @@ test("suggestion opens a complete comparison with different roles and explanatio
     page.getByRole("region", { name: "Interactive body atlas" }),
   ).toHaveCount(1);
   const similar = page.getByRole("region", { name: "Similar medicines" });
-  await expect(similar).toContainText("Airway relaxation");
-  await similar
-    .getByRole("link", { name: "Compare Albuterol with Tiotropium" })
-    .click();
+  await expect(similar.locator(".similar-card")).toHaveCount(0);
+  await page.getByRole("link", { name: "Compare medicines", exact: true }).click();
+  await page.getByRole("combobox", { name: "Second medicine" }).selectOption("tiotropium");
   await expect(page).toHaveURL(/#compare\/albuterol\/tiotropium$/);
   await expect(
     page.getByRole("heading", { name: "Two medicines. A clearer picture." }),
@@ -155,7 +154,7 @@ test("no-match guides allow a manual comparison without inventing a relationship
   await page.goto("/#explore/omeprazole");
   await expect(
     page.getByRole("region", { name: "Similar medicines" }),
-  ).toContainText("No close related guides");
+  ).toContainText("No other related medicine is documented");
   await page
     .getByRole("link", { name: "Choose another medicine to compare" })
     .click();

@@ -27,22 +27,27 @@ import { MechanismAnimation } from "./components/MechanismAnimation";
 import { KnowledgeQuiz } from "./components/KnowledgeQuiz";
 import { conditionSource, conditions } from "./data/conditions";
 import { medications } from "./data/medications";
+import { USRankings } from "./components/USRankings";
+import { SimulationMode } from "./components/SimulationMode";
+import { AilmentPicker } from "./components/AilmentPicker";
+import { firstAilmentForMedicine, medicinesForAilment, resolveAilment } from "./data/ailments";
 function readRoute() {
   const [path, queryString] = location.hash.slice(1).split("?");
   const [section, medicationId, comparisonId] = path.split("/");
+  const requestedCondition = new URLSearchParams(queryString).get("condition");
+  const condition = resolveAilment(requestedCondition ?? (medicationId ? firstAilmentForMedicine(medicationId) : ""))?.id ?? "";
+  const allowed = medicinesForAilment(condition);
   return {
     page:
-      section === "compare"
+      section === "rankings" ? "rankings" : section === "simulate" ? "explore" : section === "compare"
         ? "compare"
         : section === "explore"
           ? "explore"
           : section === "conditions"
             ? "conditions"
             : "home",
-    id: medications.some((m) => m.id === medicationId)
-      ? medicationId
-      : "albuterol",
-    condition: new URLSearchParams(queryString).get("condition") ?? "",
+    id: allowed.some((med) => med.id === medicationId) ? medicationId : "",
+    condition,
     compareIds: [medicationId ?? "", comparisonId ?? ""] as [string, string],
   };
 }
@@ -58,7 +63,8 @@ export default function App() {
   const [scientific, setScientific] = useState(false);
   const [menu, setMenu] = useState(false);
   const [scored, setScored] = useState<string[]>([]);
-  const med = medications.find((m) => m.id === id)!;
+  const med = medications.find((m) => m.id === id) ?? medications[0];
+  const availableMedicines = medicinesForAilment(conditionContext);
   useEffect(() => {
     const sync = () => {
       const route = readRoute();
@@ -68,12 +74,17 @@ export default function App() {
       setConditionContext(route.condition);
       setScientific(false);
       setMenu(false);
+      if (location.hash.startsWith("#simulate")) {
+        const canonical = `#explore${route.id ? "/" + route.id : ""}${route.condition ? "?condition=" + encodeURIComponent(route.condition) : ""}`;
+        history.replaceState(null, "", canonical);
+      }
       if (location.hash !== "#about") window.scrollTo(0, 0);
     };
     window.addEventListener("hashchange", sync);
+    sync();
     return () => window.removeEventListener("hashchange", sync);
   }, []);
-  const filtered = medications.filter((m) =>
+  const filtered = availableMedicines.filter((m) =>
     `${m.name} ${m.category} ${m.organ ?? ""} ${m.target ?? ""} ${m.uses} ${m.conditions.join(" ")} ${conditions
       .filter((c) => conditionTreatments[c.name].medicationIds.includes(m.id))
       .map((c) => c.name)
@@ -89,7 +100,12 @@ export default function App() {
   function choose(next: string) {
     setId(next);
     setScientific(false);
-    location.hash = "explore/" + next;
+    const ailment = medicinesForAilment(conditionContext).some((med) => med.id === next) ? conditionContext : firstAilmentForMedicine(next);
+    location.hash = "explore/" + next + (ailment ? "?condition=" + encodeURIComponent(ailment) : "");
+  }
+  function chooseAilment(next: string) {
+    setId(""); setConditionContext(next); setQuery(""); setScientific(false);
+    location.hash = "explore" + (next ? "?condition=" + encodeURIComponent(next) : "");
   }
   return (
     <>
@@ -138,12 +154,13 @@ export default function App() {
           >
             How it works
           </a>
+          <a className={page === "rankings" ? "current" : ""} href="#rankings">U.S. rankings</a>
         </nav>
         <a className="nav-cta" href="#explore">
           Start exploring <ArrowUpRight size={16} />
         </a>
       </header>
-      {page === "compare" ? (
+      {page === "rankings" ? <USRankings /> : page === "compare" ? (
         <MedicationComparison ids={compareIds} />
       ) : page === "conditions" ? (
         <main className="explorer conditions-page">
@@ -155,6 +172,7 @@ export default function App() {
                 Browse {conditions.length} conditions and educational examples
                 of medicines that clinicians may consider.
               </p>
+              <p><a href="#rankings?type=conditions">Explore the expanded U.S. reported-condition rankings</a></p>
             </div>
             <span className="library-pill">
               <BookOpen size={16} /> {conditions.length} condition guides
@@ -421,12 +439,13 @@ export default function App() {
             <div>
               <span className="eyebrow">YOUR MEDICATION, MAPPED OUT</span>
               <h1>A little clarity goes a long way.</h1>
-              <p>Choose a medication. Explore the connection.</p>
+              <p>Choose an ailment, select a documented medicine, and run its simulation here.</p>
             </div>
             <span className="library-pill">
               <BookOpen size={16} /> {medications.length} medication guides
             </span>
           </div>
+          <AilmentPicker value={conditionContext} onChange={chooseAilment} />
           <div className="explorer-layout">
             <aside className="med-sidebar">
               <label className="search">
@@ -436,6 +455,7 @@ export default function App() {
                   onChange={(e) => setQuery(e.target.value)}
                   placeholder="Search medications…"
                   aria-label="Search medications"
+                  disabled={!conditionContext || !availableMedicines.length}
                 />
                 {query && (
                   <button
@@ -446,13 +466,13 @@ export default function App() {
                   </button>
                 )}
               </label>
-              <span className="eyebrow sidebar-label">MEDICATION LIBRARY</span>
+              <span className="eyebrow sidebar-label">2. CHOOSE A MEDICINE</span>
               <p className="search-help">
-                Search by name, organ, or condition, such as high blood
-                pressure.
+                Only documented educational examples for the selected ailment appear here. These are not a personalized treatment recommendation.
               </p>
+              <p className="search-help"><a href="#rankings">Browse U.S. prescription-use rankings</a></p>
               <p className="med-result-count" aria-live="polite">
-                {filtered.length} of {medications.length} medications
+                {filtered.length} of {availableMedicines.length} documented medication options
               </p>
               <div className="med-list" aria-label="Medication results">
                 {filtered.map((m) => (
@@ -478,7 +498,7 @@ export default function App() {
                 ))}
                 {!filtered.length && (
                   <p className="empty" role="status">
-                    No medications found. Try a name, organ, or condition.
+                    {!conditionContext ? "Choose an ailment first to see its medication options." : !availableMedicines.length ? "No documented medication options are currently mapped to this ailment. A simulation is unavailable." : "No medications found for this ailment. Try a different search."}
                   </p>
                 )}
               </div>
@@ -491,7 +511,7 @@ export default function App() {
                 </p>
               </div>
             </aside>
-            <div className="med-detail">
+            {!id ? <section className="card explorer-selection-prompt" aria-live="polite"><h2>{!conditionContext ? "Start with the ailment." : availableMedicines.length ? "Choose a medicine to explore and simulate." : "No simulation available for this ailment yet."}</h2><p>{!conditionContext ? "The medication list will appear after you select an ailment above." : availableMedicines.length ? "Select one of the documented options. Its guide, anatomy, and simulation will open on this page." : "No medication relationship will be inferred from a shared organ or drug class. You can choose another ailment or read the source reference."}</p>{conditionContext && !availableMedicines.length && <a href={conditionSource(resolveAilment(conditionContext)?.name ?? conditionContext)} target="_blank" rel="noreferrer">Read about this ailment on MedlinePlus</a>}</section> : <div className="med-detail">
               <div className="med-heading">
                 <div>
                   <span className="eyebrow">{med.system}</span>
@@ -532,14 +552,7 @@ export default function App() {
                   <span key={condition}>{condition}</span>
                 ))}
               </div>
-              {med.organ && (
-                <AnatomyViewer
-                  key={id}
-                  target={med.organ}
-                  medicationId={id}
-                  onGuideSelect={choose}
-                />
-              )}
+              <SimulationMode key={`${id}:${conditionContext}`} medicationId={id} ailment={conditionContext} />
               <div className="detail-grid">
                 {med.organ ? (
                   <section
@@ -605,7 +618,7 @@ export default function App() {
                   </div>
                 </section>
               </div>
-              <SimilarMedications medication={med} />
+              <SimilarMedications medication={med} allowedMedicationIds={availableMedicines.map((entry) => entry.id)} ailment={conditionContext} />
               <MechanismAnimation key={id + "mechanism"} med={med} />
               <div className="education-grid">
                 <details className="card education" open>
@@ -665,7 +678,7 @@ export default function App() {
                   </span>
                 </span>
               </div>
-            </div>
+            </div>}
           </div>
         </main>
       )}

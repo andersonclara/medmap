@@ -6,7 +6,7 @@ test("3D atlas loads real meshes, reveals systems, rotates, and maps medicines",
   test.setTimeout(120_000);
   const errors: string[] = [];
   page.on("pageerror", (error) => errors.push(error.message));
-  await page.goto("/#explore");
+  await page.goto("/#explore/albuterol");
   const atlas = page.getByRole("region", { name: "Interactive body atlas" });
   const scene = atlas.getByTestId("anatomy-scene");
   await expect
@@ -51,9 +51,7 @@ test("3D atlas loads real meshes, reveals systems, rotates, and maps medicines",
   await atlas.getByRole("combobox", { name: "Search organs" }).fill("renal");
   await atlas.getByRole("option", { name: /Kidneys/ }).click();
   await expect(atlas.getByText(/Your kidneys filter your blood/)).toBeVisible();
-  await atlas
-    .getByRole("combobox", { name: "Preview a medicine class" })
-    .selectOption("sertraline");
+  await page.goto("/#explore/sertraline");
   await expect(
     atlas.getByRole("checkbox", { name: "Nerves & brain", exact: true }),
   ).toBeChecked();
@@ -83,9 +81,7 @@ test("3D atlas loads real meshes, reveals systems, rotates, and maps medicines",
       name: "Highlight representative sites of action",
     }),
   ).toBeChecked();
-  await atlas
-    .getByRole("combobox", { name: "Preview a medicine class" })
-    .selectOption("amoxicillin");
+  await page.goto("/#explore/amoxicillin");
   await expect(atlas.getByText(/Its target is bacteria/)).toBeVisible();
   await atlas.getByRole("combobox", { name: "Isolate a body system" }).selectOption("cardiovascular");
   await expect.poll(async () => Number(await scene.getAttribute("data-visible-structures")), { timeout: 30_000 }).toBeGreaterThan(100);
@@ -168,7 +164,7 @@ test("a failed anatomical layer can be retried", async ({ page }) => {
     if (failing) return route.fulfill({ status: 503, body: "Temporarily unavailable" });
     return route.continue();
   });
-  await page.goto("/#explore");
+  await page.goto("/#explore/albuterol");
   await expect(page.getByRole("alert")).toContainText("Could not load: Organs");
   failing = false;
   await page.getByRole("button", { name: "Retry layers", exact: true }).click();

@@ -1,0 +1,52 @@
+import { test, expect } from "@playwright/test";
+
+test("explorer requires an ailment and offers only its documented medicines", async ({ page }, testInfo) => {
+  await page.goto("/#explore");
+  const ailment = page.getByRole("combobox", { name: "Ailment", exact: true });
+  const options = page.locator(".med-list button");
+  await expect(ailment).toHaveValue("");
+  await expect(options).toHaveCount(0);
+  await expect(page.getByRole("textbox", { name: "Search medications" })).toBeDisabled();
+  await expect(page.getByRole("button", { name: "Run simulation", exact: true })).toHaveCount(0);
+  await ailment.selectOption("Asthma");
+  await expect(options).toHaveCount(1);
+  await expect(options.first()).toContainText("Albuterol");
+  await page.getByRole("textbox", { name: "Search medications" }).fill("metformin");
+  await expect(options).toHaveCount(0);
+  await page.getByRole("button", { name: "Clear search", exact: true }).click();
+  await options.first().click();
+  await expect(page).toHaveURL(/#explore\/albuterol\?condition=Asthma/);
+  await expect(page.getByRole("button", { name: "Run simulation", exact: true })).toBeVisible();
+  await expect(page.getByTestId("anatomy-scene")).toHaveCount(1);
+  await expect(page.getByRole("combobox", { name: "Preview a medicine class" })).toHaveCount(0);
+  await page.getByRole("button", { name: "Run simulation", exact: true }).click();
+  await expect(page.getByRole("button", { name: "Pause simulation", exact: true })).toBeVisible();
+  await ailment.selectOption("Type 2 diabetes");
+  await expect(page.getByRole("button", { name: "Pause simulation", exact: true })).toHaveCount(0);
+  await expect(page.getByTestId("anatomy-scene")).toHaveCount(0);
+  await expect(options).toHaveCount(1);
+  await expect(options.first()).toContainText("Metformin");
+  await options.first().click();
+  await expect(page.locator(".med-heading h2")).toContainText("Metformin");
+  await expect(page.locator(".simulation-embedded")).toContainText("Type 2 diabetes");
+  await expect(page.getByRole("button", { name: "Run simulation", exact: true })).toBeVisible();
+  await page.screenshot({ path: `test-results/ailment-explorer-${testInfo.project.name}.png`, fullPage: true });
+  await expect(page.locator("body")).toHaveJSProperty("scrollWidth", await page.evaluate(() => innerWidth));
+});
+
+test("unmapped ailments and incompatible deep links never expose an invalid simulation", async ({ page }) => {
+  await page.goto("/#explore/albuterol?condition=Type%202%20diabetes");
+  await expect(page.getByRole("combobox", { name: "Ailment", exact: true })).toHaveValue("Type 2 diabetes");
+  await expect(page.locator(".med-list button")).toHaveCount(1);
+  await expect(page.locator(".med-list button").first()).toContainText("Metformin");
+  await expect(page.getByRole("button", { name: "Run simulation", exact: true })).toHaveCount(0);
+  await expect(page.getByTestId("anatomy-scene")).toHaveCount(0);
+  await page.getByRole("combobox", { name: "Ailment", exact: true }).selectOption("Cataracts");
+  await expect(page.locator(".med-list button")).toHaveCount(0);
+  await expect(page.locator(".explorer-selection-prompt")).toContainText("No simulation available");
+  await expect(page.getByRole("textbox", { name: "Search medications" })).toBeDisabled();
+  await page.goto("/#simulate/albuterol?condition=Asthma");
+  await expect(page).toHaveURL(/#explore\/albuterol\?condition=Asthma/);
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("A little clarity goes a long way.");
+  await expect(page.getByRole("region", { name: "Medication simulation", exact: true })).toBeVisible();
+});
