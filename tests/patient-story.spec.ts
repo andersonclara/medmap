@@ -89,6 +89,8 @@ test("session checkpoints are optional and fresh demo works without WebGL under 
   await preCheck(page);
   await page.getByRole("button", { name: "Explore Maya's lungs", exact: false }).click();
   await expect(page.getByText("3D is unavailable in this browser.", { exact: false })).toBeVisible();
+  await page.getByRole("button", { name: "Female", exact: true }).click();
+  await expect(page.getByRole("img", { name: "Female anatomical reference", exact: true })).toBeVisible();
   await page.reload();
   await expect(page.locator(".story-step-title")).toHaveText("Explore the body");
   await expect(page.getByText("Completed-step progress restored for this tab.", { exact: true })).toBeVisible();
@@ -97,8 +99,22 @@ test("session checkpoints are optional and fresh demo works without WebGL under 
   await preCheck(page);
   await page.getByRole("button", { name: "Explore Maya's lungs", exact: false }).click();
   await mechanism(page);
+  expect(await page.locator(".story-magnification").evaluate((element) => getComputedStyle(element).animationName)).toBe("none");
   await postCheck(page);
   await expect(page.getByRole("region", { name: "Learning summary", exact: true })).toBeVisible();
   await page.getByRole("link", { name: "Compare medication roles", exact: false }).click();
   await expect(page).toHaveURL(/#compare\/albuterol\/tiotropium/);
+});
+
+test("landing demo entry is keyboard accessible and future story steps stay gated", async ({ page }) => {
+  await staticAnatomy(page);
+  await page.goto("/");
+  const demo = page.getByRole("link", { name: "Start Interactive Demo", exact: true });
+  await demo.focus();
+  await demo.press("Enter");
+  await expect(page).toHaveURL(/#demo$/);
+  const steps = page.getByRole("navigation", { name: "Patient story steps" });
+  await expect(steps.getByRole("button", { name: /Understand the mechanism/ })).toBeDisabled();
+  await expect(steps.getByRole("button", { name: /Learning summary/ })).toBeDisabled();
+  await expect(page.getByRole("button", { name: "Start pre-lesson check", exact: true })).toBeVisible();
 });

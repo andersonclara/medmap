@@ -13,12 +13,15 @@ import {
   relationshipLabels,
 } from "../data/medicationRelationships";
 import type { Medication } from "../types/medication";
+import { AirwayMechanism, type AirwayMedicine } from "./AirwayMechanism";
+import { AnatomicalGraphic } from "./AnatomicalGraphic";
 
 const sortedMedications = [...medications].sort((a, b) =>
   a.name.localeCompare(b.name),
 );
 export function MedicationComparison({ ids }: { ids: [string, string] }) {
   const [scientific, setScientific] = useState(false);
+  const [illustration, setIllustration] = useState(0);
   const first = medications.find((m) => m.id === ids[0]);
   const second = medications.find((m) => m.id === ids[1]);
   const invalid = ids.some((id) => id && !medications.some((m) => m.id === id));
@@ -206,6 +209,7 @@ export function MedicationComparison({ ids }: { ids: [string, string] }) {
                 <span className="eyebrow">MEDICINE 0{index + 1}</span>
                 <h2>{med.name}</h2>
                 <span className="small-pill">{med.category}</span>
+                {med.organ && <div className="comparison-target-art"><AnatomicalGraphic organ={med.organ} /><span>Atlas-derived target reference</span></div>}
                 <p>
                   <strong>Primary focus</strong>
                   {med.target ?? med.organ ?? "Multiple tissues"}
@@ -241,6 +245,14 @@ export function MedicationComparison({ ids }: { ids: [string, string] }) {
               </button>
             </div>
           </div>
+          {pair.every((med) => med.id === "albuterol" || med.id === "tiotropium") && <section className="comparison-interactive" aria-label="Synchronized airway mechanisms">
+            <div className="section-heading"><div><span className="eyebrow">TWO RECEPTORS, DISTINCT ROLES</span><h2>Follow both pathways.</h2></div><span className="small-pill">Illustrative comparison</span></div>
+            <p>Albuterol activates beta-2 receptors; tiotropium blocks muscarinic signaling. Both can contribute to bronchodilation, through different pathways. The shared slider aligns illustration positions, not potency, onset, duration, or expected benefit.</p>
+            <label className="comparison-slider-label" htmlFor="comparison-airway-range">Synchronized before-and-after illustrations</label><input id="comparison-airway-range" className="comparison-airway-range" type="range" min="0" max="100" value={illustration} aria-valuetext={illustration < 50 ? "Closer to narrowed illustrations" : "Closer to relaxed illustrations"} onChange={(event) => setIllustration(Number(event.target.value))} />
+            <div className="comparison-slider-ends"><button onClick={() => setIllustration(0)}>Before: narrowed</button><button onClick={() => setIllustration(100)}>After: relaxed</button></div>
+            <div className="comparison-airway-visuals">{pair.map((med) => <article key={med.id}><h3>{med.name}</h3><p className="comparison-role">{med.id === "albuterol" ? "Short-acting reliever example" : "Maintenance bronchodilator example; not rescue"}</p><AirwayMechanism medicine={med.id as AirwayMedicine} progress={illustration} showSlider={false} scientific={scientific} /></article>)}</div>
+            <p className="comparison-visual-limits">These roles are not interchangeable. Product and condition matter; this view does not establish suitability for Maya or recommend switching, combining, or discontinuing treatment. <a href="https://medlineplus.gov/druginfo/meds/a604018.html" target="_blank" rel="noreferrer">Tiotropium reference</a>.</p>
+          </section>}
           {rows.map((row) => (
             <section
               className="comparison-section"

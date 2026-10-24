@@ -24,6 +24,7 @@ function initialProgress(demo: boolean): { progress: Progress; remember: boolean
     if (!stored || stored.version !== 1) return { progress: fresh(), remember: false };
     const p = stored.progress as Progress;
     const pre = readAssessment(p.pre, preQuestions), post = readAssessment(p.post, postQuestions);
+    if (post && (!pre || !p.mechanismPracticed || post.finalScore !== postQuestions.length) || p.step > 0 && !p.bodyVisited) throw Error("Inconsistent lesson checkpoint");
     if (!Number.isInteger(p.step) || p.step < 0 || p.step > 4 || !Number.isFinite(p.illustration) || p.illustration < 0 || p.illustration > 100 || !Array.isArray(p.explored) || p.explored.some((id) => !["opening", "receptor", "signal", "muscle"].includes(id)) || (p.step > 0 && !pre) || (p.step > 1 && !p.bodyExplored) || (p.step > 2 && !p.mechanismPracticed) || (p.step === 4 && post?.finalScore !== postQuestions.length)) throw Error("Invalid lesson checkpoint");
     return { progress: { ...p, pre, post, bodyVisited: !!p.bodyVisited, bodyExplored: !!p.bodyExplored, mechanismPracticed: !!p.mechanismPracticed }, remember: true };
   } catch { return { progress: fresh(), remember: false }; }
