@@ -4,6 +4,21 @@ import { conditionTreatments } from "../src/data/conditionTreatments";
 import { medications } from "../src/data/medications";
 import { mechanismGuides } from "../src/data/mechanisms";
 
+// Content and navigation must also work on devices without WebGL. Actual mesh,
+// camera, layer and pointer interactions are exercised by the anatomy suites.
+async function useStaticAtlasFallback(page: import("@playwright/test").Page) {
+  await page.addInitScript(() => {
+    const original = HTMLCanvasElement.prototype.getContext;
+    Object.defineProperty(HTMLCanvasElement.prototype, "getContext", {
+      value: function (kind: string, ...args: unknown[]) {
+        if (kind.startsWith("webgl") || kind === "experimental-webgl")
+          return null;
+        return Reflect.apply(original, this, [kind, ...args]);
+      },
+    });
+  });
+}
+
 test("directory coverage is complete and does not invent medication options", () => {
   expect(conditions).toHaveLength(100);
   expect(new Set(conditions.map((c) => c.name)).size).toBe(100);
@@ -54,6 +69,7 @@ test("every linked condition opens the correct contextual guide", async ({
   page,
 }) => {
   test.setTimeout(120_000);
+  await useStaticAtlasFallback(page);
   const errors: string[] = [];
   page.on("pageerror", (error) => errors.push(error.message));
   await page.goto("/#conditions");
@@ -79,6 +95,10 @@ test("every linked condition opens the correct contextual guide", async ({
       page.getByRole("complementary", { name: "Condition-specific context" }),
     ).toContainText(conditionTreatments[condition].context);
     await expect(page.locator(".education")).toHaveCount(2);
+    if (await page.locator(".anatomy-explorer").count())
+      await expect(page.locator(".scene-fallback")).toContainText(
+        "3D is unavailable",
+      );
     await expect(page.locator(".provider li")).toHaveCount(3);
     await expect(page.locator(".sources a")).toHaveAttribute(
       "href",
@@ -176,6 +196,7 @@ test("every medication has working explanations, mechanism controls and quiz fee
   page,
 }) => {
   test.setTimeout(120_000);
+  await useStaticAtlasFallback(page);
   for (const [index, med] of medications.entries()) {
     await page.goto("/#explore/" + med.id);
     await page.getByRole("button", { name: "Scientific", exact: true }).click();

@@ -17,6 +17,7 @@ import {
 import { TargetRegion } from "./components/TargetRegion";
 import { AnatomicalGraphic } from "./components/AnatomicalGraphic";
 import { conditionTreatments } from "./data/conditionTreatments";
+import { AnatomicalGraphic } from "./components/AnatomicalGraphic";
 import { AnatomyViewer } from "./components/AnatomyViewer";
 import { MechanismAnimation } from "./components/MechanismAnimation";
 import { KnowledgeQuiz } from "./components/KnowledgeQuiz";
@@ -505,6 +506,14 @@ export default function App() {
                   <span key={condition}>{condition}</span>
                 ))}
               </div>
+              {med.organ && (
+                <AnatomyViewer
+                  key={id}
+                  target={med.organ}
+                  medicationId={id}
+                  onGuideSelect={choose}
+                />
+              )}
               <div className="detail-grid">
                 {med.organ ? (
                   <AnatomyViewer key={id} target={med.organ} medicationId={id} onGuideSelect={choose} />
@@ -651,19 +660,5 @@ export default function App() {
         </span>
       </footer>
     </>
-  );
-}
-function WindIcon() {
-  return (
-    <svg
-      width="26"
-      height="26"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.6"
-    >
-      <path d="M3 8h12a3 3 0 1 0-3-3M3 12h16a3 3 0 1 1-3 3M3 16h5a3 3 0 1 1-3 3" />
-    </svg>
   );
 }

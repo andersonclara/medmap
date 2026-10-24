@@ -34,7 +34,9 @@ For an installed system Chromium, skip the download and run:
 PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH=/usr/bin/chromium npm test
 ```
 
-The browser suite exercises the demo on desktop and mobile: search, selection, organ information, all three mechanism animations, explanation levels, quiz feedback, empty search, keyboard anatomy, navigation, and horizontal overflow.
+The anatomy suites exercise real 3D meshes, organ search, camera controls, layer visibility, reference variants, and retry behavior. The exhaustive content traversals also verify the no-WebGL fallback without repeatedly decoding every model for every guide.
+
+The browser suite validates all 100 condition mappings, opens every one of the 95 medication links, and exercises every medication’s explanation toggle, mechanism/reset controls, and correct quiz feedback on desktop and mobile. It also tests explicit nonmedication exceptions, condition context, reload/back navigation, source destinations, and horizontal overflow. The original demo checks cover: search, selection, organ information, all medication mechanism illustrations, explanation levels, quiz feedback, empty search, keyboard anatomy, navigation, and horizontal overflow.
 
 ## Three-minute demo
 
@@ -47,9 +49,6 @@ The browser suite exercises the demo on desktop and mobile: search, selection, o
 
 ## Structure
 
-- `src/data/medications.ts`: typed medication content, source references, organ facts, and quiz questions. Add new medication entries here and provide their mechanism illustration.
-- `src/components/AnatomyViewer.tsx`: original, simplified front-facing SVG schematic, keyboard-operable organs, and selected organ information.
-- `src/components/MechanismAnimation.tsx`: interactive local mechanism illustrations.
 - `src/types/medication.ts`: shared medication and mechanism contracts. A null organ means the target is not represented by the six-organ SVG.
 - `src/data/medications.ts`: original medication guides, combined library, organ facts, and type re-exports.
 - `src/data/extendedMedications.ts`: additional medication guides with individual scientific content, safety information, glossary definitions, and pathway illustrations.
@@ -65,10 +64,9 @@ The browser suite exercises the demo on desktop and mobile: search, selection, o
 
 ## Scope and medical content
 
-Supports albuterol, metformin, and omeprazole with general uses, simple/scientific explanations, safety summaries, three provider questions each, and MedlinePlus references. The illustrations show simplified mechanisms, not anatomical precision or individual treatment results. No doses or personalized treatment recommendations are provided. Source links should be reviewed alongside the content before use beyond a hackathon; clinical review has not been performed. This resource does not replace professional medical advice.
 Open **Condition directory**, search by condition or medication name, then click a medication chip to open its guide. Links such as `#explore/carbidopa-levodopa?condition=Parkinson%20disease` work on reload and with browser back/forward navigation. The full medication explorer supports search and a scrollable library; the landing page shows a small selection.
 
-The anatomy map highlights only the six organs it represents. Medicines acting on skin, eyes, bones, blood, or other unrepresented targets use a labeled target panel; no unrelated organ is highlighted. Pathway controls distinguish inhibition, activation, support, and other modification.
+The interactive 3D atlas provides organ search, body references, layers, and rotation. It highlights represented medication targets. See [3D atlas](docs/3D-ATLAS.md) and [reference imports](docs/PAIRED-ATLAS-IMPORT.md) for source and processing details. Medicines acting on skin, eyes, bones, blood, or other unrepresented targets use a labeled target panel; no unrelated organ is highlighted. Pathway controls distinguish inhibition, activation, support, and other modification.
 
 Supports 69 medication guides with general uses, simple/scientific explanations, safety summaries, three provider questions each, and authoritative reference links. The original seven guides retain their MedlinePlus links; expanded guides use explicitly labeled DailyMed label searches rather than invented direct label URLs. These links are discovery references; current labels and the content still need clinical review. Search by medication, organ, or condition (for example, hypertension, diabetes, or depression).
 

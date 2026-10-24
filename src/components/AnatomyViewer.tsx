@@ -124,4 +124,5 @@ export function AnatomyViewer({ target = "Lungs", compact = false, medicationId,
     </>}
     <span className="schematic">Educational anatomical atlas · reference anatomy</span>
   </section>;
+
 }

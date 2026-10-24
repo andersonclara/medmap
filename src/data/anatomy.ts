@@ -48,8 +48,19 @@ const representativeMaps: MedicineMap[] = [
     systems: [organSystem(med.organ!)], organs: [med.organ!], layers: ["visceral"] as Layer[],
     effect: med.simple,
     context: med.id === "metformin" ? "The liver is one important site; metformin also acts through the gut and insulin-sensitive tissues." : med.id === "albuterol" ? "The highlight locates the lungs. The medicine acts on airway smooth muscle, which is too small to resolve in this atlas." : "The highlight locates the stomach. Proton pumps are microscopic and are not shown in the atlas.",
-    source: med.source,
+        source: med.source,
   })),
+];
+
+const guideMaps: MedicineMap[] = medications.map((med): MedicineMap => ({
+ id:med.id,name:med.name,category:med.category,
+ systems:med.organ?[organSystem(med.organ)]:[],organs:med.organ?[med.organ]:[],
+ layers:med.organ==="Brain"?["nervous"]:med.organ==="Heart"?["cardiovascular"]:["visceral"],
+ effect:med.simple,
+ context:med.organ?`The highlight locates the ${med.organ.toLowerCase()}. It does not show microscopic targets, drug distribution, or individual treatment effects.`:`The target is ${med.target ?? "not represented"}, not one of this atlas’s highlighted organs. No organ highlight is assigned.`,
+ source:med.source,
+}));
+const additionalMaps: MedicineMap[] = [
   { id: "lisinopril", name: "Lisinopril", category: "ACE inhibitor", systems: ["cardiovascular"], organs: [], layers: ["cardiovascular"], effect: "Reduces signals that tighten blood vessels, helping vessels relax and lowering blood pressure.", context: "The vessel network shows the system involved, rather than a single target organ. Kidney function and potassium are monitored during treatment.", source: "https://medlineplus.gov/druginfo/meds/a692051.html" },
   { id: "metoprolol", name: "Metoprolol", category: "Beta blocker", systems: ["cardiovascular"], organs: ["Heart"], layers: ["cardiovascular"], effect: "Slows the heart rate and reduces the heart’s workload. It is used for several cardiovascular conditions.", context: "The highlighted heart is a main site of action. This is an anatomical location map, not a simulated heart-rate response.", source: "https://medlineplus.gov/druginfo/meds/a682864.html" },
   { id: "furosemide", name: "Furosemide", category: "Loop diuretic", systems: ["urinary"], organs: ["Kidneys"], layers: ["visceral"], effect: "Helps the kidneys remove more salt and water in urine, reducing fluid buildup.", context: "The action takes place in microscopic kidney tubules. Fluid and electrolyte changes affect the whole body.", source: "https://medlineplus.gov/druginfo/meds/a682858.html" },
@@ -62,4 +73,14 @@ const representativeMaps: MedicineMap[] = [
   { id: "warfarin", name: "Warfarin", category: "Anticoagulant", systems: ["digestive", "cardiovascular"], organs: ["Liver"], layers: ["visceral", "cardiovascular"], effect: "Reduces the formation of certain clotting factors, decreasing the blood’s ability to clot.", context: "The liver makes clotting factors; the vessel network shows where blood circulates. The medicine does not dissolve an existing clot.", source: "https://medlineplus.gov/druginfo/meds/a682277.html" },
 ];
 
-export const medicineMaps: MedicineMap[] = [...representativeMaps, ...medications.filter((med) => !representativeMaps.some((map) => map.id === med.id)).map((med): MedicineMap => ({ id: med.id, name: med.name, category: med.category, systems: med.organ ? [organSystem(med.organ)] : [], organs: med.organ ? [med.organ] : [], layers: [med.organ === "Brain" ? "nervous" : med.organ === "Heart" ? "cardiovascular" : "visceral"], effect: med.simple, context: med.organ ? "The highlighted organ provides anatomical context. Molecular targets and effects throughout the body are not simulated." : `The target (${med.target ?? med.system}) is not represented by an organ highlight in this reference. Explore the mechanism below.`, source: med.source }))];
+export const medicineMaps: MedicineMap[] = [
+  ...guideMaps.map(
+    (med) =>
+      representativeMaps.find((rep) => rep.id === med.id) ??
+      additionalMaps.find((extra) => extra.id === med.id) ??
+      med
+  ),
+  ...additionalMaps.filter(
+    (extra) => !guideMaps.some((guide) => guide.id === extra.id)
+  ),
+];
