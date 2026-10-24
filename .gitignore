@@ -1,0 +1,7 @@
+node_modules/
+dist/
+playwright-report/
+test-results/
+*.tsbuildinfo
+/assets-source/licensed-anatomy/
+/assets-source/free-atlas/

@@ -1,0 +1,119 @@
+{
+  "male": {
+    "sex": "male",
+    "boneCount": 142,
+    "source": "BoneHub + HRA / Visible Human",
+    "organs": {
+      "Liver": 29,
+      "Kidneys": 58,
+      "Lungs": 65,
+      "Heart": 51,
+      "Brain": 283
+    },
+    "layers": {
+      "skeletal": {
+        "structures": 142,
+        "bytes": 11157524
+      },
+      "joints": {
+        "structures": 16,
+        "bytes": 96416
+      },
+      "muscular": {
+        "structures": 27,
+        "bytes": 486220
+      },
+      "visceral": {
+        "structures": 256,
+        "bytes": 11489504
+      },
+      "cardiovascular": {
+        "structures": 120,
+        "bytes": 2500152
+      },
+      "nervous": {
+        "structures": 363,
+        "bytes": 7856576
+      },
+      "lymphatic": {
+        "structures": 14,
+        "bytes": 1689772
+      }
+    },
+    "registrationRmsMm": 5.949406390051466,
+    "availableTargets": [
+      "liver",
+      "kidneys",
+      "lungs",
+      "heart",
+      "brain",
+      "pancreas",
+      "bladder",
+      "gallbladder",
+      "small-intestine",
+      "large-intestine",
+      "trachea",
+      "prostate",
+      "spleen"
+    ]
+  },
+  "female": {
+    "sex": "female",
+    "boneCount": 143,
+    "source": "BoneHub + HRA / Visible Human",
+    "organs": {
+      "Liver": 29,
+      "Kidneys": 64,
+      "Lungs": 63,
+      "Heart": 51,
+      "Brain": 283
+    },
+    "layers": {
+      "skeletal": {
+        "structures": 143,
+        "bytes": 13209960
+      },
+      "joints": {
+        "structures": 0,
+        "bytes": 164
+      },
+      "muscular": {
+        "structures": 16,
+        "bytes": 414200
+      },
+      "visceral": {
+        "structures": 331,
+        "bytes": 11113384
+      },
+      "cardiovascular": {
+        "structures": 124,
+        "bytes": 2269776
+      },
+      "nervous": {
+        "structures": 362,
+        "bytes": 8739428
+      },
+      "lymphatic": {
+        "structures": 14,
+        "bytes": 1659992
+      }
+    },
+    "registrationRmsMm": 3.8957704604937233,
+    "availableTargets": [
+      "liver",
+      "kidneys",
+      "lungs",
+      "heart",
+      "brain",
+      "pancreas",
+      "bladder",
+      "gallbladder",
+      "small-intestine",
+      "large-intestine",
+      "trachea",
+      "uterus",
+      "ovaries",
+      "spleen"
+    ]
+  }
+}
