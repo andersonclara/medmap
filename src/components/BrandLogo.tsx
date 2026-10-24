@@ -1,4 +1,4 @@
-/** Original MedMap mascot: a friendly capsule in a map pin. */
+/** Original MedMap identity: an open clinical atlas with a capsule. */
 export function BrandLogo() {
   return (
     <>

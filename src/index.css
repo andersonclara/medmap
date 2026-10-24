@@ -3057,14 +3057,12 @@ footer > p {
     font-size: 11px;
   }
 }
-/* MedMap's original capsule-and-map-pin identity. */
-.brand{gap:8px;white-space:nowrap}
-.brand-mark{display:block;width:44px;height:47px;flex-shrink:0;object-fit:contain;transition:transform .2s ease}
-.brand>.brand-wordmark{display:inline-flex;align-items:baseline;color:#193c43;font-family:"Trebuchet MS",ui-rounded,system-ui,sans-serif;font-weight:800;font-size:28px;letter-spacing:-1.4px;line-height:1}
-.brand-wordmark>span:last-child{color:#087f76}
-.brand:hover .brand-mark{transform:rotate(-5deg)}
-footer .brand-mark{width:40px;height:43px}
-footer .brand>.brand-wordmark{font-size:26px}
-@media(max-width:580px){.brand-mark{width:40px;height:43px}.brand>.brand-wordmark{font-size:26px}}
-@media(prefers-reduced-motion:reduce){.brand-mark{transition:none}.brand:hover .brand-mark{transform:none}}
+/* MedMap clinical education identity. */
+.brand{gap:9px;white-space:nowrap}
+.brand-mark{display:block;width:44px;height:47px;flex-shrink:0;object-fit:contain}
+.brand>.brand-wordmark{display:inline-flex;align-items:baseline;color:#193c43;font-family:Inter,ui-sans-serif,system-ui,sans-serif;font-weight:700;font-size:27px;letter-spacing:-1px;line-height:1}
 .brand-wordmark>span:first-child{color:#193c43}
+.brand-wordmark>span:last-child{color:#087f76}
+footer .brand-mark{width:40px;height:43px}
+footer .brand>.brand-wordmark{font-size:25px}
+@media(max-width:580px){.brand-mark{width:40px;height:43px}.brand>.brand-wordmark{font-size:25px}}

@@ -40,7 +40,7 @@ The browser suite validates all 100 condition mappings, opens every one of the 9
 
 ## Brand assets
 
-MedMap’s original logo combines a smiling capsule with a map pin, in teal, mint, navy, and warm gold. The header and footer share `src/components/BrandLogo.tsx`; the icon also serves as the favicon.
+MedMap’s clinical education logo combines an open medical atlas with a capsule, in navy, teal, and muted mint. The header and footer share `src/components/BrandLogo.tsx`; the icon also serves as the favicon.
 
 - `public/branding/medmap-mark.svg`: scalable, transparent icon.
 - `public/branding/medmap-logo.svg`: transparent full logo and tagline.
