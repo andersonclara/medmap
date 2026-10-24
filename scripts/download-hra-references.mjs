@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import { Readable } from "node:stream";
 import { pipeline } from "node:stream/promises";
+fs.mkdirSync("assets-source/free-atlas", { recursive: true });
 await Promise.all(["male", "female"].map(async (sex) => {
   const filename = `assets-source/free-atlas/hra-${sex}.glb`;
   const url = `https://cdn.humanatlas.io/digital-objects/ref-organ/united-${sex}/v1.10/assets/3d-vh-${sex[0]}-united.glb`;

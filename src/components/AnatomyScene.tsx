@@ -2,14 +2,13 @@ import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
-import { DRACOLoader } from "three/addons/loaders/DRACOLoader.js";
 import { MeshoptDecoder } from "three/addons/libs/meshopt_decoder.module.js";
 import { EffectComposer } from "three/addons/postprocessing/EffectComposer.js";
 import { RenderPass } from "three/addons/postprocessing/RenderPass.js";
 import { OutlinePass } from "three/addons/postprocessing/OutlinePass.js";
 import { OutputPass } from "three/addons/postprocessing/OutputPass.js";
 import type { OrganSearchEntry } from "../data/organSearch";
-import { layerNames, organPatterns, structureSystem, type BodySystem, type BodyVariant, type Layer, type MedicineMap } from "../data/anatomy";
+import { layerNames, structureSystem, type BodySystem, type BodyVariant, type Layer, type MedicineMap } from "../data/anatomy";
 import type { Organ } from "../data/medications";
 import { AnatomicalGraphic } from "./AnatomicalGraphic";
 import { isCoveringTissue } from "./anatomyAppearance";
@@ -32,15 +31,6 @@ export interface SceneProps {
 }
 type AnatomyMesh = THREE.Mesh<THREE.BufferGeometry, THREE.MeshStandardMaterial>;
 interface Structure { mesh: AnatomyMesh; name: string; layer: Layer; organ: Organ | null; color: THREE.Color; system?: BodySystem; surface?: boolean; searchText?: string; referenceOnly?: boolean; covering?: boolean; }
-function identifyOrgan(name: string, layer: Layer): Organ | null {
-  for (const [organ, pattern] of Object.entries(organPatterns)) {
-    if (organ === "Brain" && layer !== "nervous") continue;
-    if (organ === "Heart" && layer !== "cardiovascular") continue;
-    if (!["Brain", "Heart"].includes(organ) && layer !== "visceral") continue;
-    if (pattern.test(name)) return organ as Organ;
-  }
-  return null;
-}
 
 export default function AnatomyScene(props: SceneProps) {
   const host = useRef<HTMLDivElement>(null);
@@ -52,13 +42,14 @@ export default function AnatomyScene(props: SceneProps) {
   const [failed, setFailed] = useState<string[]>([]);
   const [unavailable, setUnavailable] = useState(false);
   const [count, setCount] = useState(0);
+  const [boneCount, setBoneCount] = useState(0);
   const [highlightCount, setHighlightCount] = useState(0);
   const [focusedName, setFocusedName] = useState<string | null>(null);
   const [hoveredName, setHoveredName] = useState<string | null>(null);
   const [interactionCounts, setInteractionCounts] = useState({ selected: 0, hovered: 0 });
 
   useEffect(() => {
-    setHoveredName(null); setFocusedName(null); setFailed([]); setUnavailable(false); setLoading(true); setCount(0);
+    setHoveredName(null); setFocusedName(null); setFailed([]); setUnavailable(false); setLoading(true); setCount(0); setBoneCount(0);
     const variant = latest.current.bodyVariant;
     const element = host.current!;
     let renderer: THREE.WebGLRenderer;
@@ -112,10 +103,7 @@ export default function AnatomyScene(props: SceneProps) {
     const pending = new Set<Layer>();
     const errors = new Set<Layer>();
     const downloads = new AbortController();
-    const draco = new DRACOLoader();
-    draco.setDecoderPath(`${import.meta.env.BASE_URL}draco/`);
-    draco.setWorkerLimit(2);
-    const loader = new GLTFLoader().setDRACOLoader(draco).setMeshoptDecoder(MeshoptDecoder);
+    const loader = new GLTFLoader().setMeshoptDecoder(MeshoptDecoder);
     const render = () => { if (!disposed) composer.render(); };
     const resize = () => {
       const width = element.clientWidth;
@@ -178,6 +166,7 @@ export default function AnatomyScene(props: SceneProps) {
         mesh.renderOrder = transparent ? 2 : 0;
       }
       setCount(visibleCount);
+      setBoneCount(structures.filter((item) => item.layer === "skeletal").length);
       outline.selectedObjects = outlined;
       setHighlightCount(highlighted);
       setInteractionCounts({ selected: selectedCount, hovered: hoveredCount });
@@ -350,7 +339,7 @@ export default function AnatomyScene(props: SceneProps) {
       savedView.current = { position: camera.position.clone(), target: controls.target.clone() };
       disposed = true; api.current = null; downloads.abort(); stopFocus();
       cancelAnimationFrame(hoverFrame);
-      observer.disconnect(); controls.dispose(); draco.dispose();
+      observer.disconnect(); controls.dispose();
       canvas.removeEventListener("keydown", onKey);
       canvas.removeEventListener("pointerdown", onDown);
       canvas.removeEventListener("pointermove", onMove);
@@ -366,7 +355,7 @@ export default function AnatomyScene(props: SceneProps) {
   useEffect(() => { api.current?.command(props.command.action); }, [props.command]);
 
   return <div className="anatomy-scene-shell">
-    <div ref={host} className="anatomy-scene" data-testid="anatomy-scene" data-body-variant={props.bodyVariant} data-visible-structures={count} data-highlighted-structures={highlightCount} data-selected-structures={interactionCounts.selected} data-hovered-structures={interactionCounts.hovered} data-focused-structure={focusedName ?? ""} data-hovered-structure={hoveredName ?? ""} />
+    <div ref={host} className="anatomy-scene" data-testid="anatomy-scene" data-body-variant={props.bodyVariant} data-skeletal-structures={boneCount} data-visible-structures={count} data-highlighted-structures={highlightCount} data-selected-structures={interactionCounts.selected} data-hovered-structures={interactionCounts.hovered} data-focused-structure={focusedName ?? ""} data-hovered-structure={hoveredName ?? ""} />
     {hoveredName && <span className="scene-hover-label">{hoveredName} · Click to look closer</span>}
     {focusedName && <div className="scene-focus-label"><span>Looking closer: <strong>{focusedName}</strong></span><button onClick={() => { props.onDeselect(); api.current?.command("reset"); }}>Back to full body</button></div>}
     {loading && !unavailable && <span className="scene-status" role="status">Loading anatomical layers…</span>}

@@ -1,5 +1,5 @@
 import { useId, useState } from "react";
-import { ArrowRight, RotateCcw } from "lucide-react";
+import { ArrowRight, Ban, CheckCircle2, RotateCcw, Wind } from "lucide-react";
 import type { Medication } from "../data/medications";
 import { AnatomicalGraphic } from "./AnatomicalGraphic";
 
@@ -28,7 +28,7 @@ function AirwayDetail({ after }: { after: boolean }) {
   </figure>;
 }
 
-export function MechanismAnimation({ med }: { med: Medication }) {
+function AnatomicalMechanism({ med }: { med: Medication }) {
   const [after, setAfter] = useState(false);
   const airway = med.id === "albuterol";
   const liver = med.id === "metformin";
@@ -36,14 +36,14 @@ export function MechanismAnimation({ med }: { med: Medication }) {
     <div className="section-heading"><div><span className="eyebrow">A CLOSER LOOK</span><h3>{airway ? "A little more room to breathe" : liver ? "A closer look at glucose" : "Turning down acid production"}</h3></div><span className="small-pill">Interactive</span></div>
     <div className={`mechanism-scene anatomical-mechanism ${after ? "after" : ""}`}>
       <div className={`mechanism-anatomy ${airway ? "with-airway-detail" : ""}`}>
-        <div className="mechanism-organ-render"><AnatomicalGraphic organ={med.organ} /><span>{med.organ} <small>Anatomical atlas</small></span></div>
+        <div className="mechanism-organ-render"><AnatomicalGraphic organ={med.organ!} /><span>{med.organ} <small>Anatomical atlas</small></span></div>
         {airway ? <AirwayDetail after={after} /> : <div className="mechanism-output" aria-label={`${after ? "Reduced" : "Baseline"} ${liver ? "glucose release" : "acid secretion"}`}>
           <span className="mechanism-output-label">{liver ? "Glucose → bloodstream" : "Acid → stomach lumen"}</span>
           <div className="mechanism-output-particles" aria-hidden="true">{Array.from({ length: 9 }, (_, i) => <i key={i} className={after && i > 2 ? "reduced" : ""} style={{ animationDelay: `${i * .18}s` }} />)}</div>
           <span className="mechanism-output-caption">{after ? "Reduced output" : "Baseline output"} · illustrative</span>
         </div>}
       </div>
-      <div className="scene-copy" aria-live="polite"><span className="state-number">0{after ? "2" : "1"} / {airway ? "THE AIRWAY" : med.organ.toUpperCase()}</span>
+      <div className="scene-copy" aria-live="polite"><span className="state-number">0{after ? "2" : "1"} / {airway ? "THE AIRWAY" : med.organ!.toUpperCase()}</span>
         <h4>{airway ? after ? "Muscles relax. Airways widen." : "Tight muscles. Narrow airways." : liver ? after ? "Less glucose released." : "The liver releases glucose." : after ? "Less acid secreted." : "Proton pumps release acid."}</h4>
         <p>{airway ? after ? "Relaxed smooth muscle creates more space for air to move through." : "When the muscles around an airway tighten, the opening becomes smaller." : liver ? "Metformin helps reduce glucose production in the liver." : "Omeprazole inhibits proton pumps in the stomach lining, reducing acid secretion."}</p>
         <span className="scene-key"><i />{after ? airway ? "After bronchodilation" : "Mechanism illustrated" : airway ? "Before treatment" : "Before medication effect"}</span>
@@ -52,12 +52,10 @@ export function MechanismAnimation({ med }: { med: Medication }) {
     <div className="mechanism-controls"><button className="primary" onClick={() => setAfter(!after)}>{after ? <RotateCcw size={16} /> : <ArrowRight size={16} />}{" "}{after ? "Reset illustration" : airway ? "Show bronchodilation" : "Show medication effect"}</button><span>Explore the change at your own pace</span></div>
     <p className="fine-print">Organ artwork matches the 3D atlas. Magnified details and output markers illustrate the mechanism, not individual treatment results or relative effect sizes.</p>
   </section>;
-import { useState } from "react";
-import { ArrowRight, Ban, CheckCircle2, RotateCcw, Wind } from "lucide-react";
-import type { Medication } from "../data/medications";
+}
 import { mechanismGuides } from "../data/mechanisms";
 
-export function MechanismAnimation({ med }: { med: Medication }) {
+function PathwayMechanism({ med }: { med: Medication }) {
   const [after, setAfter] = useState(false);
   const guide =
     typeof med.mechanism === "string"
@@ -184,3 +182,5 @@ export function MechanismAnimation({ med }: { med: Medication }) {
     </section>
   );
 }
+
+export function MechanismAnimation({med}: {med: Medication}) { return ["albuterol", "metformin", "omeprazole"].includes(med.id) ? <AnatomicalMechanism med={med}/> : <PathwayMechanism med={med}/>; }

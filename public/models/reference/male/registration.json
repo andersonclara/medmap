@@ -119,6 +119,90 @@
     "rmsMm": 5.949406390051466,
     "maxMm": 8.550697704155423
   },
+  "localKneeRegistration": {
+    "LEFT": {
+      "method": "Rigid rotation, uniform scale and translation using shared limb-bone bounding-box centers",
+      "scale": 0.985499427011767,
+      "matrix": [
+        0.955451783049697,
+        -0.038076493916528634,
+        -0.2384768154741675,
+        0,
+        0.021708456072723658,
+        0.9827747267627226,
+        -0.06994068924392392,
+        0,
+        0.24051975769698053,
+        0.06255507723599281,
+        0.9536489024320777,
+        0,
+        0.2503922632345503,
+        0.9722103243730797,
+        -0.22042454128279573,
+        1
+      ],
+      "landmarks": [
+        {
+          "bone": "FEMUR_LEFT",
+          "residualMm": 6.669610249013597
+        },
+        {
+          "bone": "FIBULA_LEFT",
+          "residualMm": 3.6846055554536816
+        },
+        {
+          "bone": "PATELLA_LEFT",
+          "residualMm": 11.215081107343034
+        },
+        {
+          "bone": "TIBIA_LEFT",
+          "residualMm": 3.8969575520617727
+        }
+      ],
+      "rmsMm": 7.053799355309897
+    },
+    "RIGHT": {
+      "method": "Rigid rotation, uniform scale and translation using shared limb-bone bounding-box centers",
+      "scale": 0.9889249312030257,
+      "matrix": [
+        0.9870021323850267,
+        0.028282535275184432,
+        0.054766855129059856,
+        0,
+        -0.02600789951530533,
+        0.9877171924661406,
+        -0.041362500220795205,
+        0,
+        -0.055882907808392196,
+        0.03984175523394325,
+        0.9865405489434615,
+        0,
+        0.255560154049875,
+        0.9690975049667282,
+        -0.23558508113784865,
+        1
+      ],
+      "landmarks": [
+        {
+          "bone": "FEMUR_RIGHT",
+          "residualMm": 6.654009769140738
+        },
+        {
+          "bone": "FIBULA_RIGHT",
+          "residualMm": 3.11584340124735
+        },
+        {
+          "bone": "PATELLA_RIGHT",
+          "residualMm": 11.200367512948675
+        },
+        {
+          "bone": "TIBIA_RIGHT",
+          "residualMm": 5.737623361793432
+        }
+      ],
+      "rmsMm": 7.286166350966585
+    }
+  },
   "limitations": [
     "Reference assembly registration, not a patient-specific or clinically validated model.",
     "BoneHub elbow regions are truncated in the source CT; some bones are grouped or absent.",

@@ -2130,6 +2130,7 @@ footer > p {
   .mechanism-anatomy { width: min(100%, 320px); margin: auto; }
   .with-airway-detail { grid-template-columns: minmax(0, 1fr) minmax(0, .8fr); }
   .anatomical-mechanism .scene-copy { text-align: left; }
+}
 /* A growing library stays browsable without squeezing medication names. */
 .search-help {
   font-size: 11px;

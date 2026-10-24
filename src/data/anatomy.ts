@@ -42,10 +42,10 @@ export interface MedicineMap {
   context: string;
   source: string;
 }
-export const medicineMaps: MedicineMap[] = [
-  ...medications.map((med) => ({
+const representativeMaps: MedicineMap[] = [
+  ...medications.filter((med) => ["albuterol", "metformin", "omeprazole"].includes(med.id)).map((med) => ({
     id: med.id, name: med.name, category: med.category,
-    systems: [organSystem(med.organ)], organs: [med.organ], layers: ["visceral"] as Layer[],
+    systems: [organSystem(med.organ!)], organs: [med.organ!], layers: ["visceral"] as Layer[],
     effect: med.simple,
     context: med.id === "metformin" ? "The liver is one important site; metformin also acts through the gut and insulin-sensitive tissues." : med.id === "albuterol" ? "The highlight locates the lungs. The medicine acts on airway smooth muscle, which is too small to resolve in this atlas." : "The highlight locates the stomach. Proton pumps are microscopic and are not shown in the atlas.",
     source: med.source,
@@ -61,3 +61,5 @@ export const medicineMaps: MedicineMap[] = [
   { id: "amoxicillin", name: "Amoxicillin", category: "Penicillin antibiotic", systems: [], organs: [], layers: ["visceral"], effect: "Stops the growth of susceptible bacteria to treat certain bacterial infections.", context: "Its target is bacteria, not a human organ. No organ is highlighted because the infection site varies and bacteria are not modeled here.", source: "https://medlineplus.gov/druginfo/meds/a685001.html" },
   { id: "warfarin", name: "Warfarin", category: "Anticoagulant", systems: ["digestive", "cardiovascular"], organs: ["Liver"], layers: ["visceral", "cardiovascular"], effect: "Reduces the formation of certain clotting factors, decreasing the blood’s ability to clot.", context: "The liver makes clotting factors; the vessel network shows where blood circulates. The medicine does not dissolve an existing clot.", source: "https://medlineplus.gov/druginfo/meds/a682277.html" },
 ];
+
+export const medicineMaps: MedicineMap[] = [...representativeMaps, ...medications.filter((med) => !representativeMaps.some((map) => map.id === med.id)).map((med): MedicineMap => ({ id: med.id, name: med.name, category: med.category, systems: med.organ ? [organSystem(med.organ)] : [], organs: med.organ ? [med.organ] : [], layers: [med.organ === "Brain" ? "nervous" : med.organ === "Heart" ? "cardiovascular" : "visceral"], effect: med.simple, context: med.organ ? "The highlighted organ provides anatomical context. Molecular targets and effects throughout the body are not simulated." : `The target (${med.target ?? med.system}) is not represented by an organ highlight in this reference. Explore the mechanism below.`, source: med.source }))];

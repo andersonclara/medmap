@@ -1,22 +1,10 @@
-Anatomical atlas artwork
+MedMap anatomy artwork ? CC BY 4.0
 
-Male reference PNGs were rendered from the anatomical meshes in ../../models/.
-They share that collection's CC BY-NC-SA 4.0 license terms and are intended
-for noncommercial use. Preserve attribution when reusing these images.
+body.png and female-body.png use the corresponding BoneHub CT skeleton and HRA v1.10 organs. brain.png, lungs.png, heart.png, liver.png and kidneys.png are rendered from the same processed male HRA assets. All active body/organ artwork shares the interactive atlas sources.
 
-BodyParts3D - The Database Center for Life Science - CC-BY-SA 2.1 Japan
-Z-Anatomy - The open source atlas of anatomy - CC-BY-SA 4.0
+BoneHub: Seyed Hamidreza Alavi and Malte Asseln (2026), Visible-Human-3d-Models, DOI 10.57967/hf/10464. Source CT: Andreassen et al. (2023), DOI 10.1038/s41597-022-01905-2. HRA: Kristen Browne and Heidi Schlehlein, United Male and United Female v1.10, HuBMAP / Human Reference Atlas. Based on NLM Visible Human specimens.
 
-Mesh exports: https://github.com/nqwrc/3d-anatomy
-Full notices and component attribution: ../../models/NOTICE
-License: ../../models/LICENSE
-Upstream notice: ../../models/License.txt
+Full source URLs, attribution, license, processing changes and coverage limitations: ../../models/reference/NOTICE.md
+License: https://creativecommons.org/licenses/by/4.0/
 
-female-body.png is a separate reference render, CC BY 4.0:
-HuBMAP Consortium / Human Reference Atlas, 3D Reference Organ Set for Female v1.5.
-DOI: https://doi.org/10.48539/HBM352.BTSQ.586
-Web mesh export: https://github.com/zer01dollars/female-body-atlas
-Full female attribution: ../../models/female/ATTRIBUTION.md
-
-Rendered for MedMap with Three.js, using the atlas's materials and lighting.
-Regenerate with scripts/render-anatomy-assets.mjs; see docs/3D-ATLAS.md.
+Regenerate with scripts/render-anatomy-assets.mjs while Vite is running. Missing stomach geometry is represented by text in the app, not by artwork from a different atlas.

@@ -20,11 +20,6 @@ test("complete medication education demo", async ({ page }) => {
   await expect(page.getByRole("button", { name: /^Albuterol/ })).toBeVisible();
   await page.getByRole("combobox", { name: "Search organs" }).fill("lung");
   await page.getByRole("option", { name: /Lungs/ }).click();
-  await page
-    .getByRole("button", { name: "Explore Lungs", exact: true })
-    .locator("path")
-    .first()
-    .click();
   await expect(
     page.getByText("Your lungs bring oxygen", { exact: false }),
   ).toBeVisible();
@@ -40,7 +35,6 @@ test("complete medication education demo", async ({ page }) => {
       exact: false,
     })
     .click();
-  await expect(page.getByText("Session score: 1/3")).toBeVisible();
   await expect(
     page.getByText(`Session score: 1/${medications.length}`),
   ).toBeVisible();
@@ -62,7 +56,6 @@ test("complete medication education demo", async ({ page }) => {
     .getByRole("textbox", { name: "Search medications" })
     .fill("unlisted");
   await expect(page.getByRole("status").filter({ hasText: "No medications found" })).toBeVisible();
-  await expect(page.getByRole("status")).toContainText("No medications found");
   await expect(page.locator("body")).toHaveJSProperty(
     "scrollWidth",
     await page.evaluate(() => window.innerWidth),
@@ -76,13 +69,7 @@ test("anatomy supports keyboard and browser navigation", async ({ page }) => {
   await search.press("ArrowDown");
   await search.press("Enter");
   await expect.poll(async () => Number(await page.getByTestId("anatomy-scene").getAttribute("data-selected-structures")), { timeout: 30_000 }).toBeGreaterThan(0);
-  const lungs = page.getByRole("button", {
-    name: "Explore Lungs",
-    exact: true,
-  });
-  await lungs.focus();
-  await page.keyboard.press("Enter");
-  await expect(lungs).toHaveAttribute("aria-pressed", "true");
+  await expect(page.getByTestId("anatomy-scene")).toHaveAttribute("data-focused-structure", "Lungs");
   await page.getByRole("button", { name: "Simple", exact: true }).click();
   await expect(
     page.getByRole("button", { name: "Simple", exact: true }),
@@ -146,9 +133,7 @@ test("common-condition guides have distinct mechanisms and complete education", 
       .getByRole("button", { name: new RegExp("^" + guide.name) })
       .click();
     await expect(page.locator(".med-heading h2")).toContainText(guide.name);
-    await expect(
-      page.getByRole("button", { name: "Explore " + guide.organ, exact: true }),
-    ).toHaveClass(/active/);
+    await expect.poll(async () => Number(await page.getByTestId("anatomy-scene").getAttribute("data-highlighted-structures")), {timeout: 30_000}).toBeGreaterThan(0);
     await expect(
       page.getByRole("button", { name: "Simple", exact: true }),
     ).toHaveAttribute("aria-pressed", "true");

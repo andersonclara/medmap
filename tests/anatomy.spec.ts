@@ -21,13 +21,13 @@ test("3D atlas loads real meshes, reveals systems, rotates, and maps medicines",
   await atlas.getByRole("button", { name: "Reset body view", exact: true }).click();
   await atlas.getByRole("combobox", { name: "Isolate a body system" }).selectOption("urinary");
   await expect.poll(async () => Number(await scene.getAttribute("data-visible-structures"))).toBeGreaterThan(0);
-  expect(Number(await scene.getAttribute("data-visible-structures"))).toBeLessThan(30);
+  expect(Number(await scene.getAttribute("data-visible-structures"))).toBeLessThan(150);
   await atlas.getByRole("combobox", { name: "Search organs" }).fill("renal");
   await atlas.getByRole("option", { name: /Kidneys/ }).click();
   await expect(atlas.getByText(/Your kidneys filter your blood/)).toBeVisible();
   await atlas.getByRole("combobox", { name: "Preview a medicine class" }).selectOption("sertraline");
   await expect(atlas.getByRole("checkbox", { name: "Nerves & brain", exact: true })).toBeChecked();
-  await expect.poll(async () => Number(await scene.getAttribute("data-visible-structures")), { timeout: 30_000 }).toBeGreaterThan(800);
+  await expect.poll(async () => Number(await scene.getAttribute("data-visible-structures")), { timeout: 30_000 }).toBeGreaterThan(600);
   await expect(atlas.getByText(/Changes serotonin signaling/)).toBeVisible();
   const highlighted = await canvas.screenshot();
   await atlas.getByRole("checkbox", { name: "Highlight representative sites of action" }).uncheck();
@@ -39,12 +39,12 @@ test("3D atlas loads real meshes, reveals systems, rotates, and maps medicines",
   await atlas.getByRole("combobox", { name: "Preview a medicine class" }).selectOption("amoxicillin");
   await expect(atlas.getByText(/Its target is bacteria/)).toBeVisible();
   await atlas.getByRole("combobox", { name: "Isolate a body system" }).selectOption("cardiovascular");
-  await expect.poll(async () => Number(await scene.getAttribute("data-visible-structures")), { timeout: 30_000 }).toBeGreaterThan(600);
-  await atlas.getByRole("combobox", { name: "Isolate a body system" }).selectOption("lymphatic");
   await expect.poll(async () => Number(await scene.getAttribute("data-visible-structures")), { timeout: 30_000 }).toBeGreaterThan(100);
-  expect(Number(await scene.getAttribute("data-visible-structures"))).toBeLessThan(200);
+  await atlas.getByRole("combobox", { name: "Isolate a body system" }).selectOption("lymphatic");
+  await expect.poll(async () => Number(await scene.getAttribute("data-visible-structures")), { timeout: 30_000 }).toBeGreaterThan(5);
+  expect(Number(await scene.getAttribute("data-visible-structures"))).toBeLessThan(30);
   await atlas.getByRole("button", { name: "Muscle & bone", exact: true }).click();
-  await expect.poll(async () => Number(await scene.getAttribute("data-visible-structures")), { timeout: 30_000 }).toBeGreaterThan(1200);
+  await expect.poll(async () => Number(await scene.getAttribute("data-visible-structures")), { timeout: 30_000 }).toBeGreaterThan(150);
   await atlas.getByRole("slider", { name: "Muscles opacity", exact: true }).fill("100");
   await expect(atlas.getByRole("slider", { name: "Muscles opacity", exact: true })).toHaveValue("100");
   await atlas.getByRole("button", { name: "Reset layers & view", exact: true }).click();
@@ -80,7 +80,7 @@ test("3D atlas loads real meshes, reveals systems, rotates, and maps medicines",
 
 test("a failed anatomical layer can be retried", async ({ page }) => {
   let failing = true;
-  await page.route("**/models/visceral.glb", (route) => {
+  await page.route("**/models/reference/male/visceral.glb", (route) => {
     if (failing) return route.fulfill({ status: 503, body: "Temporarily unavailable" });
     return route.continue();
   });
