@@ -1868,3 +1868,184 @@ footer > p {
     font-size: 13px;
   }
 }
+
+/* A growing library stays browsable without squeezing medication names. */
+.search-help {
+  font-size: 11px;
+  line-height: 1.6;
+  margin: 10px 2px 18px;
+  color: #597367;
+}
+.med-list button > span:nth-child(2) {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.med-list button > svg {
+  flex-shrink: 0;
+}
+.condition-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin: -6px 0 20px;
+}
+.condition-tags > span {
+  font-size: 11px;
+  line-height: 1.5;
+  border: 1px solid #dce8e0;
+  border-radius: 20px;
+  padding: 5px 10px;
+  background: #fff;
+  color: #506f5e;
+}
+.pathway {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 0;
+  text-align: center;
+  padding: 8px 0;
+  --pathway-color: #488c75;
+}
+.pathway.cholesterol {
+  --pathway-color: #a77c38;
+}
+.pathway.serotonin {
+  --pathway-color: #84709c;
+}
+.pathway-input {
+  font-size: 11px;
+  color: #526d60;
+  line-height: 1.6;
+}
+.signal-track {
+  height: 35px;
+  display: flex;
+  gap: 9px;
+  align-items: center;
+}
+.signal-track i {
+  background: var(--pathway-color);
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  animation: particle 2s infinite;
+}
+.pathway-target {
+  border: 2px solid var(--pathway-color);
+  background: white;
+  border-radius: 14px;
+  padding: 14px;
+  min-width: 165px;
+  max-width: 100%;
+  transition: background 0.6s;
+}
+.pathway-target strong {
+  display: block;
+  color: #254f3d;
+  font-size: 12px;
+  margin: 8px 0 5px;
+  overflow-wrap: anywhere;
+}
+.pathway-target > span:last-child {
+  font-size: 10px;
+  color: #5f7868;
+}
+.target-glyph {
+  display: flex;
+  justify-content: center;
+  color: var(--pathway-color);
+}
+.pathway-arrow {
+  padding: 10px;
+  color: var(--pathway-color);
+  transform: rotate(90deg);
+}
+.pathway-output {
+  font-size: 11px;
+  line-height: 1.6;
+  color: #526d60;
+  font-weight: 600;
+}
+.after .pathway-target {
+  background: #e8f3ec;
+  border-style: dashed;
+}
+.med-symbol.sertraline {
+  background: #eeebf8;
+  color: #806a9e;
+}
+.med-symbol.atorvastatin {
+  background: #f8efe0;
+  color: #957033;
+}
+.med-symbol.metoprolol {
+  background: #fae9e5;
+  color: #a96755;
+}
+.med-symbol.hydrochlorothiazide {
+  background: #e7eff9;
+  color: #557eab;
+}
+@media (max-width: 800px) {
+  .med-sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+  .med-list {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    padding: 4px 2px 12px;
+    gap: 8px;
+  }
+  .med-list button {
+    flex: 0 0 auto;
+    min-width: 110px;
+    border: 1px solid #dce8e0;
+    background: #fff;
+    justify-content: center;
+    white-space: nowrap;
+  }
+  .med-list strong {
+    font-size: 12px;
+  }
+  .search-help {
+    margin: 0;
+    font-size: 11px;
+  }
+  .med-list .empty {
+    white-space: normal;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .signal-track i {
+    animation: none;
+  }
+}
+.med-heading > div {
+  min-width: 0;
+}
+.med-heading h2 {
+  flex-wrap: wrap;
+  overflow-wrap: anywhere;
+  line-height: 1.25;
+}
+.med-preview-grid a > div {
+  min-width: 0;
+}
+.med-preview-grid strong {
+  overflow-wrap: anywhere;
+}
+.med-sidebar,
+.med-list {
+  min-width: 0;
+  max-width: 100%;
+}
+@media (max-width: 800px) {
+  .explorer-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

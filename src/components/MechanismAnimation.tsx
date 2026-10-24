@@ -1,101 +1,106 @@
 import { useState } from "react";
-import { ArrowRight, RotateCcw, Wind } from "lucide-react";
+import { ArrowRight, Ban, RotateCcw, Wind } from "lucide-react";
 import type { Medication } from "../data/medications";
+import { mechanismGuides } from "../data/mechanisms";
+
 export function MechanismAnimation({ med }: { med: Medication }) {
   const [after, setAfter] = useState(false);
+  const guide = mechanismGuides[med.mechanism];
+  const particleDiagram =
+    med.mechanism === "glucose" || med.mechanism === "acid";
   return (
     <section className="mechanism card">
       <div className="section-heading">
         <div>
           <span className="eyebrow">A CLOSER LOOK</span>
-          <h3>
-            {med.id === "albuterol"
-              ? "A little more room to breathe"
-              : med.id === "metformin"
-                ? "A closer look at glucose"
-                : "Turning down acid production"}
-          </h3>
+          <h3>{guide.title}</h3>
         </div>
         <span className="small-pill">Interactive</span>
       </div>
       <div className={`mechanism-scene ${after ? "after" : ""}`}>
-        {med.id === "albuterol" ? (
-          <>
-            <div className="airway">
-              <div className="airway-inner">
-                <Wind size={38} />
-                <div className="flow-line" />
-                <div className="flow-line second" />
-              </div>
-              <span className="muscle-label">Airway smooth muscle</span>
+        {med.mechanism === "airway" ? (
+          <div className="airway">
+            <div className="airway-inner">
+              <Wind size={38} />
+              <div className="flow-line" />
+              <div className="flow-line second" />
             </div>
-            <div className="scene-copy">
-              <span className="state-number">
-                0{after ? "2" : "1"} / THE AIRWAY
-              </span>
-              <h4>
-                {after
-                  ? "Muscles relax. Airways widen."
-                  : "Tight muscles. Narrow airways."}
-              </h4>
-              <p>
-                {after
-                  ? "Relaxed smooth muscle creates more space for air to move through."
-                  : "When the muscles around an airway tighten, the opening becomes smaller."}
-              </p>
-              <span className="scene-key">
-                <i />
-                {after ? "After bronchodilation" : "Before treatment"}
-              </span>
+            <span className="muscle-label">Airway smooth muscle</span>
+          </div>
+        ) : particleDiagram ? (
+          <div
+            className={`process-organ ${med.id}`}
+            aria-label={guide.output[after ? 1 : 0]}
+          >
+            <span>{med.organ}</span>
+            <div className="particles" aria-hidden="true">
+              {Array.from({ length: after ? 3 : 9 }, (_, i) => (
+                <i key={i} style={{ animationDelay: `${i * 0.18}s` }} />
+              ))}
             </div>
-          </>
+            <span className="output-label">{guide.output[after ? 1 : 0]}</span>
+          </div>
         ) : (
-          <>
-            <div className={`process-organ ${med.id}`}>
-              <span>{med.organ}</span>
-              <div className="particles">
-                {Array.from({ length: after ? 3 : 9 }, (_, i) => (
-                  <i key={i} style={{ animationDelay: `${i * 0.18}s` }} />
-                ))}
-              </div>
-              <span className="output-label">
-                {med.id === "metformin"
-                  ? "Glucose → bloodstream"
-                  : "Acid → stomach"}
+          <div
+            className={`pathway ${med.mechanism}`}
+            role="img"
+            aria-label={`${guide.input}. ${after ? "Medication inhibits" : "Unblocked"} ${guide.target}. ${guide.output[after ? 1 : 0]}.`}
+          >
+            <span className="pathway-input">{guide.input}</span>
+            <div className="signal-track" aria-hidden="true">
+              {Array.from({ length: 4 }, (_, i) => (
+                <i key={i} style={{ animationDelay: `${i * 0.3}s` }} />
+              ))}
+            </div>
+            <div className="pathway-target">
+              <span className="target-glyph" aria-hidden="true">
+                {after ? <Ban size={30} /> : <ArrowRight size={30} />}
+              </span>
+              <strong>{guide.target}</strong>
+              <span>
+                {after ? "Inhibited by medication" : "Active pathway"}
               </span>
             </div>
-            <div className="scene-copy">
-              <span className="state-number">
-                0{after ? "2" : "1"} / {med.organ.toUpperCase()}
-              </span>
-              <h4>
-                {med.id === "metformin"
-                  ? after
-                    ? "Less glucose released."
-                    : "The liver releases glucose."
-                  : after
-                    ? "Less acid secreted."
-                    : "Proton pumps release acid."}
-              </h4>
-              <p>
-                {med.id === "metformin"
-                  ? "Metformin helps reduce glucose production in the liver."
-                  : "Omeprazole inhibits proton pumps in the stomach lining, reducing acid secretion."}
-              </p>
-              <span className="scene-key">
-                <i />
-                {after ? "Mechanism illustrated" : "Before medication effect"}
-              </span>
+            <div className="pathway-arrow" aria-hidden="true">
+              <ArrowRight size={20} />
             </div>
-          </>
+            <span className="pathway-output">
+              {guide.output[after ? 1 : 0]}
+            </span>
+          </div>
         )}
+        <div className="scene-copy" aria-live="polite">
+          <span className="state-number">
+            0{after ? "2" : "1"} / {guide.focus.toUpperCase()}
+          </span>
+          <h4>{after ? guide.after : guide.before}</h4>
+          <p>
+            {med.mechanism === "airway" && !after
+              ? "When the muscles around an airway tighten, the opening becomes smaller."
+              : guide.explanation}
+          </p>
+          <span className="scene-key">
+            <i />
+            {after
+              ? med.mechanism === "airway"
+                ? "After bronchodilation"
+                : "Mechanism illustrated"
+              : med.mechanism === "airway"
+                ? "Before treatment"
+                : "Before medication effect"}
+          </span>
+        </div>
       </div>
       <div className="mechanism-controls">
-        <button className="primary" onClick={() => setAfter(!after)}>
+        <button
+          className="primary"
+          aria-pressed={after}
+          onClick={() => setAfter(!after)}
+        >
           {after ? <RotateCcw size={16} /> : <ArrowRight size={16} />}{" "}
           {after
             ? "Reset illustration"
-            : med.id === "albuterol"
+            : med.mechanism === "airway"
               ? "Show bronchodilation"
               : "Show medication effect"}
         </button>
@@ -103,6 +108,8 @@ export function MechanismAnimation({ med }: { med: Medication }) {
       </div>
       <p className="fine-print">
         Simplified mechanism, not a prediction of individual treatment results.
+        Particle counts and animation speeds do not represent measured amounts
+        or treatment timing.
       </p>
     </section>
   );

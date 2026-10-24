@@ -34,7 +34,7 @@ For an installed system Chromium, skip the download and run:
 PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH=/usr/bin/chromium npm test
 ```
 
-The browser suite exercises the demo on desktop and mobile: search, selection, organ information, all three mechanism animations, explanation levels, quiz feedback, empty search, keyboard anatomy, navigation, and horizontal overflow.
+The browser suite exercises the demo on desktop and mobile: search, selection, organ information, all seven mechanism illustrations, explanation levels, quiz feedback, empty search, keyboard anatomy, navigation, and horizontal overflow.
 
 ## Three-minute demo
 
@@ -47,7 +47,8 @@ The browser suite exercises the demo on desktop and mobile: search, selection, o
 
 ## Structure
 
-- `src/data/medications.ts`: typed medication content, source references, organ facts, and quiz questions. Add new medication entries here and provide their mechanism illustration.
+- `src/data/medications.ts`: typed medication content, source references, organ facts, and quiz questions. Add new medication entries here with condition names and a typed mechanism key.
+- `src/data/mechanisms.ts`: typed mechanism descriptions and before/after pathway labels. Add a matching guide when introducing a mechanism key.
 - `src/components/AnatomyViewer.tsx`: original, simplified front-facing SVG schematic, keyboard-operable organs, and selected organ information.
 - `src/components/MechanismAnimation.tsx`: interactive local mechanism illustrations.
 - `src/components/KnowledgeQuiz.tsx`: session score and immediate feedback.
@@ -56,6 +57,18 @@ The browser suite exercises the demo on desktop and mobile: search, selection, o
 
 ## Scope and medical content
 
-Supports albuterol, metformin, and omeprazole with general uses, simple/scientific explanations, safety summaries, three provider questions each, and MedlinePlus references. The illustrations show simplified mechanisms, not anatomical precision or individual treatment results. No doses or personalized treatment recommendations are provided. Source links should be reviewed alongside the content before use beyond a hackathon; clinical review has not been performed. This resource does not replace professional medical advice.
+Supports seven medications with general uses, simple/scientific explanations, safety summaries, three provider questions each, and MedlinePlus references. Search by medication, organ, or condition (for example, hypertension, diabetes, or depression).
+
+| Medication          | Example conditions                                          | Anatomy focus |
+| ------------------- | ----------------------------------------------------------- | ------------- |
+| Albuterol           | Asthma, exercise-induced bronchospasm                       | Lungs         |
+| Metformin           | Type 2 diabetes                                             | Liver         |
+| Omeprazole          | Acid reflux (GERD), ulcers                                  | Stomach       |
+| Atorvastatin        | High cholesterol, cardiovascular risk reduction             | Liver         |
+| Metoprolol          | Hypertension, angina, certain heart failure formulations    | Heart         |
+| Hydrochlorothiazide | Hypertension, edema                                         | Kidneys       |
+| Sertraline          | Depression, OCD, panic disorder, PTSD, social anxiety, PMDD | Brain         |
+
+These are educational examples, not a treatment-selection guide. Approved uses can depend on formulation, age, and individual circumstances. The illustrations show simplified mechanisms, not anatomical precision or individual treatment results. No doses or personalized treatment recommendations are provided. Source links should be reviewed alongside the content before use beyond a hackathon; clinical review has not been performed. This resource does not replace professional medical advice.
 
 Quiz scores last while the app is open; refreshing starts a new session. Authentication, databases, prescribing, and clinical decision support are intentionally outside this MVP.

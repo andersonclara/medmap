@@ -38,9 +38,9 @@ export default function App() {
     return () => window.removeEventListener("hashchange", sync);
   }, []);
   const filtered = medications.filter((m) =>
-    `${m.name} ${m.category} ${m.organ} ${m.uses}`
+    `${m.name} ${m.category} ${m.organ} ${m.uses} ${m.conditions.join(" ")}`
       .toLowerCase()
-      .includes(query.toLowerCase()),
+      .includes(query.trim().toLowerCase()),
   );
   function choose(next: string) {
     setId(next);
@@ -197,7 +197,10 @@ export default function App() {
             <div>
               <span className="eyebrow">SMALL LIBRARY. BIG UNDERSTANDING.</span>
               <h2>Meet the medicines.</h2>
-              <p>Three familiar medications. Three stories inside the body.</p>
+              <p>
+                Explore {medications.length} medication guides for common
+                conditions.
+              </p>
             </div>
             <div className="med-preview-grid">
               {medications.map((m) => (
@@ -226,7 +229,7 @@ export default function App() {
               <p>Choose a medication. Explore the connection.</p>
             </div>
             <span className="library-pill">
-              <BookOpen size={16} /> 3 medication guides
+              <BookOpen size={16} /> {medications.length} medication guides
             </span>
           </div>
           <div className="explorer-layout">
@@ -249,7 +252,11 @@ export default function App() {
                 )}
               </label>
               <span className="eyebrow sidebar-label">MEDICATION LIBRARY</span>
-              <div className="med-list">
+              <p className="search-help">
+                Search by name, organ, or condition, such as high blood
+                pressure.
+              </p>
+              <div className="med-list" aria-label="Medication results">
                 {filtered.map((m) => (
                   <button
                     key={m.id}
@@ -296,6 +303,11 @@ export default function App() {
                   </p>
                 </div>
                 <span className="small-pill">Medication guide</span>
+              </div>
+              <div className="condition-tags" aria-label="Common uses">
+                {med.conditions.map((condition) => (
+                  <span key={condition}>{condition}</span>
+                ))}
               </div>
               <div className="detail-grid">
                 <AnatomyViewer key={id} target={med.organ} />
